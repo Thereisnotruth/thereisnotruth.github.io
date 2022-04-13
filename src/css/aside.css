@@ -1,0 +1,30 @@
+aside {
+  display: block;
+  background: #F9F9F9F9;
+  width: 230px;
+  height: 100%;
+  float: left;
+  overflow: auto;
+}
+
+#sidebar-header {
+  height: 280px;
+}
+
+#sidebar-nav {
+  height: 260px;
+}
+
+#sidebar-link {
+  height: 70px;
+}
+
+#sidebar-copyright {
+  height: calc(100% - 660px);
+  min-height: 50px;
+}
+
+#sidebar-mod {
+  width: 230px;
+  height: 50px;
+}

@@ -1,0 +1,7 @@
+header {
+  position: absolute;
+  color: red;
+  background-color: green;
+  width: calc(100% - 230px);
+  left: 230px;
+}
