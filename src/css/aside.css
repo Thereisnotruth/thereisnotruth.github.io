@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "pretendard";
+  src: url("Pretendard-Regular.woff2") format("woff2"),
+    url("Pretendard-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "chosunsg";
+  src: url("ChosunSg.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 aside {
   display: block;
   background: #F9F9F9F9;
@@ -5,14 +20,42 @@ aside {
   height: 100%;
   float: left;
   overflow: auto;
+  text-align: center;
 }
 
 #sidebar-header {
   height: 280px;
 }
 
+#sidebar-profile-img {
+  display: block;
+  position: relative;
+  top: 40px;
+  left: 55px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+#sidebar-profile-name {
+  position: relative;
+  top: 55px;
+  color: #416289;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "pretendard";
+}
+
+#sidebar-profile-intro {
+  position: relative;
+  top: 60px;
+  color: #a19e9e;
+  font-family: "chosunsg";
+}
+
 #sidebar-nav {
   height: 260px;
+  font-family: "chosunsg";
 }
 
 #sidebar-link {
