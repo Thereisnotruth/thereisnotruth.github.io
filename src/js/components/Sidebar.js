@@ -12,8 +12,32 @@ export default class Sidebar extends Component {
           개발자
         </div>
       </div>
+      <hr color="#eeeeee">
       <div id="sidebar-nav">
-        menu
+        <div class="sidebar-nav-item">
+          <img class="sidebar-nav-icon" src="src/img/house-solid.svg">
+          Home
+        </div>
+        <div class="sidebar-nav-item">
+          <img class="sidebar-nav-icon" src="src/img/pen-to-square-solid.svg">
+          Blog
+        </div>
+        <div class="sidebar-nav-item">
+          <img class="sidebar-nav-icon" src="src/img/box-archive-solid.svg">
+          Archieve
+        </div>
+        <div class="sidebar-nav-item">
+          <img class="sidebar-nav-icon" src="src/img/gear-solid.svg">
+          Projects
+        </div>
+        <div class="sidebar-nav-item">
+          <img class="sidebar-nav-icon" src="src/img/link-solid.svg">
+          Links
+        </div>
+        <div class="sidebar-nav-item">
+          <img class="sidebar-nav-icon" src="src/img/user-solid.svg">
+          About
+        </div>
       </div>
       <div id="sidebar-link">
         contact 
