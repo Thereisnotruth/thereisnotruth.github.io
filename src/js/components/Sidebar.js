@@ -40,7 +40,15 @@ export default class Sidebar extends Component {
         </div>
       </div>
       <div id="sidebar-link">
-        contact 
+        <div id="sidebar-link-header">
+         Contact 
+        </div>
+        <div id="sidebar-link-item">
+          <img class="sidebar-link-icon" src="src/img/github-brands.svg">
+        </div>
+        <div id="sidebar-link-item">
+          <img class="sidebar-link-icon" src="src/img/linkedin-in-brands.svg">
+        </div>
       </div>
       <div id="sidebar-copyright">
         copyright
