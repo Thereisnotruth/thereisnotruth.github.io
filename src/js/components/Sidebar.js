@@ -50,11 +50,8 @@ export default class Sidebar extends Component {
           <img class="sidebar-link-icon" src="src/img/linkedin-in-brands.svg">
         </div>
       </div>
-      <div id="sidebar-copyright">
-        copyright
-      </div>
       <div id="sidebar-mod">
-        mod 
+        <img id="sidebar-mod-icon" src="src/img/moon-solid.svg">
       </div>
     `;
   }

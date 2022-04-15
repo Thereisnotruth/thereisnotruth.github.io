@@ -72,7 +72,8 @@ aside {
 }
 
 #sidebar-link {
-  height: 70px;
+  height: calc(100% - 590px); 
+  min-height: 70px;
 }
 
 #sidebar-link-header {
@@ -103,12 +104,14 @@ aside {
   filter: opacity(.5) drop-shadow(0 0 0 #a19e9e);
 }
 
-#sidebar-copyright {
-  height: calc(100% - 660px);
-  min-height: 50px;
-}
-
 #sidebar-mod {
+  align-items: center;
   width: 230px;
   height: 50px;
+}
+
+#sidebar-mod-icon {
+  position: relative;
+  top: calc(50% - 8px);
+  height: 16px;
 }
