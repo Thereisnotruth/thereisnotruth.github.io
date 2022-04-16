@@ -7,7 +7,7 @@ export default class App extends Component {
   template() {
     return `
     <div id="wrapper">
-      <aside data-component="sidebar"></aside> 
+      <nav data-component="sidebar"></nav> 
       <div id="content">
         <div data-component="searchbar" id="searchbar"></div>
         <div data-component="page" id="page"></div>
