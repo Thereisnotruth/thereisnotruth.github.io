@@ -1,0 +1,5 @@
+#home {
+  float: left;
+  width: calc(100% - 230px);
+  height: 100%;
+}

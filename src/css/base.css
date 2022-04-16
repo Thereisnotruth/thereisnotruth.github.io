@@ -1,7 +1,16 @@
-html, body, #app {
+html, body, #app, #wrapper {
   margin: 0;
   padding: 0;
   height: 100%;
+}
+
+#content {
+  background: #efefef;
+  height: 100%;
+}
+
+#page {
+  height: calc(100% - 40px);
 }
 
 hr {

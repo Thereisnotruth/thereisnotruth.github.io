@@ -1,0 +1,23 @@
+#searchbar {
+  float: left;
+  width: calc(100% - 235px);
+  padding: 5px 0px 3px 5px;
+  background: blue;
+}
+
+#searchbar-button {
+  background: #e7e7e7;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border-color: #cfcfcf;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#searchbar-icon {
+  position: relative;
+  top: calc(50% - 9px);
+  left: calc(50% - 7px);
+  height: 18px;
+}
