@@ -1,0 +1,20 @@
+{
+  "name": "thereisnotruth.github.io",
+  "version": "1.0.0",
+  "description": "- 진행상황 : https://cookie-barracuda-cbe.notion.site/662f667fa6684dbda3cb9fb090277671",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thereisnotruth/thereisnotruth.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thereisnotruth/thereisnotruth.github.io/issues"
+  },
+  "homepage": "https://github.com/Thereisnotruth/thereisnotruth.github.io#readme"
+}
