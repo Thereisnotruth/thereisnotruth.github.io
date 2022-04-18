@@ -5,12 +5,18 @@ html, body, #app, #wrapper {
 }
 
 #content {
+  float: left;
   background: #efefef;
+  width: calc(100% - 230px);
   height: 100%;
 }
 
 #page {
+  float: left;
+  width: 100%;
+  max-width: 800px;
   height: calc(100% - 40px);
+  padding: 0 40px 0 40px;
 }
 
 hr {

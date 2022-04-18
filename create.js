@@ -1,3 +1,5 @@
+import Card from "./src/js/components/Card.js";
+
 const path = require("path");
 const fs = require("fs");
 const hljs = require("highlight.js");
