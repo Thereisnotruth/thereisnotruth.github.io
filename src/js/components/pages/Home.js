@@ -13,7 +13,8 @@ export default class Home extends Component {
 
     new Card($intro_card, {
       width: "100%",
-      height: "300px"
+      height: "300px",
+      content: ""
     });
   }
 }

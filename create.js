@@ -1,5 +1,3 @@
-import Card from "./src/js/components/Card.js";
-
 const path = require("path");
 const fs = require("fs");
 const hljs = require("highlight.js");
@@ -31,7 +29,7 @@ const md = require("markdown-it")({
 });
 
 const layoutHtmlFormat = fs.readFileSync(
-  "./templates/layout_format.html",
+  "./templates/layout_format.hmtl",
   "utf-8"
 );
 
@@ -47,7 +45,6 @@ if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
 }
 const contentFiles = fs.readdirSync(directoryPath);
-console.log(contentFiles);
 
 // deploy 폴더 안에 넣은 파일 리스트
 const deployFiles = [];
@@ -56,6 +53,7 @@ const deployFiles = [];
 contentFiles.map((file) => {
   const body = fs.readFileSync(`./posts/${file}`, "utf8");
   const convertedBody = md.render(body);
+  console.log(convertedBody);
   const postContent = ejs.render(postHtmlFormat, {
     body: convertedBody
   });
