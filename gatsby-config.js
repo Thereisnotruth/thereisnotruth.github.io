@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `네모장`,
+    description: `네모난 메모장, 네모장`,
+    author: `KoTaeJin`,
     siteUrl: `thereisnotruth.github.io/`,
   },
   plugins: [
