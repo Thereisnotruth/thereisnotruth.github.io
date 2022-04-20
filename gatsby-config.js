@@ -1,9 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `네모장`,
-    description: `네모난 메모장, 네모장`,
-    author: `KoTaeJin`,
-    siteUrl: `thereisnotruth.github.io/`,
+    title: "네모장",
+    description: "네모난 메모장, 네모장",
+    author: "KoTaeJin",
+    siteUrl: "https://thereisnotruth.github.io",
+    socials: {
+      emails: "thereisnotruth12@gmail.com",
+      github: "thereisnotruth",
+    }
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
