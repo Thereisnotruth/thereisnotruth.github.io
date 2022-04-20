@@ -4,7 +4,7 @@ export default class Sidebar extends Component {
   template() {
     return `
       <div id="sidebar-header">
-        <img id="sidebar-profile-img" src="src/img/profile.png"> 
+        <img id="sidebar-profile-img" src="static/img/profile.png"> 
         <div id="sidebar-profile-name">
           고태진
         </div>
@@ -15,27 +15,27 @@ export default class Sidebar extends Component {
       <hr color="#eeeeee">
       <div id="sidebar-nav">
         <div class="sidebar-nav-item">
-          <img class="sidebar-nav-icon" src="src/img/house-solid.svg">
+          <img class="sidebar-nav-icon" src="static/img/house-solid.svg">
           Home
         </div>
         <div class="sidebar-nav-item">
-          <img class="sidebar-nav-icon" src="src/img/pen-to-square-solid.svg">
-          Blog
+          <img class="sidebar-nav-icon" src="static/img/pen-to-square-solid.svg">
+          <a href="/blog" data-link>Blog</a>
         </div>
         <div class="sidebar-nav-item">
-          <img class="sidebar-nav-icon" src="src/img/box-archive-solid.svg">
+          <img class="sidebar-nav-icon" src="static/img/box-archive-solid.svg">
           Archieve
         </div>
         <div class="sidebar-nav-item">
-          <img class="sidebar-nav-icon" src="src/img/gear-solid.svg">
+          <img class="sidebar-nav-icon" src="static/img/gear-solid.svg">
           Projects
         </div>
         <div class="sidebar-nav-item">
-          <img class="sidebar-nav-icon" src="src/img/link-solid.svg">
+          <img class="sidebar-nav-icon" src="static/img/link-solid.svg">
           Links
         </div>
         <div class="sidebar-nav-item">
-          <img class="sidebar-nav-icon" src="src/img/user-solid.svg">
+          <img class="sidebar-nav-icon" src="static/img/user-solid.svg">
           About
         </div>
       </div>
@@ -44,14 +44,14 @@ export default class Sidebar extends Component {
          Contact 
         </div>
         <div id="sidebar-link-item">
-          <img class="sidebar-link-icon" src="src/img/github-brands.svg">
+          <img class="sidebar-link-icon" src="static/img/github-brands.svg">
         </div>
         <div id="sidebar-link-item">
-          <img class="sidebar-link-icon" src="src/img/linkedin-in-brands.svg">
+          <img class="sidebar-link-icon" src="static/img/linkedin-in-brands.svg">
         </div>
       </div>
       <div id="sidebar-mod">
-        <img id="sidebar-mod-icon" src="src/img/moon-solid.svg">
+        <img id="sidebar-mod-icon" src="static/img/moon-solid.svg">
       </div>
     `;
   }

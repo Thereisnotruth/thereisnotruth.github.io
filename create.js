@@ -2,34 +2,10 @@ const path = require("path");
 const fs = require("fs");
 const hljs = require("highlight.js");
 const ejs = require("ejs");
-const md = require("markdown-it")({
-  html: false,
-  xhtmlOut: false,
-  breaks: false,
-  langPrefix: "language-",
-  linkify: true,
-  typographer: true,
-  quotes: "“”‘’",
-  highlight: function(str, lang) {
-    if(lang && hljs.getLanguage(lang)) {
-      try {
-        return (
-          '<pre class="hljs"><code>' + 
-          hljs.highlight(lang, str, true).value +
-          "</code></pre>"
-        );
-      } catch (__) {}
-    }
-    return (
-      '<pre class="hljs"><code>' +
-      md.utils.escapeHtml(str) +
-      "</code></pre>"
-    );
-  }
-});
+const md = require("marked");
 
 const layoutHtmlFormat = fs.readFileSync(
-  "./templates/layout_format.hmtl",
+  "./templates/layout_format.html",
   "utf-8"
 );
 
@@ -44,6 +20,11 @@ const dir = "./deploy";
 if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
 }
+
+const postsDir = dir + "/posts";
+if (!fs.existsSync(postsDir)) {
+  fs.mkdirSync(postsDir);
+}
 const contentFiles = fs.readdirSync(directoryPath);
 
 // deploy 폴더 안에 넣은 파일 리스트
@@ -52,10 +33,9 @@ const deployFiles = [];
 // posts 폴더 내의 파일들을 돌면서 deploy안에 html파일 생성
 contentFiles.map((file) => {
   const body = fs.readFileSync(`./posts/${file}`, "utf8");
-  const convertedBody = md.render(body);
-  console.log(convertedBody);
+  const convertedBody = md.parse(body);
   const postContent = ejs.render(postHtmlFormat, {
-    body: convertedBody
+    post: convertedBody
   });
   const postHtml = ejs.render(layoutHtmlFormat, {
     content: postContent

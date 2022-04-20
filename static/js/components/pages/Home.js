@@ -12,9 +12,9 @@ export default class Home extends Component {
     const $intro_card = this.$target.querySelector('[data-component="intro-card"]');
 
     new Card($intro_card, {
-      width: "100%",
+      width: "400px",
       height: "300px",
-      content: ""
+      content: "Home"
     });
   }
 }
