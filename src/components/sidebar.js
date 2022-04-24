@@ -1,6 +1,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import sidebarStyles from "../styles/sidebar.css"
 
 const Sidebar = () => (
@@ -16,44 +17,109 @@ const Sidebar = () => (
     </div>
     <hr color="#eeeeee" />
     <div id="sidebar-nav">
-      <div class="sidebar-nav-item">
-        <img class="sidebar-nav-icon" src="static/img/house-solid.svg" />
-        Home
+      <div className="sidebar-nav-item">
+        <StaticImage
+          className="sidebar-nav-icon"
+          alt=""
+          src="../images/house-solid.svg"
+        />
+        <a
+          href="/"
+          className="sidebar-nav-name"
+          data-link
+        >
+          Home
+        </a>
       </div>
-      <div class="sidebar-nav-item">
-        <img class="sidebar-nav-icon" src="static/img/pen-to-square-solid.svg" />
-        <a href="/blog" data-link>Blog</a>
+      <div className="sidebar-nav-item">
+        <StaticImage
+          className="sidebar-nav-icon"
+          alt=""
+          src="../images/pen-to-square-solid.svg"
+        />
+        <a
+          href="/blog"
+          className="sidebar-nav-name"
+          data-link
+        >
+          Blog
+        </a>
       </div>
-      <div class="sidebar-nav-item">
-        <img class="sidebar-nav-icon" src="static/img/box-archive-solid.svg" />
-        Archieve
+      <div className="sidebar-nav-item">
+        <StaticImage
+          className="sidebar-nav-icon"
+          src="../images/box-archive-solid.svg"
+        />
+        <a
+          href="/archive"
+          className="sidebar-nav-name"
+          data-link
+        >
+          Archive
+        </a>
       </div>
-      <div class="sidebar-nav-item">
-        <img class="sidebar-nav-icon" src="static/img/gear-solid.svg" />
-        Projects
+      <div className="sidebar-nav-item">
+        <StaticImage
+          className="sidebar-nav-icon"
+          src="../images/gear-solid.svg"
+        />
+        <a
+          href="/projects"
+          className="sidebar-nav-name"
+          data-link
+        >
+          Projects
+        </a>
       </div>
-      <div class="sidebar-nav-item">
-        <img class="sidebar-nav-icon" src="static/img/link-solid.svg" />
-        Links
+      <div className="sidebar-nav-item">
+        <StaticImage
+          className="sidebar-nav-icon"
+          src="../images/link-solid.svg"
+        />
+        <a
+          href="/links"
+          className="sidebar-nav-name"
+          data-link
+        >
+          Links
+        </a>
       </div>
-      <div class="sidebar-nav-item">
-        <img class="sidebar-nav-icon" src="static/img/user-solid.svg" />
-        About
+      <div className="sidebar-nav-item">
+        <StaticImage
+          className="sidebar-nav-icon"
+          src="../images/user-solid.svg"
+        /> 
+        <a
+          href="/about"
+          className="sidebar-nav-name"
+          data-link
+        >
+          About
+        </a>
       </div>
     </div>
     <div id="sidebar-link">
       <div id="sidebar-link-header">
-       Contact 
+        Contact 
       </div>
       <div id="sidebar-link-item">
-        <img class="sidebar-link-icon" src="static/img/github-brands.svg" />
+        <StaticImage
+          className="sidebar-link-icon"
+          src="../images/github-brands.svg"
+        />
       </div>
       <div id="sidebar-link-item">
-        <img class="sidebar-link-icon" src="static/img/linkedin-in-brands.svg" />
+        <StaticImage
+          className="sidebar-link-icon"
+          src="../images/linkedin-in-brands.svg"
+        />
       </div>
     </div>
     <div id="sidebar-mod">
-      <img id="sidebar-mod-icon" src="static/img/moon-solid.svg" />
+      <StaticImage
+        id="sidebar-mod-icon"
+        src="../images/moon-solid.svg"
+      />
     </div>
   </nav>
 )
