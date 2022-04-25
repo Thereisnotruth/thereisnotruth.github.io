@@ -7,7 +7,10 @@ import sidebarStyles from "../styles/sidebar.css"
 const Sidebar = () => (
   <nav>
     <div id="sidebar-header">
-      <img id="sidebar-profile-img" src="static/img/profile.png" /> 
+      <StaticImage
+        id="sidebar-profile-img"
+        src="../images/profile.png"
+      /> 
       <div id="sidebar-profile-name">
         고태진
       </div>
@@ -15,7 +18,6 @@ const Sidebar = () => (
         개발자
       </div>
     </div>
-    <hr color="#eeeeee" />
     <div id="sidebar-nav">
       <div className="sidebar-nav-item">
         <StaticImage
@@ -23,13 +25,13 @@ const Sidebar = () => (
           alt=""
           src="../images/house-solid.svg"
         />
-        <a
-          href="/"
+        <Link
+          to="/"
           className="sidebar-nav-name"
           data-link
         >
           Home
-        </a>
+        </Link>
       </div>
       <div className="sidebar-nav-item">
         <StaticImage
@@ -37,65 +39,65 @@ const Sidebar = () => (
           alt=""
           src="../images/pen-to-square-solid.svg"
         />
-        <a
-          href="/blog"
+        <Link
+          to="/blog"
           className="sidebar-nav-name"
           data-link
         >
           Blog
-        </a>
+        </Link>
       </div>
       <div className="sidebar-nav-item">
         <StaticImage
           className="sidebar-nav-icon"
           src="../images/box-archive-solid.svg"
         />
-        <a
-          href="/archive"
+        <Link
+          to="/archive"
           className="sidebar-nav-name"
           data-link
         >
           Archive
-        </a>
+        </Link>
       </div>
       <div className="sidebar-nav-item">
         <StaticImage
           className="sidebar-nav-icon"
           src="../images/gear-solid.svg"
         />
-        <a
-          href="/projects"
+        <Link
+          to="/projects"
           className="sidebar-nav-name"
           data-link
         >
           Projects
-        </a>
+        </Link>
       </div>
       <div className="sidebar-nav-item">
         <StaticImage
           className="sidebar-nav-icon"
           src="../images/link-solid.svg"
         />
-        <a
-          href="/links"
+        <Link
+          to="/links"
           className="sidebar-nav-name"
           data-link
         >
           Links
-        </a>
+        </Link>
       </div>
       <div className="sidebar-nav-item">
         <StaticImage
           className="sidebar-nav-icon"
           src="../images/user-solid.svg"
         /> 
-        <a
-          href="/about"
+        <Link
+          to="/about"
           className="sidebar-nav-name"
           data-link
         >
           About
-        </a>
+        </Link>
       </div>
     </div>
     <div id="sidebar-link">
