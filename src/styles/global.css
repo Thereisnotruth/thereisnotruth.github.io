@@ -1,25 +1,4 @@
-html, body, #app, #wrapper {
+html, body, #___gatsby, #gatsby-focus-wrapper {
   margin: 0;
-  padding: 0;
   height: 100%;
-}
-
-#content {
-  float: left;
-  background: #efefef;
-  width: calc(100% - 230px);
-  height: 100%;
-}
-
-#page {
-  float: left;
-  width: 100%;
-  max-width: 800px;
-  height: calc(100% - 40px);
-}
-
-hr {
-  border: 0;
-  width: 190px;
-  height: 1px;
 }

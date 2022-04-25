@@ -1,24 +1,24 @@
 import * as React from "react"
-import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import sidebarStyles from "../styles/sidebar.css"
+
+import "../styles/sidebar.css"
 
 const Sidebar = () => (
-  <nav>
-    <div id="sidebar-header">
+  <div className="sidebar">
+    <div className="sidebar-header">
       <StaticImage
-        id="sidebar-profile-img"
+        className="sidebar-profile-img"
         src="../images/profile.png"
       /> 
-      <div id="sidebar-profile-name">
+      <div className="sidebar-profile-name">
         고태진
       </div>
-      <div id="sidebar-profile-intro">
+      <div className="sidebar-profile-intro">
         개발자
       </div>
     </div>
-    <div id="sidebar-nav">
+    <div className="sidebar-nav">
       <div className="sidebar-nav-item">
         <StaticImage
           className="sidebar-nav-icon"
@@ -100,30 +100,30 @@ const Sidebar = () => (
         </Link>
       </div>
     </div>
-    <div id="sidebar-link">
-      <div id="sidebar-link-header">
+    <div className="sidebar-link">
+      <div className="sidebar-link-header">
         Contact 
       </div>
-      <div id="sidebar-link-item">
+      <div className="sidebar-link-item">
         <StaticImage
           className="sidebar-link-icon"
           src="../images/github-brands.svg"
         />
       </div>
-      <div id="sidebar-link-item">
+      <div className="sidebar-link-item">
         <StaticImage
           className="sidebar-link-icon"
           src="../images/linkedin-in-brands.svg"
         />
       </div>
     </div>
-    <div id="sidebar-mod">
+    <div className="sidebar-mod">
       <StaticImage
-        id="sidebar-mod-icon"
+        className="sidebar-mod-icon"
         src="../images/moon-solid.svg"
       />
     </div>
-  </nav>
+  </div>
 )
 
 export default Sidebar;

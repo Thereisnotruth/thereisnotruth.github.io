@@ -13,8 +13,8 @@
   font-style: normal;
 }
 
-nav {
-  background: #F9F9F9F9;
+.sidebar {
+  background: #F9F9F9;
   width: 230px;
   height: 100%;
   float: left;
@@ -22,34 +22,31 @@ nav {
   text-align: center;
 }
 
-#sidebar-header {
-  background: red;
+.sidebar-header {
   width: 100%;
   height: 270px;
 }
 
-#sidebar-profile-img {
-  top: 40px;
-  left: calc(50% - 60px);
+.sidebar-profile-img {
+  margin: 40px 0 20px 0;
   width: 120px;
   height: 120px;
   border-radius: 50%;
 }
 
-#sidebar-profile-name {
+.sidebar-profile-name {
   color: #416289;
   font-size: 24px;
   font-weight: bold;
   font-family: "pretendard";
 }
 
-#sidebar-profile-intro {
+.sidebar-profile-intro {
   color: #a19e9e;
   font-family: "chosunsg";
 }
 
-#sidebar-nav {
-  background: blue;
+.sidebar-nav {
   color: #a19e9e;
   font-family: "chosunsg";
   padding: 20px;
@@ -75,19 +72,18 @@ nav {
   float: left;
 }
 
-#sidebar-link {
-  background: green;
-  height: calc(100% - 590px); 
+.sidebar-link {
+  height: calc(100% - 570px); 
   min-height: 70px;
 }
 
-#sidebar-link-header {
+.sidebar-link-header {
   text-align: center;
   font-size: 12px;
   color: #a19e9e;
 }
 
-#sidebar-link-item {
+.sidebar-link-item {
   display: inline-block;
   padding: 10px;
 }
@@ -98,16 +94,13 @@ nav {
   filter: opacity(.5) drop-shadow(0 0 0 #a19e9e);
 }
 
-#sidebar-mod {
-  position: relative;
-  bottom: 0px;
-  background: yellow;
+.sidebar-mod {
   align-items: center;
-  width: 100%;
   height: 50px;
 }
 
-#sidebar-mod-icon {
+.sidebar-mod-icon {
+  top: calc(50% - 8px);
   width: 16px;
   height: 16px;
 }
