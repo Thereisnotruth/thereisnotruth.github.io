@@ -1,10 +1,10 @@
-#searchbar {
+.searchbar {
   float: left;
   width: calc(100% - 235px);
   padding: 5px 0px 3px 5px;
 }
 
-#searchbar-button {
+.searchbar-button {
   background: #e7e7e7;
   width: 30px;
   height: 30px;
@@ -14,9 +14,10 @@
   border-width: 1px;
 }
 
-#searchbar-icon {
+.searchbar-icon {
   position: relative;
   top: calc(50% - 9px);
-  left: calc(50% - 7px);
+  left: calc(50% - 9px);
+  width: 18px;
   height: 18px;
 }
