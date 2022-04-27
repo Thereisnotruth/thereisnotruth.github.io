@@ -2,10 +2,10 @@ import * as React from "react"
 
 import Layout from "../components/layout"
 
-const IndexPage = () => (
+const BlogPage = () => (
   <Layout>
-    <h1>Home</h1>
+    <h1>Blog</h1>
   </Layout>
 )
 
-export default IndexPage
+export default BlogPage

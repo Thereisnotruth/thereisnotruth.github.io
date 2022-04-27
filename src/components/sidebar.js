@@ -47,7 +47,7 @@ const Sidebar = () => (
       </Link>
       <Link
         className="sidebar-nav-item"
-        to="archive"
+        to="/archive"
       >
         <StaticImage
           className="sidebar-nav-icon"
