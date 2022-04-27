@@ -49,27 +49,28 @@
 .sidebar-nav {
   color: #a19e9e;
   font-family: "chosunsg";
-  padding: 20px;
+  padding: 20px 35px 20px 35px;
   letter-spacing: 2px;
 }
 
 .sidebar-nav-icon {
   float: left;
-  position: relative;
-  top: 6px;
-  height: 12px;
-  width: 12px;
-  margin: 0 10px 0 30%;
+  width: 15px;
+  height: 15px;
+  margin: 10px 10px 10px 25%;
   filter: opacity(.5) drop-shadow(0 0 0 #a19e9e);
 }
 
 .sidebar-nav-item {
+  display: block;
+  width: 160px;
   height: 35px;
   font-weight: bold;
 }
 
 .sidebar-nav-name {
   float: left;
+  line-height: 35px;
 }
 
 .sidebar-link {

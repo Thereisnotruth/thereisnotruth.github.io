@@ -19,86 +19,80 @@ const Sidebar = () => (
       </div>
     </div>
     <div className="sidebar-nav">
-      <div className="sidebar-nav-item">
+      <Link
+        className="sidebar-nav-item"
+        to="/"
+      >
         <StaticImage
           className="sidebar-nav-icon"
           alt=""
           src="../images/house-solid.svg"
         />
-        <Link
-          to="/"
-          className="sidebar-nav-name"
-          data-link
-        >
+        <div className="sidebar-nav-name">
           Home
-        </Link>
-      </div>
-      <div className="sidebar-nav-item">
+        </div>
+      </Link>
+      <Link
+        className="sidebar-nav-item"
+        to="/blog"
+      >
         <StaticImage
           className="sidebar-nav-icon"
           alt=""
           src="../images/pen-to-square-solid.svg"
         />
-        <Link
-          to="/blog"
-          className="sidebar-nav-name"
-          data-link
-        >
+        <div className="sidebar-nav-name">
           Blog
-        </Link>
-      </div>
-      <div className="sidebar-nav-item">
+        </div>
+      </Link>
+      <Link
+        className="sidebar-nav-item"
+        to="archive"
+      >
         <StaticImage
           className="sidebar-nav-icon"
           src="../images/box-archive-solid.svg"
         />
-        <Link
-          to="/archive"
-          className="sidebar-nav-name"
-          data-link
-        >
+        <div className="sidebar-nav-name">
           Archive
-        </Link>
-      </div>
-      <div className="sidebar-nav-item">
+        </div>
+      </Link>
+      <Link
+        className="sidebar-nav-item"
+        to="/projects"
+      >
         <StaticImage
           className="sidebar-nav-icon"
           src="../images/gear-solid.svg"
         />
-        <Link
-          to="/projects"
-          className="sidebar-nav-name"
-          data-link
-        >
+        <div className="sidebar-nav-name">
           Projects
-        </Link>
-      </div>
-      <div className="sidebar-nav-item">
+        </div>
+      </Link>
+      <Link
+        className="sidebar-nav-item"
+        to="/links"
+      >
         <StaticImage
           className="sidebar-nav-icon"
           src="../images/link-solid.svg"
         />
-        <Link
-          to="/links"
-          className="sidebar-nav-name"
-          data-link
-        >
+        <div className="sidebar-nav-name">
           Links
-        </Link>
-      </div>
-      <div className="sidebar-nav-item">
+        </div>
+      </Link>
+      <Link
+        className="sidebar-nav-item"
+        to="/about"
+      >
         <StaticImage
           className="sidebar-nav-icon"
           src="../images/user-solid.svg"
         /> 
-        <Link
-          to="/about"
-          className="sidebar-nav-name"
-          data-link
-        >
+        <div className="sidebar-nav-name">
           About
-        </Link>
-      </div>
+        </div>
+      </Link>
     </div>
     <div className="sidebar-link">
       <div className="sidebar-link-header">
