@@ -7,7 +7,11 @@ import "../styles/searchbar.css"
 const Searchbar = () => (
   <div className="searchbar">
     <div className="searchbar-button">
-      <StaticImage className="searchbar-icon" src="../images/magnifying-glass-solid.svg" />
+      <StaticImage
+        className="searchbar-icon"
+        src="../images/magnifying-glass-solid.svg"
+        alt=""
+        />
     </div>
   </div>
 )

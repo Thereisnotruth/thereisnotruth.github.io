@@ -10,6 +10,7 @@ const Sidebar = () => (
       <StaticImage
         className="sidebar-profile-img"
         src="../images/profile.png"
+        alt=""
       /> 
       <div className="sidebar-profile-name">
         고태진
@@ -25,8 +26,8 @@ const Sidebar = () => (
       >
         <StaticImage
           className="sidebar-nav-icon"
-          alt=""
           src="../images/house-solid.svg"
+          alt=""
         />
         <div className="sidebar-nav-name">
           Home
@@ -38,8 +39,8 @@ const Sidebar = () => (
       >
         <StaticImage
           className="sidebar-nav-icon"
-          alt=""
           src="../images/pen-to-square-solid.svg"
+          alt=""
         />
         <div className="sidebar-nav-name">
           Blog
@@ -52,6 +53,7 @@ const Sidebar = () => (
         <StaticImage
           className="sidebar-nav-icon"
           src="../images/box-archive-solid.svg"
+          alt=""
         />
         <div className="sidebar-nav-name">
           Archive
@@ -64,6 +66,7 @@ const Sidebar = () => (
         <StaticImage
           className="sidebar-nav-icon"
           src="../images/gear-solid.svg"
+          alt=""
         />
         <div className="sidebar-nav-name">
           Projects
@@ -76,6 +79,7 @@ const Sidebar = () => (
         <StaticImage
           className="sidebar-nav-icon"
           src="../images/link-solid.svg"
+          alt=""
         />
         <div className="sidebar-nav-name">
           Links
@@ -88,6 +92,7 @@ const Sidebar = () => (
         <StaticImage
           className="sidebar-nav-icon"
           src="../images/user-solid.svg"
+          alt=""
         /> 
         <div className="sidebar-nav-name">
           About
@@ -102,12 +107,14 @@ const Sidebar = () => (
         <StaticImage
           className="sidebar-link-icon"
           src="../images/github-brands.svg"
+          alt=""
         />
       </div>
       <div className="sidebar-link-item">
         <StaticImage
           className="sidebar-link-icon"
           src="../images/linkedin-in-brands.svg"
+          alt=""
         />
       </div>
     </div>
@@ -115,6 +122,7 @@ const Sidebar = () => (
       <StaticImage
         className="sidebar-mod-icon"
         src="../images/moon-solid.svg"
+        alt=""
       />
     </div>
   </div>
