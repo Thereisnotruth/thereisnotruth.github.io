@@ -1,25 +1,32 @@
 import * as React from "react"
 import { graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../components/layout"
 
 const IndexPage = ({ data }) => {
-  console.log(data.allFile.edges[0].node.name);
+  const node = data.allMdx.edges[0].node;
   return (
     <Layout>
-      <h1>Home</h1>
+      <MDXRenderer>
+        {node.body}
+      </MDXRenderer>
     </Layout>
   )
 }
 
 export const query = graphql`
   query IndexQuery {
-    allFile(filter: {relativeDirectory: {eq: "home"}}) {
+    allMdx(filter: {frontmatter: {category: {eq: "index"}}}) {
       edges {
         node {
           id
-          name
-          relativeDirectory
+          body
+          frontmatter {
+            category
+            date
+            title
+          }
         }
       }
     }
