@@ -3,14 +3,18 @@ import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../components/layout"
+import Card from "../components/card"
 
 const IndexPage = ({ data }) => {
   const node = data.allMdx.edges[0].node;
   return (
     <Layout>
-      <MDXRenderer>
+      <Card size={{
+        width: "450px",
+        height: "200px"
+      }}>
         {node.body}
-      </MDXRenderer>
+      </Card>
     </Layout>
   )
 }

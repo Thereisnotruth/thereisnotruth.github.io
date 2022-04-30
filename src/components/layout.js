@@ -5,14 +5,15 @@ import { useStaticQuery, graphql } from "gatsby"
 import Seo from "./seo"
 import Sidebar from "./sidebar"
 import Searchbar from "./searchbar"
+
 import "../styles/layout.css"
 
 const Layout = ({ children }) => {
   return (
-    <div id="layout">
+    <div className="layout">
       <Sidebar />
       <Searchbar />
-      <div style={{ float: `left` }}>
+      <div className="content">
         <main>{children}</main>
       </div>
     </div>
