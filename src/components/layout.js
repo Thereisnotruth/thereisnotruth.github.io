@@ -12,9 +12,11 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Sidebar />
+      <div className="right">
       <Searchbar />
       <div className="content">
         <main>{children}</main>
+      </div>
       </div>
     </div>
   )

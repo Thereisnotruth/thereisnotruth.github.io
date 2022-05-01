@@ -6,31 +6,32 @@ import Layout from "../components/layout"
 import Card from "../components/card"
 
 const IndexPage = ({ data }) => {
-  const node = data.allMdx.edges[0].node;
+  const nodes = data.allMdx.edges;
+  console.log(nodes)
   return (
     <Layout>
-      <Card size={{
-        width: "800px",
-        height: "200px"
-      }}>
-        {node.body}
-      </Card>
+      {
+        nodes.map((edge) => (
+          <Card frontmatter={edge.node.frontmatter} size="200px">
+            {edge.node.body}
+          </Card>
+        ))
+      }
     </Layout>
   )
 }
-
 export const query = graphql`
   query IndexQuery {
-    allMdx(filter: {frontmatter: {category: {eq: "index"}}}) {
+    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
       edges {
         node {
           id
-          body
           frontmatter {
             category
-            date
             title
+            date
           }
+          body
         }
       }
     }

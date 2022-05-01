@@ -1,10 +1,23 @@
 .layout {
-  background: #efefef;
   height: 100%;
 }
+
+.right {
+  background: #efefef;
+  height: 100%;
+  overflow: auto;
+}
+
 .content {
   float: left;
-  width: calc(80% - 235px);
-  height: calc(100% - 40px);
-  margin: 0 3% 0 3%;
+  width: 800px;
+  margin: 30px 40px;
+}
+
+@media all and (max-width: 1110px) {
+  .content {
+    float: left;
+    width: 94%;
+    margin: 30px 3%;
+  }
 }
