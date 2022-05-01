@@ -13,10 +13,10 @@ const Sidebar = () => (
         alt=""
       /> 
       <div className="sidebar-profile-name">
-        고태진
+        네모장
       </div>
       <div className="sidebar-profile-intro">
-        개발자
+        thereisnotruth
       </div>
     </div>
     <div className="sidebar-nav">
@@ -35,7 +35,7 @@ const Sidebar = () => (
       </Link>
       <Link
         className="sidebar-nav-item"
-        to="/blog"
+        to="/categories"
       >
         <StaticImage
           className="sidebar-nav-icon"
@@ -43,7 +43,7 @@ const Sidebar = () => (
           alt=""
         />
         <div className="sidebar-nav-name">
-          Blog
+          Categories
         </div>
       </Link>
       <Link
@@ -57,32 +57,6 @@ const Sidebar = () => (
         />
         <div className="sidebar-nav-name">
           Archive
-        </div>
-      </Link>
-      <Link
-        className="sidebar-nav-item"
-        to="/projects"
-      >
-        <StaticImage
-          className="sidebar-nav-icon"
-          src="../images/gear-solid.svg"
-          alt=""
-        />
-        <div className="sidebar-nav-name">
-          Projects
-        </div>
-      </Link>
-      <Link
-        className="sidebar-nav-item"
-        to="/links"
-      >
-        <StaticImage
-          className="sidebar-nav-icon"
-          src="../images/link-solid.svg"
-          alt=""
-        />
-        <div className="sidebar-nav-name">
-          Links
         </div>
       </Link>
       <Link

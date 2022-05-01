@@ -2,10 +2,10 @@ import * as React from "react"
 
 import Layout from "../components/layout"
 
-const BlogPage = () => (
+const CategoriesPage = () => (
   <Layout>
-    <h1>Blog</h1>
+    <h1>Categories</h1>
   </Layout>
 )
 
-export default BlogPage
+export default CategoriesPage
