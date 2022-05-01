@@ -10,7 +10,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <Card size={{
-        width: "450px",
+        width: "800px",
         height: "200px"
       }}>
         {node.body}

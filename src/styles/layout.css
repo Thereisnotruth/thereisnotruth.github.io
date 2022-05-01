@@ -4,6 +4,7 @@
 }
 .content {
   float: left;
-  width: calc(100% - 235px);
+  width: calc(80% - 235px);
   height: 100%;
+  margin: 0 3% 0 3%;
 }
