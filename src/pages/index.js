@@ -4,42 +4,36 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../components/layout"
 import Card from "../components/card"
-
-import "../styles/indexpage.css"
+import Pagination from "../components/pagination"
 
 const IndexPage = ({ data }) => {
-  const [currentPage, setCurrentPage] = React.useState(1);
-  const [postsPerPage, setPostsPerPage] = React.useState(10);
+  const [limit, setLimit] = React.useState(10);
+  const [page, setPage] = React.useState(1);
+  const offset = (page - 1) * limit;
+  
+  const posts = data.allMdx.edges;
 
-  const nodes = data.allMdx.edges;
-  const totalPosts = nodes.length;
-  const indexOfLast = currentPage * postsPerPage;
-  const indexOfFirst = indexOfLast - postsPerPage;
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    pageNumbers.push(i);
-  }
-  console.log(pageNumbers)
   return (
     <Layout>
       {
-        nodes.map((edge, key) => (
-          <Card frontmatter={edge.node.frontmatter} size="200px">
+        posts
+        .slice(offset, offset + limit)
+        .map((edge) => (
+          <Card
+            key={edge.node.frontmatter.title}
+            frontmatter={edge.node.frontmatter}
+            size="200px"
+          >
             {edge.node.body}
           </Card>
         ))
       }
-      <div className="pagination">
-        {
-          pageNumbers.map((number) => {
-            <div key={number} className="page-item">
-              <div onClick={() => setCurrentPage(number)} className="page-link">
-              {number}
-              </div>
-            </div>
-          })
-        }
-      </div>
+      <Pagination
+        total={posts.length}
+        limit={limit}
+        page={page}
+        setPage={setPage}
+      /> 
     </Layout>
   )
 }
