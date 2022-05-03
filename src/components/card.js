@@ -7,7 +7,6 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import "../styles/card.css"
 
 const Card = ({ children, frontmatter, size }) => {
-  console.log(frontmatter)
   return (
     <div className="card" style={{height: size}}>
       <MDXRenderer>
