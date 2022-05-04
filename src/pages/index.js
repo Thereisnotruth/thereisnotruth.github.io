@@ -7,8 +7,9 @@ import Card from "../components/card"
 import Pagination from "../components/pagination"
 
 const IndexPage = ({ data }) => {
-  const [limit, setLimit] = React.useState(10);
   const [page, setPage] = React.useState(1);
+  const [line, setLine] = React.useState(1);
+  const limit = 10;
   const offset = (page - 1) * limit;
   
   const posts = data.allMdx.edges;
@@ -32,7 +33,9 @@ const IndexPage = ({ data }) => {
         total={posts.length}
         limit={limit}
         page={page}
+        line={line}
         setPage={setPage}
+        setLine={setLine}
       /> 
     </Layout>
   )
