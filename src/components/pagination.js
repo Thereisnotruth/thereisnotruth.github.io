@@ -9,29 +9,32 @@ const Pagination = ({ total, limit, page, line, setPage, setLine }) => {
   const pages = [];
   let idx = 0;
   for (let i = 1; i <= numPages; i++) {
-    if (i % 10 == 1) {
+    if (i % 10 === 1) {
       pages.push([]);
     }
     pages[idx].push(i);
-    if (i % 10 == 0) {
+    if (i % 10 === 0) {
       idx++;
     }
+  }
+
+  const move = (line, page) => {
+    document.getElementsByClassName("right")[0].scrollTo(0, 0);
+    setLine(line);
+    setPage(page);
   }
   return (
     <div className="pagination">
       <button
         className="pagination-button-tofirst"
-        onClick={() => setPage(1)}
+        onClick={() => move(1, 1)}
         disabled={page === 1}
       >
         First
       </button>
       <button
         className="pagination-button"
-        onClick={() => {
-          setLine(line - 1);
-          setPage(Math.floor(page / 10) * 10);        
-        }}
+        onClick={() => move(line - 1, (Math.ceil(page / 10) - 1) * 10)}
         disabled={line === 1}
       >
         &lt;
@@ -42,7 +45,7 @@ const Pagination = ({ total, limit, page, line, setPage, setLine }) => {
           <button
             className="pagination-button"
             key={i + 1}
-            onClick={() => setPage(i)}
+            onClick={() => move(line, i)}
             aria-current={page === i ? "page" : null}
           >
             {i}
@@ -50,17 +53,14 @@ const Pagination = ({ total, limit, page, line, setPage, setLine }) => {
         ))}
       <button
         className="pagination-button"
-        onClick={() => {
-          setLine(line + 1);
-          setPage(Math.ceil(page / 10) * 10 + 1);
-        }}
+        onClick={() => move(line + 1, Math.ceil(page / 10) * 10 + 1)}
         disabled={line === pages.length}
       >
         &gt;
       </button>
       <button
         className="pagination-button-tolast"
-        onClick={() => setPage(numPages)}
+        onClick={() => move(pages.length, numPages)}
         disabled={page === numPages}
       >
         Last

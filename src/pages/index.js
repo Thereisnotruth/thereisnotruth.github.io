@@ -14,7 +14,6 @@ const IndexPage = ({ data }) => {
   
   const posts = data.allMdx.edges;
 
-  console.log(page + " " + limit)
   return (
     <Layout>
       {
@@ -22,6 +21,7 @@ const IndexPage = ({ data }) => {
         .slice(offset, offset + limit)
         .map((edge) => (
           <Card
+            key={edge.node.frontmatter.title}
             frontmatter={edge.node.frontmatter}
             size="200px"
           >
