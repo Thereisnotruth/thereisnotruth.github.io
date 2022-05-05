@@ -2,8 +2,9 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
+import Seo from "../components/seo"
 import Layout from "../components/layout"
-import Card from "../components/card"
+import ListCard from "../components/listcard"
 import Pagination from "../components/pagination"
 
 const IndexPage = ({ data }) => {
@@ -15,18 +16,20 @@ const IndexPage = ({ data }) => {
   const posts = data.allMdx.edges;
 
   return (
+    <>
+    <Seo/>
     <Layout>
       {
         posts
         .slice(offset, offset + limit)
         .map((edge) => (
-          <Card
+          <ListCard
             key={edge.node.frontmatter.title}
             frontmatter={edge.node.frontmatter}
-            size="200px"
+            size="120px"
           >
-            {edge.node.body}
-          </Card>
+            {edge.node.rawBody}
+          </ListCard>
         ))
       }
       <Pagination
@@ -38,6 +41,7 @@ const IndexPage = ({ data }) => {
         setLine={setLine}
       /> 
     </Layout>
+    </>
   )
 }
 export const query = graphql`
@@ -49,9 +53,10 @@ export const query = graphql`
           frontmatter {
             category
             title
-            date
+            date(formatString: "MM/DD/YYYY")
           }
           body
+          rawBody
         }
       }
     }
