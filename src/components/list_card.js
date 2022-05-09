@@ -3,19 +3,19 @@ import PropTypes from "prop-types"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 
-import "../styles/card.css"
+import "../styles/list_card.css"
 
 const ListCard = ({ children, frontmatter, size }) => {
   const content = children.split("---")[2].replace(/[`~!@#$%^&*()_|+\-=?;:'"<>\{\}\[\]\\\/]/gi, '');
   return (
-    <div className="card" style={{height: size}}>
-      <div className="card-title">
+    <div className="list-card" style={{height: size}}>
+      <div className="list-card-title">
         {frontmatter.title}
       </div>
-      <div className="card-content">
+      <div className="list-card-content">
         {content}
       </div>
-      <div className="card-date">
+      <div className="list-card-date">
         {frontmatter.date}
       </div>
     </div>

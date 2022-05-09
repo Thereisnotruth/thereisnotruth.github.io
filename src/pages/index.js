@@ -21,10 +21,9 @@ const IndexPage = ({ data }) => {
       {
         posts
         .slice(offset, offset + limit)
-        .map((node) => (
-          <Link className="link" to={node.slug}>
+        .map((node, index) => (
+          <Link className="link" to={node.slug} key={index}>
             <ListCard
-              key={node.frontmatter.title}
               frontmatter={node.frontmatter}
               size="120px"
             >
