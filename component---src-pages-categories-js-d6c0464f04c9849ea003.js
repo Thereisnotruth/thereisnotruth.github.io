@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgatsby_starter_default=self.webpackChunkgatsby_starter_default||[]).push([[823],{740:function(e,t,a){a.r(t);var r=a(7294),u=a(7512);t.default=function(){return r.createElement(u.Z,null,r.createElement("h1",null,"Categories"))}}}]);
+//# sourceMappingURL=component---src-pages-categories-js-d6c0464f04c9849ea003.js.map
