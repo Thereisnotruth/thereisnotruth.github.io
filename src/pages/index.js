@@ -1,10 +1,10 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Seo from "../components/seo"
 import Layout from "../components/layout"
-import ListCard from "../components/listcard"
+import ListCard from "../components/list_card"
 import Pagination from "../components/pagination"
 
 const IndexPage = ({ data }) => {
@@ -13,23 +13,24 @@ const IndexPage = ({ data }) => {
   const limit = 10;
   const offset = (page - 1) * limit;
   
-  const posts = data.allMdx.edges;
+  const posts = data.allMdx.nodes;
 
   return (
-    <>
-    <Seo/>
     <Layout>
+      <Seo title="네모장"/>
       {
         posts
         .slice(offset, offset + limit)
-        .map((edge) => (
-          <ListCard
-            key={edge.node.frontmatter.title}
-            frontmatter={edge.node.frontmatter}
-            size="120px"
-          >
-            {edge.node.rawBody}
-          </ListCard>
+        .map((node) => (
+          <Link className="link" to={node.slug}>
+            <ListCard
+              key={node.frontmatter.title}
+              frontmatter={node.frontmatter}
+              size="120px"
+            >
+              {node.rawBody}
+            </ListCard>
+          </Link>
         ))
       }
       <Pagination
@@ -41,25 +42,23 @@ const IndexPage = ({ data }) => {
         setLine={setLine}
       /> 
     </Layout>
-    </>
   )
 }
 export const query = graphql`
-  query IndexQuery {
-    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
-      edges {
-        node {
-          id
-          frontmatter {
-            category
-            title
-            date(formatString: "MM/DD/YYYY")
-          }
-          body
-          rawBody
-        }
+query IndexQuery {
+  allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+    nodes {
+      id
+      slug
+      frontmatter {
+        date
+        category
+        title
       }
+      rawBody
     }
   }
+}
+
 `
 export default IndexPage
