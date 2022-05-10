@@ -8,6 +8,8 @@ import "../styles/post_card.css"
 const PostCard = ({ children, frontmatter, size }) => {
   return (
     <div className="post-card">
+      <h2>{frontmatter.title}</h2>
+      <hr />
       <MDXRenderer>
         {children}
       </MDXRenderer>

@@ -6,10 +6,9 @@ import Layout from "../components/layout"
 import PostCard from "../components/post_card"
 
 const PostTemplate = ({ data, pageContext, location }) => {
-  console.log(data)
   return (
     <Layout>
-      <PostCard>
+      <PostCard frontmatter={data.mdx.frontmatter}>
         {data.mdx.body}
       </PostCard>
     </Layout>
