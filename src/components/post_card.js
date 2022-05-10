@@ -1,18 +1,24 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { MDXProvider } from "@mdx-js/react"
 
+import CodeBlock from "./code_block"
 
 import "../styles/post_card.css"
 
-const PostCard = ({ children, frontmatter, size }) => {
+const components = {
+  code: CodeBlock
+};
+
+const PostCard = ({ children, frontmatter }) => {
   return (
     <div className="post-card">
       <h2>{frontmatter.title}</h2>
       <hr />
-      <MDXRenderer>
-        {children}
-      </MDXRenderer>
+      <MDXProvider components={components}>
+        <MDXRenderer>{children}</MDXRenderer>
+      </MDXProvider>
     </div>
   )
 }
