@@ -3,47 +3,62 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 
-const CategoriesPage = ({ data }) => {
-  const categories = [];
+import "../styles/card.css"
 
-  data.allMdx.nodes.map((node) => {
-    if (categories.length === 0) {
-      categories.push({
-        category: node.frontmatter.category,
-        posts: [node]
-      });
+const CategoriesPage = ({ data }) => {
+  const [curCategory, setCurCategory] = React.useState("none");
+  const categories = {};
+
+  data.allMdx.nodes.sort((a, b) => {
+    if (a.frontmatter.category > b.frontmatter.category) {
+      return 1;
+    } else if (a.frontmatter.categroy < b.frontmatter.category) {
+      return -1;
     } else {
-      categories.map((category) => {
-        if (category.category === node.frontmatter.category) {
-          category.posts.push(node);
-        }
-      })
+      return 0;
     }
   });
-  
-  console.log(categories)
+
+  data.allMdx.nodes.map((node) => {
+    if (categories[node.frontmatter.category] === undefined) {
+      categories[node.frontmatter.category] = [node];
+    } else {
+      categories[node.frontmatter.category].push(node);
+    }
+  });
+
+  const showCategories = () => {
+    const ret = [];
+    for (let category in categories) {
+      ret.push(
+        <Link className="link" to={category} key={category}>
+        <div className="card">
+          <h2>{category}</h2>
+        </div>
+        </Link>
+      );
+    }
+    return ret;
+  }
+
   return (
     <Layout>
-      <h1>Categories</h1>
+      {showCategories()}
     </Layout>
   );
 }
 
 export const query = graphql`
-query CategoryQuery {
-  allMdx(sort: {fields: frontmatter___idx, order: DESC}) {
-    nodes {
-      id
-      slug
-      frontmatter {
-        date(formatString: "YYYY.MM.DD")
-        category
-        title
+  query CategoryQuery {
+    allMdx(sort: {fields: frontmatter___idx, order: DESC}) {
+      nodes {
+        id
+        frontmatter {
+          category
+        }
       }
-      rawBody
     }
   }
-}
 `
 
 export default CategoriesPage

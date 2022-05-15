@@ -16,12 +16,6 @@ const PostTemplate = ({ data, pageContext, location }) => {
 }
 export const query = graphql`
   query PostQuery($slug: String!) {
-    site {
-      siteMetadata {
-        siteUrl
-        description
-      }
-    }
     mdx( slug: { eq: $slug } ) {
       body
       excerpt(pruneLength: 150)

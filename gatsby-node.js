@@ -24,8 +24,11 @@ exports.createPages = async ({ graphql, actions, reporter}) => {
     return;
   }
 
+  const categoryTemplate = path.resolve(`src/templates/category.js`);
   const postTemplate = path.resolve(`src/templates/post.js`);
   const posts = query.data.allMdx.nodes;
+  const categories = {};
+
 
   posts.forEach((node) => { 
     const path = `${node.slug}`;
@@ -37,5 +40,23 @@ exports.createPages = async ({ graphql, actions, reporter}) => {
         slug: node.slug
       }
     })
+
+    if (categories[node.frontmatter.category] === undefined) {
+      categories[node.frontmatter.category] = [node];
+    } else {
+      categories[node.frontmatter.category].push(node);
+    }
   });
+
+  console.log(categories)
+  for (let category in categories) {
+    const path = `categories/${category}`;
+    createPage({
+      path,
+      component: categoryTemplate,
+      context: {
+        category: category
+      }
+    })
+  }
 }
