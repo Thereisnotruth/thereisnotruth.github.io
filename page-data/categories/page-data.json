@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-categories-js",
     "path": "/categories/",
-    "result": {"pageContext":{}},
+    "result": {"data":{"allMdx":{"nodes":[{"id":"6a1e6884-562f-56c9-bc8b-9cddce119d30","frontmatter":{"category":"web"}}]}},"pageContext":{}},
     "staticQueryHashes": ["63159454"]}
