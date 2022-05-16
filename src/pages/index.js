@@ -25,7 +25,6 @@ const IndexPage = ({ data }) => {
           <Link className="link" to={node.slug} key={index}>
             <ListCard
               frontmatter={node.frontmatter}
-              size="120px"
             >
               {node.rawBody}
             </ListCard>
@@ -43,6 +42,7 @@ const IndexPage = ({ data }) => {
     </Layout>
   )
 }
+
 export const query = graphql`
 query IndexQuery {
   allMdx(sort: {fields: frontmatter___idx, order: DESC}) {
@@ -58,6 +58,6 @@ query IndexQuery {
     }
   }
 }
-
 `
+
 export default IndexPage

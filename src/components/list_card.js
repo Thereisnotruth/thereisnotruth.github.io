@@ -18,13 +18,15 @@ const ListCard = ({ children, frontmatter, size }) => {
       <div className="list-card-date">
         {frontmatter.date}
       </div>
+      <div className="list-card-category">
+        {frontmatter.category}
+      </div>
     </div>
   )
 }
 
 ListCard.propTypes = {
   children: PropTypes.node.isRequired,
-  size: PropTypes.node.isRequired,
 }
 
 export default ListCard
