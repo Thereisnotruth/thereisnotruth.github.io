@@ -32,9 +32,9 @@ const CategoriesPage = ({ data }) => {
     for (let category in categories) {
       ret.push(
         <Link className="link" to={category} key={category}>
-        <div className="card">
-          <h2>{category}</h2>
-        </div>
+          <div className="card">
+            <h2>{category}</h2>
+          </div>
         </Link>
       );
     }

@@ -9,7 +9,7 @@
   background: white;
   border-radius: 10px;
   box-shadow: 2px 2px #e5e2e2;
-  padding: 12px 20px;
+  padding: 8px 20px;
   margin: 10px;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .list-card-title {
-  font-size: 32px;
+  font-size: 24px;
   color: #5f5e5e;
   font-weight: bold;
 }

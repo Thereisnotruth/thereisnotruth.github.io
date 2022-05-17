@@ -15,10 +15,9 @@ const PostTemplate = ({ data, pageContext, location }) => {
   )
 }
 export const query = graphql`
-  query PostQuery($slug: String!) {
+  query ($slug: String!) {
     mdx( slug: { eq: $slug } ) {
       body
-      excerpt(pruneLength: 150)
       frontmatter {
         title
         date(formatString: "YYYY.MM.DD")

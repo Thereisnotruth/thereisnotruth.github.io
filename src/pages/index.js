@@ -2,7 +2,6 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
-import Seo from "../components/seo"
 import Layout from "../components/layout"
 import ListCard from "../components/list_card"
 import Pagination from "../components/pagination"
@@ -17,7 +16,6 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <Seo title="네모장"/>
       {
         posts
         .slice(offset, offset + limit)
@@ -26,7 +24,7 @@ const IndexPage = ({ data }) => {
             <ListCard
               frontmatter={node.frontmatter}
             >
-              {node.rawBody}
+              {node.excerpt}
             </ListCard>
           </Link>
         ))
@@ -54,7 +52,7 @@ query IndexQuery {
         category
         title
       }
-      rawBody
+      excerpt(truncate: true)
     }
   }
 }

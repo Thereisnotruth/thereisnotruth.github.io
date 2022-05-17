@@ -25,9 +25,8 @@ const CategoryTemplate = ({ data, pageContext, location }) => {
           <Link className="link" to={`../../${node.slug}`} key={index}>
             <ListCard
               frontmatter={node.frontmatter}
-              size="120px"
             >
-              {node.rawBody}
+              {node.excerpt}
             </ListCard>
           </Link>
         ))
@@ -57,7 +56,7 @@ export const query = graphql`
           category
           title
         }
-        rawBody
+        excerpt(truncate: true)
       }
     }
   }

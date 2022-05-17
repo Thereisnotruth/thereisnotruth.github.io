@@ -1,0 +1,15 @@
+.archive-year {
+  background: red;
+}
+
+.archive-month {
+  background: blue;
+}
+
+.archive-day {
+  background: green;
+}
+
+.archive-title {
+  background: yellow;
+}

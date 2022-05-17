@@ -11,6 +11,7 @@ import "../styles/layout.css"
 const Layout = ({ children }) => {
   return (
     <div className="layout">
+      <Seo title="네모장" />
       <Sidebar />
       <div className="right">
       <Searchbar />

@@ -6,14 +6,13 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import "../styles/list_card.css"
 
 const ListCard = ({ children, frontmatter, size }) => {
-  const content = children.split("---")[2].replace(/[`~!@#$%^&*()_|+\-=?;:'"<>\{\}\[\]\\\/]/gi, '');
   return (
     <div className="list-card" style={{height: size}}>
-      <div className="list-card-title">
+      <h2>
         {frontmatter.title}
-      </div>
+      </h2>
       <div className="list-card-content">
-        {content}
+        {children}
       </div>
       <div className="list-card-date">
         {frontmatter.date}

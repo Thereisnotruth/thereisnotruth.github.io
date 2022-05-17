@@ -8,5 +8,6 @@ html, body, #___gatsby, #gatsby-focus-wrapper {
 }
 
 h2 {
-  color: #a19e9e;
+  margin: 0;
+  color: #5f5e5e;
 }
