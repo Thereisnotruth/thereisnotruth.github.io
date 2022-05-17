@@ -1,15 +1,36 @@
+.archive {
+  padding: 0 20px;
+}
+
 .archive-year {
-  background: red;
+  width: 60px;
+  text-align: right;
+  font-size: 20px;
+  color: #5f5e5e;
+  padding: 10px 0;
 }
 
 .archive-month {
-  background: blue;
+  width: 60px;
+  text-align: right;
+  color: #5f5e5e;
+  padding: 10px 0;
 }
 
 .archive-day {
-  background: green;
+  display: inline-block;
+  width: 60px;
+  font-size: 14px;
+  text-align: right;
+  color: #a19e9e;
+  padding: 10px 0;
 }
 
 .archive-title {
-  background: yellow;
+  display: inline-block;
+  width: calc(100% - 100px);
+  color: #357bb8;
+  padding: 6px 10px;
+  margin: 2px 0 2px 10px;
+  border-left: solid 2px;
 }

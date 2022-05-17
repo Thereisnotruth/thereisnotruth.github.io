@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 
@@ -8,7 +8,10 @@ import "../styles/archive.css"
 
 const ArchivePage = ({ data }) => {
   const date = {};
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
+                  "Aug", "Sep", "Oct", "Nov", "Dec"];
   data.allMdx.nodes.map((node) => {
+    console.log(node)
     const year = node.frontmatter.date.split('.')[0];
     const month = node.frontmatter.date.split('.')[1];
     const day = node.frontmatter.date.split('.')[2];
@@ -44,7 +47,7 @@ const ArchivePage = ({ data }) => {
           className="archive-month"
           key={month}
         >
-          {month}
+          {months[month - 1]}
         </div>);
         
         for (let day in date[year][month]) {
@@ -55,14 +58,25 @@ const ArchivePage = ({ data }) => {
             {day}
           </div>)
           
-          date[year][month][day].map((node) => {
-            ret.push(
+          date[year][month][day].map((node, index) => {
+            if(index !== 0) {
+              ret.push(
               <div
-                className="archive-title"
-                key={node.frontmatter.idx}
-              >
-                {node.frontmatter.title}
-              </div>)
+                className="archive-day"
+                key={index}
+              />)
+            }
+            ret.push(
+              <Link
+                className="link"
+                to={`../${node.slug}`}>
+                <div
+                  className="archive-title"
+                  key={node.frontmatter.idx}
+                >
+                  {node.frontmatter.title}
+                </div>
+              </Link>)
           });
         }
       }
@@ -73,7 +87,9 @@ const ArchivePage = ({ data }) => {
     <Layout>
       <div className="card">
         <h2>Archive</h2>
-        {showDate()}
+        <div className="archive">
+          {showDate()}
+        </div>
       </div>
     </Layout>
   )
