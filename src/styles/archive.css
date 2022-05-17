@@ -8,6 +8,7 @@
   font-size: 20px;
   color: #5f5e5e;
   padding: 10px 0;
+  height: 30px;
 }
 
 .archive-month {
@@ -15,15 +16,17 @@
   text-align: right;
   color: #5f5e5e;
   padding: 10px 0;
+  height: 30px;
 }
 
 .archive-day {
-  display: inline-block;
+  float: left;
   width: 60px;
   font-size: 14px;
   text-align: right;
   color: #a19e9e;
   padding: 10px 0;
+  height: 30px;
 }
 
 .archive-title {
@@ -31,6 +34,10 @@
   width: calc(100% - 100px);
   color: #357bb8;
   padding: 6px 10px;
-  margin: 2px 0 2px 10px;
+  margin: 4px 0 4px 10px;
   border-left: solid 2px;
+  height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
