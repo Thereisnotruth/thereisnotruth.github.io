@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-archive-js",
     "path": "/archive/",
-    "result": {"pageContext":{}},
+    "result": {"data":{"allMdx":{"nodes":[{"id":"6a1e6884-562f-56c9-bc8b-9cddce119d30","slug":"web/220511_blog_0","frontmatter":{"title":"0. 블로그 만들기asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf","date":"2022.05.11","idx":"1"}}]}},"pageContext":{}},
     "staticQueryHashes": ["63159454"]}
