@@ -7,6 +7,10 @@ html, body, #___gatsby, #gatsby-focus-wrapper {
   text-decoration: none;
 }
 
+.content {
+  height: calc(100% - 60px);  
+}
+
 h2 {
   margin: 0;
   color: #5f5e5e;

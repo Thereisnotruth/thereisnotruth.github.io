@@ -18,6 +18,9 @@ const Sidebar = () => (
       <div className="sidebar-profile-intro">
         thereisnotruth
       </div>
+      <div className="sidebar-profile-intro">
+        고태진
+      </div>
     </div>
     <div className="sidebar-nav">
       <Link

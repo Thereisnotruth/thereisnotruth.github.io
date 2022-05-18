@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
       <div className="right">
       <Searchbar />
       <div className="content">
-        <main>{children}</main>
+        {children}
       </div>
       </div>
     </div>
