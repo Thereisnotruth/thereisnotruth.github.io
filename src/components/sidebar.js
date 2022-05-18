@@ -78,18 +78,28 @@ const Sidebar = () => (
         Contact 
       </div>
       <div className="sidebar-link-item">
-        <StaticImage
-          className="sidebar-link-icon"
-          src="../images/github-brands.svg"
-          alt=""
-        />
+        <a
+          href="https://github.com/Thereisnotruth"
+          target="_blank"
+        >
+          <StaticImage
+            className="sidebar-link-icon"
+            src="../images/github-brands.svg"
+            alt="github"
+          />
+        </a>
       </div>
       <div className="sidebar-link-item">
-        <StaticImage
-          className="sidebar-link-icon"
-          src="../images/linkedin-in-brands.svg"
-          alt=""
-        />
+        <a
+          href="https://www.linkedin.com/in/%ED%83%9C%EC%A7%84-%EA%B3%A0-76574b199/"
+          target="_blank"
+        >
+          <StaticImage
+            className="sidebar-link-icon"
+            src="../images/linkedin-in-brands.svg"
+            alt="linkedin"
+          />
+        </a>
       </div>
     </div>
     <div className="sidebar-mod">
