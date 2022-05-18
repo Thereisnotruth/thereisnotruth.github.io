@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-index-js",
     "path": "/",
-    "result": {"data":{"allMdx":{"nodes":[{"id":"6a1e6884-562f-56c9-bc8b-9cddce119d30","slug":"web/220511_blog_0","frontmatter":{"date":"2022.05.11","category":"web","title":"0. 블로그 만들기asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf"},"excerpt":"깃 블로그를 만들고 첫 번째로 쓰는 글의 주제로 무엇을 다룰까 하다가 블로그를 만들게 된 계기부터 시작해서 블로그를 만드는 과정을 글로 정리 해보려고 한다. 블로그는 아직 미완성이지만, 글을 작성하고, 그 글을 읽을 수 있을 수준까지는 완성되었기에 …"}]}},"pageContext":{}},
+    "result": {"data":{"allMdx":{"nodes":[{"id":"6a1e6884-562f-56c9-bc8b-9cddce119d30","slug":"web/220511_blog_0","frontmatter":{"date":"2022.05.11","category":"web","title":"0. 블로그 만들기"},"excerpt":"깃 블로그를 만들고 첫 번째로 쓰는 글의 주제로 무엇을 다룰까 하다가 블로그를 만들게 된 계기부터 시작해서 블로그를 만드는 과정을 글로 정리 해보려고 한다. 블로그는 아직 미완성이지만, 글을 작성하고, 그 글을 읽을 수 있을 수준까지는 완성되었기에 …"}]}},"pageContext":{}},
     "staticQueryHashes": ["63159454"]}
