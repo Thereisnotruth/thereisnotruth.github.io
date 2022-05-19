@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 
-import "../styles/card.css"
+import "../styles/list_card.css"
 
 const CategoriesPage = ({ data }) => {
   const [curCategory, setCurCategory] = React.useState("none");
@@ -32,7 +32,7 @@ const CategoriesPage = ({ data }) => {
     for (let category in categories) {
       ret.push(
         <Link className="link" to={category} key={category}>
-          <div className="card">
+          <div className="list-card">
             <h2>{category}</h2>
           </div>
         </Link>

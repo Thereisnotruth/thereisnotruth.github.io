@@ -5,7 +5,7 @@ import { MDXProvider } from "@mdx-js/react"
 
 import CodeBlock from "./code_block"
 
-import "../styles/post_card.css"
+import "../styles/card.css"
 
 const components = {
   code: CodeBlock
@@ -13,7 +13,7 @@ const components = {
 
 const PostCard = ({ children, frontmatter }) => {
   return (
-    <div className="post-card">
+    <div className="card">
       <h2>{frontmatter.title}</h2>
       <hr />
       <MDXProvider components={components}>

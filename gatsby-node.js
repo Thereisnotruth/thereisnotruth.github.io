@@ -48,7 +48,6 @@ exports.createPages = async ({ graphql, actions, reporter}) => {
     }
   });
 
-  console.log(categories)
   for (let category in categories) {
     const path = `categories/${category}`;
     createPage({

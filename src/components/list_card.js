@@ -1,7 +1,5 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-
 
 import "../styles/list_card.css"
 
