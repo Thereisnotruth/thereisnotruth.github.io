@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-archive-js",
     "path": "/archive/",
-    "result": {"data":{"allMdx":{"nodes":[{"id":"6a1e6884-562f-56c9-bc8b-9cddce119d30","slug":"web/220511_blog_0","frontmatter":{"title":"0. 블로그 만들기","date":"2022.05.11","idx":"1"}}]}},"pageContext":{}},
+    "result": {"data":{"allMdx":{"nodes":[{"id":"77bab732-9373-596f-b1c8-badcb59ca613","slug":"web/220522_web_2/","frontmatter":{"title":"1. 개발환경","date":"2022.05.22","idx":"2"}},{"id":"6f7ece3c-5202-56cb-8714-72279d255f1e","slug":"web/220511_web_1/","frontmatter":{"title":"0. 블로그 만들기","date":"2022.05.11","idx":"1"}}]}},"pageContext":{}},
     "staticQueryHashes": ["63159454"]}
