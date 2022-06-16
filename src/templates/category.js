@@ -22,7 +22,7 @@ const CategoryTemplate = ({ data, pageContext, location }) => {
         posts
         .slice(offset, offset + limit)
         .map((node, index) => (
-          <Link className="link" to={`../../${node.slug}`} key={index}>
+          <Link className="link" to={"/" + node.slug} key={index}>
             <ListCard
               frontmatter={node.frontmatter}
             >

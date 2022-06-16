@@ -14,10 +14,10 @@ const Layout = ({ children }) => {
       <Seo title="네모장" />
       <Sidebar />
       <div className="right">
-      <Searchbar />
-      <div className="content">
-        {children}
-      </div>
+        <Searchbar />
+        <div className="content">
+          {children}
+        </div>
       </div>
     </div>
   )
