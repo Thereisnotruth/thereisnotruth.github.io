@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-index-js",
     "path": "/",
-    "result": {"data":{"allMdx":{"nodes":[{"id":"77bab732-9373-596f-b1c8-badcb59ca613","slug":"web/220522_web_2/","frontmatter":{"date":"2022.05.22","category":"web","title":"1. 개발환경"},"excerpt":"이제 로컬에 블로그를 작성할 환경을 만들어 주어야 한다. 1. Repository 우선 블로그에 관련된 파일들을 저장할 Github Repository를 생성해야 한다. Repository의 이름은 (Github username).github.io …"},{"id":"6f7ece3c-5202-56cb-8714-72279d255f1e","slug":"web/220511_web_1/","frontmatter":{"date":"2022.05.11","category":"web","title":"0. 블로그 만들기"},"excerpt":"깃 블로그를 만들고 첫 번째로 쓰는 글의 주제로 무엇을 다룰까 하다가 블로그를 만들게 된 계기부터 시작해서 블로그를 만드는 과정을 글로 정리 해보려고 한다. 블로그는 아직 미완성이지만, 글을 작성하고, 그 글을 읽을 수 있을 수준까지는 완성되었기에 …"}]}},"pageContext":{}},
-    "staticQueryHashes": ["63159454"]}
+    "result": {"data":{"allMdx":{"nodes":[{"id":"6672d587-4055-50bb-b079-135a291f758f","slug":"algorithm/220802_algo_1/","frontmatter":{"date":"2022.08.02","category":"algorithm","title":"SWEA/D3/1289. 원재의 메모리 복구하기"},"excerpt":"D3) 1289. 원재의 메모리 복구하기 문제 원재가 컴퓨터를 만지다가 실수를 저지르고 말았다. 메모리가 초기화된 것이다. 다행히 원래 메모리가 무슨 값이었는지 알고 있었던 원재는 바로 원래 값으로 되돌리려고 했으나 메모리 값을 바꿀 때 또 문제가 …"}]}},"pageContext":{}},
+    "staticQueryHashes": ["3190259125","63159454"]}

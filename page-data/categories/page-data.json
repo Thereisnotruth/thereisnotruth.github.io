@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-categories-js",
     "path": "/categories/",
-    "result": {"data":{"allMdx":{"nodes":[{"id":"77bab732-9373-596f-b1c8-badcb59ca613","frontmatter":{"category":"web"}},{"id":"6f7ece3c-5202-56cb-8714-72279d255f1e","frontmatter":{"category":"web"}}]}},"pageContext":{}},
-    "staticQueryHashes": ["63159454"]}
+    "result": {"data":{"allMdx":{"nodes":[{"id":"6672d587-4055-50bb-b079-135a291f758f","frontmatter":{"category":"algorithm"}}]}},"pageContext":{}},
+    "staticQueryHashes": ["3190259125","63159454"]}

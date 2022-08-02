@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-archive-js",
     "path": "/archive/",
-    "result": {"data":{"allMdx":{"nodes":[{"id":"77bab732-9373-596f-b1c8-badcb59ca613","slug":"web/220522_web_2/","frontmatter":{"title":"1. 개발환경","date":"2022.05.22","idx":"2"}},{"id":"6f7ece3c-5202-56cb-8714-72279d255f1e","slug":"web/220511_web_1/","frontmatter":{"title":"0. 블로그 만들기","date":"2022.05.11","idx":"1"}}]}},"pageContext":{}},
-    "staticQueryHashes": ["63159454"]}
+    "result": {"data":{"allMdx":{"nodes":[{"id":"6672d587-4055-50bb-b079-135a291f758f","slug":"algorithm/220802_algo_1/","frontmatter":{"title":"SWEA/D3/1289. 원재의 메모리 복구하기","date":"2022.08.02","idx":"1"}}]}},"pageContext":{}},
+    "staticQueryHashes": ["3190259125","63159454"]}
