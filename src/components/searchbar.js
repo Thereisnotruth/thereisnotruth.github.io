@@ -49,10 +49,19 @@ const Searchbar = ({ data }) => {
   }
   return (
     <div className="searchbar">
-      <div className="searchbar-input">
+      <input type="checkbox" id="toggle" />
+      <label for="toggle" className="searchbar-button">
+        <StaticImage
+          className="searchbar-icon"
+          src="../images/magnifying-glass-solid.svg"
+          alt=""
+        />
+      </label>
+      <div className="searchbar-search">
         <input
-          style={{ width: "600px", height: "30px" }}
+          className="searchbar-input"
           onChange={changeInput}  
+          placeholder="search"
         />
         {
           state.filteredData.length !== 0 && state.query ?
@@ -63,14 +72,6 @@ const Searchbar = ({ data }) => {
             ""
         }
       </div>
-      <div className="searchbar-button">
-        <StaticImage
-          className="searchbar-icon"
-          src="../images/magnifying-glass-solid.svg"
-          alt=""
-          />
-      </div>
-      
     </div>
   )
 }

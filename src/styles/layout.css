@@ -16,8 +16,7 @@
 
 @media all and (max-width: 1110px) {
   .content {
-    float: left;
     width: 94%;
-    margin: 30px 3%;
+    margin: 5px 3%;
   }
 }
