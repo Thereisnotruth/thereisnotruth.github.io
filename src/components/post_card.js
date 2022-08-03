@@ -16,7 +16,7 @@ const PostCard = ({ children, frontmatter }) => {
     <div className="card">
       <h2>{frontmatter.title}</h2>
       <hr />
-      <MDXProvider components={components}>
+      <MDXProvider>
         <MDXRenderer>{children}</MDXRenderer>
       </MDXProvider>
     </div>
