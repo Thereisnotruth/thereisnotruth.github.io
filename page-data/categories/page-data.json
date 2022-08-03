@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-categories-js",
     "path": "/categories/",
-    "result": {"data":{"allMdx":{"nodes":[{"id":"6672d587-4055-50bb-b079-135a291f758f","frontmatter":{"category":"algorithm"}}]}},"pageContext":{}},
+    "result": {"data":{"allMdx":{"nodes":[{"id":"157f51ad-19f3-5f60-877f-db26d87914fb","frontmatter":{"category":"algorithm"}}]}},"pageContext":{}},
     "staticQueryHashes": ["3190259125","63159454"]}

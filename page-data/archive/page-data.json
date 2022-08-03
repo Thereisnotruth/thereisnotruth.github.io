@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-archive-js",
     "path": "/archive/",
-    "result": {"data":{"allMdx":{"nodes":[{"id":"6672d587-4055-50bb-b079-135a291f758f","slug":"algorithm/220802_algo_1/","frontmatter":{"title":"SWEA/D3/1289. 원재의 메모리 복구하기","date":"2022.08.02","idx":"1"}}]}},"pageContext":{}},
+    "result": {"data":{"allMdx":{"nodes":[{"id":"157f51ad-19f3-5f60-877f-db26d87914fb","slug":"algorithm/220802_algo_1/","frontmatter":{"title":"SWEA/D3/1289. 원재의 메모리 복구하기","date":"2022.08.02","idx":"1"}}]}},"pageContext":{}},
     "staticQueryHashes": ["3190259125","63159454"]}
