@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-categories-js",
     "path": "/categories/",
-    "result": {"data":{"allMdx":{"nodes":[{"id":"d1eaca78-abaa-52c1-8f7a-56ec609953bc","frontmatter":{"category":"java"}},{"id":"c8fdab25-8bd3-5c51-ab01-0c3f859581d1","frontmatter":{"category":"algorithm"}},{"id":"6672d587-4055-50bb-b079-135a291f758f","frontmatter":{"category":"algorithm"}}]}},"pageContext":{}},
+    "result": {"data":{"allMdx":{"nodes":[{"id":"4f10b998-2ab8-5184-8ade-9904a9d03fb2","frontmatter":{"category":"algorithm"}},{"id":"d1eaca78-abaa-52c1-8f7a-56ec609953bc","frontmatter":{"category":"java"}},{"id":"c8fdab25-8bd3-5c51-ab01-0c3f859581d1","frontmatter":{"category":"algorithm"}},{"id":"6672d587-4055-50bb-b079-135a291f758f","frontmatter":{"category":"algorithm"}}]}},"pageContext":{}},
     "staticQueryHashes": ["3190259125","63159454"]}
