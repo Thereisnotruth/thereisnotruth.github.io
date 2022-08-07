@@ -7,7 +7,15 @@ idx: "3"
 
 JAVA의 객체를 파일로 저장하고 읽어들이기 위해서는 해당 객체의 클래스가 Serializable 인터페이스를 상속받은 클래스이어야 한다.
 
-객체 파일 저장 예제 코드
+쓰기
+
+ObjectOutputStream -> FileOutputStream -> File
+
+읽기
+
+File -> FileInputStream -> ObjectInputStream
+
+### 객체 파일 저장 예제 코드
 
 ```java
 public void saveData() {
@@ -20,7 +28,7 @@ public void saveData() {
 }
 ```
 
-객체 파일 읽기 예제 코드
+### 객체 파일 읽기 예제 코드
 
 ```java
 public void loadData() {
