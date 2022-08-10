@@ -1,0 +1,207 @@
+---
+title: "Baekjoon/G5/17406. 배열 돌리기 4"
+date: "2022-08-10"
+category: "algorithm"
+idx: "5"
+---
+
+## G5) 17406. 배열 돌리기 4
+
+### 문제
+
+크기가 N×M 크기인 배열 A가 있을때, 배열 A의 값은 각 행에 있는 모든 수의 합 중 최솟값을 의미한다. 배열 A가 아래와 같은 경우 1행의 합은 6, 2행의 합은 4, 3행의 합은 15이다. 따라서, 배열 A의 값은 4이다.
+
+```
+1 2 3
+2 1 1
+4 5 6
+```
+
+배열은 회전 연산을 수행할 수 있다. 회전 연산은 세 정수 (r, c, s)로 이루어져 있고, 가장 왼쪽 윗 칸이 (r-s, c-s), 가장 오른쪽 아랫 칸이 (r+s, c+s)인 정사각형을 시계 방향으로 한 칸씩 돌린다는 의미이다. 배열의 칸 (r, c)는 r행 c열을 의미한다.
+
+예를 들어, 배열 A의 크기가 6×6이고, 회전 연산이 (3, 4, 2)인 경우에는 아래 그림과 같이 회전하게 된다.
+
+```
+A[1][1]   A[1][2] → A[1][3] → A[1][4] → A[1][5] → A[1][6]
+             ↑                                       ↓
+A[2][1]   A[2][2]   A[2][3] → A[2][4] → A[2][5]   A[2][6]
+             ↑         ↑                   ↓         ↓
+A[3][1]   A[3][2]   A[3][3]   A[3][4]   A[3][5]   A[3][6]
+             ↑         ↑                   ↓         ↓
+A[4][1]   A[4][2]   A[4][3] ← A[4][4] ← A[4][5]   A[4][6]
+             ↑                                       ↓
+A[5][1]   A[5][2] ← A[5][3] ← A[5][4] ← A[5][5] ← A[5][6]
+
+A[6][1]   A[6][2]   A[6][3]   A[6][4]   A[6][5]   A[6][6]
+```
+
+회전 연산이 두 개 이상이면, 연산을 수행한 순서에 따라 최종 배열이 다르다.
+
+다음은 배열 A의 크기가 5×6이고, 회전 연산이 (3, 4, 2), (4, 2, 1)인 경우의 예시이다.
+
+
+```
+1 2 3 2 5 6        1 8 2 3 2 5        1 8 2 3 2 5
+3 8 7 2 1 3        3 2 3 7 2 6        3 2 3 7 2 6
+8 2 3 1 4 5   →   8 4 5 1 1 3   →   3 8 4 1 1 3
+3 4 5 1 1 1        3 3 1 1 4 5        9 3 5 1 4 5
+9 3 2 1 4 3        9 2 1 4 3 1        2 1 1 4 3 1
+```
+
+```
+1 2 3 2 5 6        1 2 3 2 5 6        1 8 2 3 2 5
+3 8 7 2 1 3        3 8 7 2 1 3        3 8 2 7 2 6
+8 2 3 1 4 5   →   3 8 2 1 4 5   →   3 4 3 1 1 3
+3 4 5 1 1 1        9 4 3 1 1 1        9 2 1 1 4 5
+9 3 2 1 4 3        3 2 5 1 4 3        3 5 1 4 3 1
+```
+
+배열 A에 (3, 4, 2), (4, 2, 1) 순서로 연산을 수행하면 배열 A의 값은 12, (4, 2, 1), (3, 4, 2) 순서로 연산을 수행하면 15 이다.
+
+배열 A와 사용 가능한 회전 연산이 주어졌을 때, 배열 A의 값의 최솟값을 구해보자. 회전 연산은 모두 한 번씩 사용해야 하며, 순서는 임의로 정해도 된다.
+
+### 입력
+
+첫째 줄에 배열 A의 크기 N, M, 회전 연산의 개수 K가 주어진다.
+
+둘째 줄부터 N개의 줄에 배열 A에 들어있는 수 A[i][j]가 주어지고, 다음 K개의 줄에 회전 연산의 정보 r, c, s가 주어진다.
+
+### 출력
+
+배열 A의 값의 최솟값을 출력한다.
+
+### 제한
+
+- 3 ≤ N, M ≤ 50
+
+- 1 ≤ K ≤ 6
+
+- 1 ≤ A[i][j] ≤ 100
+
+- 1 ≤ s
+
+- 1 ≤ r-s < r < r+s ≤ N
+
+- 1 ≤ c-s < c < c+s ≤ M
+
+### 풀이
+
+연산을 수행하는 순서가 중요하기 때문에 순열 문제로 보고 풀었다.
+
+처음 이 문제를 풀 때에는 재귀로 순열을 도는 중간 바로바로 회전을 진행 했는데
+
+테스트 케이스도 결과도 제대로 나오고 로직 상 문제가 없다고 판단했지만, 어디서 참조를 잘못 했던건지 결과로 오답만 나올 뿐이었다.
+
+결국 순열을 돌며 연산을 바로 하는 것이 아닌 리스트에 연산을 순서대로 저장해두었다가 재귀의 베이스 케이스에서 리스트의 연산을 차례대로 진행한 결과 답을 맞출 수 있었다.
+
+### 코드
+
+```java
+
+import java.util.*;
+import java.io.*;
+
+public class Main {
+	static int N, M, K, r, c, s, ans;
+	static int[][] A, tmp, Ks;
+	static boolean[] isSelected;
+	static ArrayList<int[]> order;
+	public static void main(String[] args) throws Exception { 
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		K = Integer.parseInt(st.nextToken());
+		
+		A = new int[N + 1][M + 1];
+		Ks = new int[K][3];
+		isSelected = new boolean[K];
+		tmp = new int[N + 1][M + 1];
+		order = new ArrayList<>();
+		ans = 987654321;
+
+		for (int i = 1; i <= N; i++) {
+			st = new StringTokenizer(br.readLine());
+			for (int j = 1; j <= M; j++) {
+				A[i][j] = Integer.parseInt(st.nextToken());
+			}
+		}
+		
+		for (int i = 0; i < K; i++) {
+			st = new StringTokenizer(br.readLine());
+			for (int j = 0; j < 3; j++) {
+				Ks[i][j] = Integer.parseInt(st.nextToken());
+			}
+		}
+
+		perm(0, order);
+		
+		bw.write(ans + "\n");
+		bw.flush();
+		br.close();
+		bw.close();
+	}
+
+	static void perm(int cnt, List<int[]> o) {
+		if (cnt == K) {
+			for (int i = 1; i <= N; i++) {
+				tmp[i] = A[i].clone();
+			}
+			
+			for (int i = 0; i < K; i++) {
+				rotate(o.get(i)[0], o.get(i)[1], o.get(i)[2]);
+			}
+			for (int i = 1; i <= N; i++) {
+				int sum = 0;
+				for (int j = 1; j <= M; j++) {
+					sum += tmp[i][j];
+				}
+				ans = Math.min(ans, sum);
+			}
+			return;
+		}
+		
+		
+		
+		for (int i = 0; i < K; i++) {
+			if (isSelected[i]) continue;
+			isSelected[i] = true;
+			o.add(Ks[i]);
+			perm(cnt + 1, o);
+			isSelected[i] = false;
+			o.remove(o.size() - 1);
+		}
+	}
+	
+	static void rotate(int r, int c, int s) {
+		for (int i = 0; i < s; i++) {
+			int startY = r - s + i;
+			int startX = c - s + i;
+			int endY = r + s - i;
+			int endX = c + s - i;
+			int startNum = tmp[startY][startX];
+			// 왼쪽
+			for (int j = startY; j < endY; j++) {
+				tmp[j][startX] = tmp[j + 1][startX];
+			}
+			// 아래
+			for (int j = startX; j < endX; j++) {
+				tmp[endY][j] = tmp[endY][j + 1];
+			}
+			// 오른쪽
+			for (int j = endY; j > startY; j--) {
+				tmp[j][endX] = tmp[j - 1][endX];
+			}
+			// 위
+			for (int j = endX; j > startX; j--) {
+				tmp[startY][j] = tmp[startY][j - 1];
+			}
+			tmp[startY][startX + 1] = startNum;
+		}
+	}
+}
+
+```
