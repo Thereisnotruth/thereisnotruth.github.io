@@ -1,0 +1,137 @@
+---
+title: "Baekjoon/S2/14889. 스타트와 링크"
+date: "2022-08-12"
+category: "algorithm"
+idx: "6"
+---
+
+## S2) 14889. 스타트와 링크
+
+### 문제
+
+오늘은 스타트링크에 다니는 사람들이 모여서 축구를 해보려고 한다. 축구는 평일 오후에 하고 의무 참석도 아니다. 축구를 하기 위해 모인 사람은 총 N명이고 신기하게도 N은 짝수이다. 이제 N/2명으로 이루어진 스타트 팀과 링크 팀으로 사람들을 나눠야 한다.
+
+BOJ를 운영하는 회사 답게 사람에게 번호를 1부터 N까지로 배정했고, 아래와 같은 능력치를 조사했다. 능력치 Sij는 i번 사람과 j번 사람이 같은 팀에 속했을 때, 팀에 더해지는 능력치이다. 팀의 능력치는 팀에 속한 모든 쌍의 능력치 Sij의 합이다. Sij는 Sji와 다를 수도 있으며, i번 사람과 j번 사람이 같은 팀에 속했을 때, 팀에 더해지는 능력치는 Sij와 Sji이다.
+
+N=4이고, S가 아래와 같은 경우를 살펴보자.
+
+| |1|2|3|4|
+|---|---|---|---|---|
+|1| |1|2|3|
+|2|4| |5|6|
+|3|7|1| |2|
+|4|3|4|5| |
+예를 들어, 1, 2번이 스타트 팀, 3, 4번이 링크 팀에 속한 경우에 두 팀의 능력치는 아래와 같다.
+
+스타트 팀: S12 + S21 = 1 + 4 = 5
+링크 팀: S34 + S43 = 2 + 5 = 7
+1, 3번이 스타트 팀, 2, 4번이 링크 팀에 속하면, 두 팀의 능력치는 아래와 같다.
+
+스타트 팀: S13 + S31 = 2 + 7 = 9
+링크 팀: S24 + S42 = 6 + 4 = 10
+축구를 재미있게 하기 위해서 스타트 팀의 능력치와 링크 팀의 능력치의 차이를 최소로 하려고 한다. 위의 예제와 같은 경우에는 1, 4번이 스타트 팀, 2, 3번 팀이 링크 팀에 속하면 스타트 팀의 능력치는 6, 링크 팀의 능력치는 6이 되어서 차이가 0이 되고 이 값이 최소이다.
+
+### 입력
+
+첫째 줄에 N(4 ≤ N ≤ 20, N은 짝수)이 주어진다. 둘째 줄부터 N개의 줄에 S가 주어진다.
+
+각 줄은 N개의 수로 이루어져 있고, i번 줄의 j번째 수는 Sij 이다. Sii는 항상 0이고, 나머지 Sij는 1보다 크거나 같고, 100보다 작거나 같은 정수이다.
+
+### 출력
+
+첫째 줄에 스타트 팀과 링크 팀의 능력치의 차이의 최솟값을 출력한다.
+
+### 풀이
+
+N개 중 절반을 골라 답을 구하는 조합 문제였다.
+
+선택한 N / 2개의 index를 배열에 저장하고, 이중 루프문을 돌면서 두 인덱스 모두 선택된 인덱스인 경우 합계에 더해주고, 두 인덱스 모두 선택되지 않은 인덱스인 경우 합계에서 빼준 다음,
+
+답과 비교하여 더 작은 값을 답 변수에 저장하였다.
+
+조합의 모든 경우의 수는 서로 대칭을 이루기 때문에 0번 인덱스를 선택하는 경우와 선택하지 않는 경우로 나누어 가지치기 해주었다.
+
+예를 들어, N = 4인 경우 가능한 모든 조합을 구해보면
+
+ 1. true true false false
+
+ 2. true false true false
+
+ 3. true false false true
+
+ 4. false true true false
+
+ 5. false true false true
+
+ 6. false false true true
+ 
+1번과 6번, 2번과 5번, 3번과 4번이 서로 대칭을 이루기 때문에 차이의 절대값을 이루는 이번 문제에서 전체 조합을 구하지 않고 연산 수를 반으로 줄일 수 있었다.
+
+### 코드
+
+```java
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	static int N, ans;
+	static int[] selectedIdx;
+	static boolean[] isSelected;
+	static int[][] board;
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringTokenizer st;
+		
+		N = Integer.parseInt(br.readLine());
+		
+		board = new int[N][N];
+		selectedIdx = new int[N / 2];
+		ans = 987654321;
+		
+		for (int i = 0; i < N; i++) {
+			st = new StringTokenizer(br.readLine());
+			for (int j = 0; j < N; j++) {
+				board[i][j] = Integer.parseInt(st.nextToken());
+			}
+		}
+		comb(0, 0);
+
+		bw.write(ans + "\n");
+		bw.flush();
+		br.close();
+		bw.close();
+	}
+	
+	public static void comb (int cnt, int start) {
+		if (cnt == N / 2) {
+            if (selectedIdx[0] != 0) {
+				return;
+			}
+			isSelected = new boolean[N];
+			for (int i = 0; i < N / 2; i++) {
+				isSelected[selectedIdx[i]] = true;
+			}
+			int sum = 0;
+			for (int i = 0; i < N - 1; i++) {
+				for (int j = i + 1; j < N; j++) {
+					if (isSelected[i] && isSelected[j]) {
+						sum += (board[i][j] + board[j][i]);
+					} else if (!isSelected[i] && !isSelected[j]) {
+						sum -= (board[i][j] + board[j][i]);
+					}
+				}
+			}
+			
+			ans = Math.min(Math.abs(sum), ans);
+			return;
+		}
+		for (int i = start; i < N; i++) {
+			
+			selectedIdx[cnt] = i;
+			comb(cnt + 1, i + 1);
+		}
+	}
+}
+```
