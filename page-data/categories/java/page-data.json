@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-templates-category-js",
     "path": "/categories/java",
-    "result": {"data":{"allMdx":{"nodes":[{"id":"d1eaca78-abaa-52c1-8f7a-56ec609953bc","slug":"java/220808_java_1/","frontmatter":{"date":"2022.08.08","category":"java","title":"JAVA 파일 입출력"},"excerpt":"JAVA의 객체를 파일로 저장하고 읽어들이기 위해서는 해당 객체의 클래스가 Serializable 인터페이스를 상속받은 클래스이어야 한다. 쓰기 ObjectOutputStream -> FileOutputStream -> File 읽기 File -> …"}]}},"pageContext":{"category":"java"}},
+    "result": {"data":{"allMdx":{"nodes":[{"id":"8cbb80f4-f67d-58b5-aa3b-1e500d98db84","slug":"java/220808_java_1/","frontmatter":{"date":"2022.08.08","category":"java","title":"JAVA 파일 입출력"},"excerpt":"JAVA의 객체를 파일로 저장하고 읽어들이기 위해서는 해당 객체의 클래스가 Serializable 인터페이스를 상속받은 클래스이어야 한다. 쓰기 ObjectOutputStream -> FileOutputStream -> File 읽기 File -> …"}]}},"pageContext":{"category":"java"}},
     "staticQueryHashes": ["3190259125","63159454"]}
