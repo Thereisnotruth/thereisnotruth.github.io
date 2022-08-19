@@ -11,7 +11,7 @@ const PostTemplate = ({ data, pageContext, location }) => {
       <PostCard frontmatter={data.mdx.frontmatter}>
         {data.mdx.body}
       </PostCard>
-      <Utterances repo="thereisnotruth/thereisnotruth.github.io" theme="github-light" />
+      <Utterances repo="thereisnotruth/thereisnotruth.github.io" theme="github-light"/>
     </Layout>
   )
 }
