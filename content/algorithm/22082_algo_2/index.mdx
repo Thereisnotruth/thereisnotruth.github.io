@@ -1,0 +1,144 @@
+---
+title: "Baekjoon/P5/2887. 행성 터널"
+date: "2022-08-23"
+category: "algorithm"
+idx: "10"
+---
+
+## P5) 2887. 행성 터널
+
+### 문제
+
+때는 2040년, 이민혁은 우주에 자신만의 왕국을 만들었다. 왕국은 N개의 행성으로 이루어져 있다. 민혁이는 이 행성을 효율적으로 지배하기 위해서 행성을 연결하는 터널을 만들려고 한다.
+
+행성은 3차원 좌표위의 한 점으로 생각하면 된다. 두 행성 A(xA, yA, zA)와 B(xB, yB, zB)를 터널로 연결할 때 드는 비용은 min(|xA-xB|, |yA-yB|, |zA-zB|)이다.
+
+민혁이는 터널을 총 N-1개 건설해서 모든 행성이 서로 연결되게 하려고 한다. 이때, 모든 행성을 터널로 연결하는데 필요한 최소 비용을 구하는 프로그램을 작성하시오.
+
+### 입력
+
+첫째 줄에 행성의 개수 N이 주어진다. (1 ≤ N ≤ 100,000) 다음 N개 줄에는 각 행성의 x, y, z좌표가 주어진다. 좌표는 -1e9보다 크거나 같고, 1e9보다 작거나 같은 정수이다. 한 위치에 행성이 두 개 이상 있는 경우는 없다. 
+
+### 출력
+
+첫째 줄에 모든 행성을 터널로 연결하는데 필요한 최소 비용을 출력한다.
+
+### 풀이
+
+Kruskal 알고리즘을 사용해 최소 신장 트리를 생성하는 문제였다.
+
+노드(행성)간 가중치는 두 행성간의 x좌표 차이의 절대값, y좌표 차이의 절대값, z좌표 차이의 절대값 중 최소값이기 때문에
+
+x, y, z좌표들을 각각 다른 배열에 저장한 후 행성간 좌표 값의 차이를 최소로 하기 위해 오름차순으로 정렬해주었다.
+
+이후 행성간의 좌표 차이를 우선순위 큐에 집어넣고, Kruskal 알고리즘을 적용하여 답을 구했다.
+
+### 코드
+
+```java
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	static int N;
+	static long ans;
+	static int[] parents;
+	static Node[] arrX, arrY, arrZ;
+	static class Node implements Comparable<Node> {
+		int num, value;
+		public Node (int num, int value) {
+			this.num = num;
+			this.value = value;
+		}
+		
+		@Override
+		public int compareTo(Node node) {
+			return this.value - node.value;
+		}
+	}
+	static int find_parent(int n) {
+		if (parents[n] != n) {
+			parents[n] = find_parent(parents[n]);
+		}
+		return parents[n];
+	}
+	static void union(int a, int b) {
+		a = find_parent(a);
+		b = find_parent(b);
+		
+		if (a > b) {
+			parents[b] = a;
+		} else {
+			parents[a] = b;
+		}
+	}
+	static class Edge implements Comparable<Edge> {
+		int from, to, cost;
+		public Edge (int from, int to, int cost) {
+			this.from = from;
+			this.to = to;
+			this.cost = cost;
+		}
+		
+		@Override
+		public int compareTo(Edge e) {
+			return this.cost - e.cost;
+		}
+	}
+	static PriorityQueue<Edge> pq;
+	public static void main (String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringTokenizer st;
+		
+		N = Integer.parseInt(br.readLine());
+		
+		parents = new int[N];
+		for (int i = 0; i < N; i++) {
+			parents[i] = i;
+		}
+		arrX = new Node[N];
+		arrY = new Node[N];
+		arrZ = new Node[N];
+		pq = new PriorityQueue<>();
+		
+		for (int i = 0; i < N; i++) {
+			st = new StringTokenizer(br.readLine());
+			
+			int x = Integer.parseInt(st.nextToken());
+			int y = Integer.parseInt(st.nextToken());
+			int z = Integer.parseInt(st.nextToken());
+			
+			arrX[i] = new Node(i, x);
+			arrY[i] = new Node(i, y);
+			arrZ[i] = new Node(i, z);
+		}
+		
+		Arrays.sort(arrX);
+		Arrays.sort(arrY);
+		Arrays.sort(arrZ);
+		
+		for (int i = 0; i < N - 1; i++) {
+			pq.add(new Edge(arrX[i].num, arrX[i + 1].num, arrX[i + 1].value - arrX[i].value));
+			pq.add(new Edge(arrY[i].num, arrY[i + 1].num, arrY[i + 1].value - arrY[i].value));
+			pq.add(new Edge(arrZ[i].num, arrZ[i + 1].num, arrZ[i + 1].value - arrZ[i].value));
+		}
+		
+		while (!pq.isEmpty()) {
+			Edge cur = pq.poll();
+			
+			if (find_parent(cur.from) == find_parent(cur.to)) continue;
+			
+			ans += cur.cost;
+			union(cur.from, cur.to);
+		}
+		
+		bw.write(ans + "\n");
+		bw.flush();
+		br.close();
+		bw.close();
+	}
+}
+
+```
