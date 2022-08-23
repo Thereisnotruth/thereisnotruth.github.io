@@ -50,7 +50,7 @@ const Searchbar = ({ data }) => {
   return (
     <div className="searchbar">
       <input type="checkbox" id="toggle" />
-      <label for="toggle" className="searchbar-button">
+      <label htmlFor="toggle" className="searchbar-button">
         <StaticImage
           className="searchbar-icon"
           src="../images/magnifying-glass-solid.svg"

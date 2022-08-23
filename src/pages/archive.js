@@ -11,7 +11,7 @@ const ArchivePage = ({ data }) => {
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
                   "Aug", "Sep", "Oct", "Nov", "Dec"];
   data.allMdx.nodes.map((node) => {
-    console.log(node)
+    
     const year = node.frontmatter.date.split('.')[0];
     const month = node.frontmatter.date.split('.')[1];
     const day = node.frontmatter.date.split('.')[2];
@@ -19,7 +19,7 @@ const ArchivePage = ({ data }) => {
       date[year] = {};
       date[year][month] = {};
       date[year][month][day] = [node];
-    } else if (date[year][month] == undefined) {
+    } else if (date[year][month] === undefined) {
       date[year][month] = {};
       date[year][month][day] = [node];
     } else if (date[year][month][day] === undefined) {
@@ -27,8 +27,7 @@ const ArchivePage = ({ data }) => {
     } else {
       date[year][month][day].push(node);
     }
-  })
-  console.log(date);
+  });
   const showDate = () => {
     const ret = [];
     
@@ -45,15 +44,15 @@ const ArchivePage = ({ data }) => {
         ret.push(
         <div
           className="archive-month"
-          key={month}
+          key={year.concat(month)}
         >
           {months[month - 1]}
         </div>);
-        
         for (let day in date[year][month]) {
-          ret.push(<div
+          ret.push(
+		  <div
             className="archive-day"
-            key={day}
+            key={year.concat(month).concat(day)}
           >
             {day}
           </div>)
@@ -63,7 +62,7 @@ const ArchivePage = ({ data }) => {
               ret.push(
               <div
                 className="archive-day"
-                key={index}
+                key={year.concat(month).concat(day).concat(index)}
               />)
             }
             ret.push(
@@ -72,7 +71,7 @@ const ArchivePage = ({ data }) => {
                 to={`../${node.slug}`}>
                 <div
                   className="archive-title"
-                  key={node.frontmatter.idx}
+                  key={year.concat(month).concat(day).concat(index).concat(node.frontmatter.idx)}
                 >
                   {node.frontmatter.title}
                 </div>
