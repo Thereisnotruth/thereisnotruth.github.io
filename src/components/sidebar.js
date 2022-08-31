@@ -22,6 +22,41 @@ const Sidebar = () => (
         고태진
       </div>
     </div>
+    <div className="sidebar-link">
+      <div className="sidebar-link-header">
+        <hr className="sidebar-link-header-item" style={{float: "left"}}/>
+        <div className="sidebar-link-header-item">
+          Contact 
+        </div>
+        <hr className="sidebar-link-header-item" style={{float: "right"}}/>
+      </div>
+      <div>
+        <div className="sidebar-link-item">
+          <a
+            href="https://github.com/Thereisnotruth"
+            target="_blank"
+          >
+            <StaticImage
+              className="sidebar-link-icon"
+              src="../images/github-brands.svg"
+              alt="github"
+            />
+          </a>
+        </div>
+        <div className="sidebar-link-item">
+          <a
+            href="https://www.linkedin.com/in/%ED%83%9C%EC%A7%84-%EA%B3%A0-76574b199/"
+            target="_blank"
+          >
+            <StaticImage
+              className="sidebar-link-icon"
+              src="../images/linkedin-in-brands.svg"
+              alt="linkedin"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
     <div className="sidebar-nav">
       <Link
         className="sidebar-nav-item"
@@ -51,6 +86,19 @@ const Sidebar = () => (
       </Link>
       <Link
         className="sidebar-nav-item"
+        to="/categories"
+      >
+        <StaticImage
+          className="sidebar-nav-icon"
+          src="../images/hash.svg"
+          alt=""
+        />
+        <div className="sidebar-nav-name">
+          Tag
+        </div>
+      </Link>
+      <Link
+        className="sidebar-nav-item"
         to="/archive"
       >
         <StaticImage
@@ -75,42 +123,6 @@ const Sidebar = () => (
           About
         </div>
       </Link>
-    </div>
-    <div className="sidebar-link">
-      <div className="sidebar-link-header">
-        Contact 
-      </div>
-      <div className="sidebar-link-item">
-        <a
-          href="https://github.com/Thereisnotruth"
-          target="_blank"
-        >
-          <StaticImage
-            className="sidebar-link-icon"
-            src="../images/github-brands.svg"
-            alt="github"
-          />
-        </a>
-      </div>
-      <div className="sidebar-link-item">
-        <a
-          href="https://www.linkedin.com/in/%ED%83%9C%EC%A7%84-%EA%B3%A0-76574b199/"
-          target="_blank"
-        >
-          <StaticImage
-            className="sidebar-link-icon"
-            src="../images/linkedin-in-brands.svg"
-            alt="linkedin"
-          />
-        </a>
-      </div>
-    </div>
-    <div className="sidebar-mod">
-      <StaticImage
-        className="sidebar-mod-icon"
-        src="../images/moon-solid.svg"
-        alt=""
-      />
     </div>
   </div>
 )

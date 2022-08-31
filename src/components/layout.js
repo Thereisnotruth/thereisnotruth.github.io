@@ -5,7 +5,6 @@ import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/
 
 import Seo from "./seo"
 import Sidebar from "./sidebar"
-import Searchbar from "./searchbar"
 
 import "../styles/layout.css"
 
@@ -17,7 +16,6 @@ const Layout = ({ children }) => {
       <Seo title="네모장" />
       <Sidebar />
       <div className="right">
-        <Searchbar />
         <div className="content">
           {children}
         </div>
