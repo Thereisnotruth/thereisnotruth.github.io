@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgatsby_starter_default=self.webpackChunkgatsby_starter_default||[]).push([[682],{5465:function(e,t,a){a.r(t);var l=a(7294),r=a(1807);t.default=function(){return l.createElement(r.Z,null,l.createElement("div",{className:"card",style:{position:"relative",top:"20%"}},l.createElement("h1",null,"고태진"),l.createElement("h2",null,"thereisnotruth")))}}}]);
+//# sourceMappingURL=component---src-pages-about-js-72f18441c24b27fde94a.js.map
