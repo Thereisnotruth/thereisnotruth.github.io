@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-category-js",
+    "path": "/categories/DB",
+    "result": {"data":{"allMdx":{"nodes":[{"id":"34f0db6d-d203-58f1-bb69-79247e898044","slug":"db/220915_db_1/","frontmatter":{"date":"2022.09.15","category":"DB","title":"MySQL) SELECT"},"excerpt":"테이블로부터 데이터를 조회하는 명령어 * 는 모든 column DISTINCT 키워드를 사용하면 중복을 제거하여 조회 WHERE 키워드를 사용하여 조건에 맞는 데이터만 조회 가능 AND, OR, NOT으로 조건을 조합할 수 있음 ORDER BY로 정…"}]}},"pageContext":{"category":"DB"}},
+    "staticQueryHashes": ["63159454"]}
