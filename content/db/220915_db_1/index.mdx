@@ -1,0 +1,117 @@
+---
+title: "MySQL) SELECT"
+date: "2022-09-15"
+category: "DB"
+idx: "12"
+---
+
+- 테이블로부터 데이터를 조회하는 명령어
+
+- \*는 모든 column
+
+```sql
+// 기본 문법
+SELECT column1, column2, ...
+FROM table_name;
+
+SELECT *
+FROM table_name;
+```
+
+- DISTINCT 키워드를 사용하면 중복을 제거하여 조회
+
+```sql
+// DISTINCT
+SELECT DISTINCT column
+FROM table_name
+```
+
+- WHERE 키워드를 사용하여 조건에 맞는 데이터만 조회 가능
+
+```sql
+// WHERE
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition
+
+SELECT * FROM Customers
+WHERE CustomerID = 1;
+```
+
+- AND, OR, NOT으로 조건을 조합할 수 있음
+
+```sql
+// AND, OR, NOT
+SELECT column1, column2
+FROM table_name
+WHERE condition1 AND codition2 AND condition3;
+
+SELECT column1, column2
+FROM table_name
+WHERE condition1 OR codition2 OR condition3;
+
+SELECT column1, column2
+FROM table_name
+WHERE NOT condition;
+
+// Country는 Germany이고, City는 Berlin인 데이터
+SELECT *
+FROM Customers
+WHERE Country='Germany' AND City='Berlin';
+
+// City가 Berlin 또는 Stuttgart인 데이터
+SELECT *
+FROM Customers
+WHERE City='Berlin' OR City='Stuttgart';
+
+// Country가 Germany 또는 Spain인 데이터
+SELECT *
+FROM Customers
+WHERE Country='Germany' OR Country='Spain';
+
+// Country가 Germany가 아닌 데이터
+SELECT *
+FROM Customers
+WHERE NOT Country='Germany';
+
+// Country는 Germany이고 City는 Berlin 또는 Stuttgart인 데이터
+SELECT *
+FROM Customers
+WHERE Country='Germany' AND (City='Berlin' OR City='Stuttgart');
+
+// Country가 Germany도 아니고 USA도 아닌 데이터
+SELECT *
+FROM Customers
+WHERE NOT Country='Germany' AND NOT Country='USA';
+```
+
+- ORDER BY로 정렬 기준 설정
+
+- ASC는 오름차순, DESC는 내림차순
+
+```sql
+// ORDER BY
+SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;
+
+// Country 기준으로 정렬
+SELECT *
+FROM Customers
+ORDER BY Country;
+
+// Country 기준으로 내림차순 정렬
+SELECT *
+FROM Customers
+ORDER BY Country DESC;
+
+// Country로 먼저 정렬, Country가 같은 경우 CustomerName으로 정렬
+SELECT *
+FROM Customers
+ORDER BY Country, CustomerName;
+
+// Country로는 오름차순으로, CustomerName으로는 내림차순으로 정렬
+SELECT *
+FROM Customers
+ORDER BY Country ASC, CustomerName DESC;
+```
