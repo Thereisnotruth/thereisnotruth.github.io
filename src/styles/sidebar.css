@@ -18,9 +18,10 @@
   background: #292d3e;
   width: 230px;
   height: 100%;
-  float: left;
+  float: flex;
   overflow: auto;
   text-align: center;
+  transition: .5s;
 }
 
 .sidebar-header {
@@ -104,4 +105,10 @@
   width: 16px;
   height: 16px;
   filter: opacity(.5) drop-shadow(0 0 0 #a19e9e);
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+	  transform: translateX(-150%);
+  }
 }

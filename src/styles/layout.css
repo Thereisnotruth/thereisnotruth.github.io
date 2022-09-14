@@ -1,15 +1,18 @@
 .layout {
   height: 100%;
+	display: flex;
+	flex-direction: row;
 }
 
 .right {
+	float: flex;
   background: #1a5373;
+	width: calc(100% - 230px);
   height: 100%;
   overflow: auto;
 }
 
 .content {
-  float: left;
   width: 1000px;
   margin: 5px 40px;
 }
@@ -19,4 +22,10 @@
     width: 94%;
     margin: 5px 3%;
   }
+}
+
+@media (max-width: 800px) {
+	.right {
+		width: 100%;
+	}
 }

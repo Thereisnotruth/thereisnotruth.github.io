@@ -5,6 +5,10 @@ import PropTypes from "prop-types"
 import "../styles/pagination.css"
 
 const Pagination = ({ total, limit, page, line, setPage, setLine }) => {
+ // total - 전체 포스트 수
+ // limit - 한 페이지에 표시할 포스트 수
+ // page - 현재 가리키는 페이지 번호
+ // line - pagination에 표현할 페이지 라인 번호
   const numPages = Math.ceil(total / limit);
   const pages = [];
   let idx = 0;
@@ -34,8 +38,8 @@ const Pagination = ({ total, limit, page, line, setPage, setLine }) => {
       </button>
       <button
         className="pagination-button"
-        onClick={() => move(line - 1, (Math.ceil(page / 10) - 1) * 10)}
-        disabled={line === 1}
+        onClick={() => move(line, page - 1)}
+        disabled={page === 1}
       >
         &lt;
       </button>
@@ -53,8 +57,8 @@ const Pagination = ({ total, limit, page, line, setPage, setLine }) => {
         ))}
       <button
         className="pagination-button"
-        onClick={() => move(line + 1, Math.ceil(page / 10) * 10 + 1)}
-        disabled={line === pages.length}
+        onClick={() => move(line, page + 1)}
+        disabled={page === pages[line-1].length}
       >
         &gt;
       </button>

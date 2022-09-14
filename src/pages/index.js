@@ -5,6 +5,8 @@ import Layout from "../components/layout"
 import ListCard from "../components/list_card"
 import Pagination from "../components/pagination"
 
+import "../styles/home.css"
+
 const IndexPage = ({ data }) => {
   const [page, setPage] = React.useState(1);
   const [line, setLine] = React.useState(1);

@@ -12,6 +12,7 @@
   background: white;
   color: #357bb8;
   font-size: 14px;
+  font-weight: bold;
 }
 
 .pagination-button-tofirst {
@@ -22,6 +23,7 @@
   background: white;
   color: #357bb8;
   font-size: 14px;
+  font-weight: bold;
 }
 
 .pagination-button-tolast {
@@ -32,6 +34,7 @@
   background: white;
   color: #357bb8;
   font-size: 14px;
+  font-weight: bold;
 }
 .pagination-button:hover,
 .pagination-button-tofirst:hover,

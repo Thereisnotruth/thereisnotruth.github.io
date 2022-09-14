@@ -86,7 +86,7 @@ const Sidebar = () => (
       </Link>
       <Link
         className="sidebar-nav-item"
-        to="/categories"
+        to="/tag"
       >
         <StaticImage
           className="sidebar-nav-icon"
