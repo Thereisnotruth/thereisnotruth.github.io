@@ -1,0 +1,60 @@
+---
+title: "MySQL/ INSERT, UPDATE, DELETE"
+date: "2022-09-16"
+category: "db"
+idx: "13"
+---
+
+## INSERT
+
+- 데이터 삽입
+
+```sql
+INSERT INTO TABLE_NAME (COLUMN_1, COLUMN_2, ...)
+VALUES (VALUE_1, VALUE_2, ...);
+
+INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+
+INSERT INTO Customers (CustomerName, City, Country)
+VALUES ('Cardinal', 'Stavanger', 'Norway');
+```
+
+## UPDATE
+
+- 데이터 수정
+
+```sql
+UPDATE TABLE_NAME
+SET COLUMN_1 = VALUE_1, COLUMN_2 = VALUE_2, ...
+WHERE CONDITION;
+
+UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City = 'Frankfurt'
+WHERE CustomerID = 1;
+
+UPDATE Customers
+SET PostalCode = 00000
+WHERE Country = 'Mexico';
+
+UPDATE Customers
+SET PostalCode = 00000; // Warning
+// 모든 PostalCode 컬럼의 데이터가 00000으로 바뀐다.
+```
+
+## DELETE
+
+- 데이터 삭제
+
+```sql
+DELETE
+FROM TABLE_NAME
+WHERE CONDITION;
+
+DELETE
+FROM Customers
+WHERE CustomerName='Alfreds Futterkiste';
+
+DELETE
+FROM TABLE_NAME; // 테이블 내 모든 데이터 삭제
+```
