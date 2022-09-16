@@ -1,0 +1,32 @@
+---
+title: "MySQL/ MIN, MAX"
+date: "2022-09-16"
+category: "db"
+idx: "15"
+---
+
+## MIN
+
+- 특정 컬럼의 최소값 조회
+
+```sql
+SELECT MIN(COLUMN_NAME)
+FROM TABLE_NAME
+WHERE CONDITION;
+
+SELECT MIN(Price) AS SmallestPrice
+FROM Products;
+```
+
+## MAX
+
+- 특정 컬럼의 최대값 조회
+
+```sql
+SELECT MAX(COLUMN_NAME)
+FROM TABLE_NAME
+WHERE CONDITION;
+
+SELECT MAX(Price) AS LargestPrice
+FROM Products;
+```
