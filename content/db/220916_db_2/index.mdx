@@ -1,0 +1,56 @@
+---
+title: "MySQL/ NULL, LIMIT"
+date: "2022-09-16"
+category: "db"
+idx: "14"
+---
+
+## NULL
+
+- NULL 값에는 =, <, <>와 같은 연사자를 적용하지 못한다.
+
+- IS NULL, IS NOT NULL 연산자로 값이 NULL인지 확인 가능하다.
+
+```sql
+SELECT COLUMN_NAMES
+FROM TABLE_NAME
+WHERE COLUMN_NAME IS NULL;
+
+SELECT COLUMN_NAMES
+FROM TABLE_NAME
+WHERE COLUMN_NAME IS NOT NULL;
+
+SELECT CustomerName, COntactName, Address
+FROM Customers
+WHERE Address IS NULL;
+
+SELECT CustomerName, COntactName, Address
+FROM Customers
+WHERE Address IS NOT NULL;
+```
+
+## LIMIT
+
+- 특정 개수만큼 데이터를 가져오는 키워드
+
+```sql
+SELECT COLUMN_NAMES
+FROM TABLE_NAME
+WHERE CONDITION
+LIMIT NUMBER;
+
+SELECT *
+FROM Customers
+LIMIT 3;
+
+SELECT *
+FROM Customers
+WHERE Country='Germany'
+LIMIT 3;
+
+SELECT *
+FROM Customers
+WHERE Country='Germany'
+LIMIT 3, 10; // 3번 행부터 시작하여 10개의 데이터 조회
+// 행 번호는 0부터 시작
+```
