@@ -1,0 +1,49 @@
+---
+title: "MySQL/ COUNT, AVG, SUM"
+date: "2022-09-16"
+category: "db"
+idx: "16"
+---
+
+## COUNT
+
+- 데이터의 개수 조회
+
+```sql
+SELECT COUNT(column_name)
+FROM table_name
+WHERE condition;
+
+SELECT COUNT(ProductID)
+FROM Products;
+```
+
+<br />
+
+## AVG
+
+- 데이터의 평균 조회
+
+```sql
+SELECT AVG(column_name)
+FROM table_name
+WHERE condition;
+
+SELECT AVG(Price)
+FROM Products;
+```
+
+<br />
+
+## SUM
+
+- 데이터의 합계 조회
+
+```sql
+SELECT SUM(column_name)
+FROM table_name
+WHERE condition;
+
+SELECT SUM(Quantity)
+FROM OrderDetails;
+```
