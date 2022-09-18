@@ -1,0 +1,97 @@
+---
+title: "HTML/ form 태그 속성"
+date: "2022-09-19"
+category: "web"
+idx: "20"
+---
+
+## action 속성
+
+- form의 데이터들이 전송될 때 수행할 action을 정의하는 속성
+  성
+- form 데이터는 태그 내의 submit 버튼을 클릭했을 때 서버에 있는 파일로 전송된다.
+
+- 하단의 예시에서 form 데이터는 "action_page.php"라는 파일로 전송된다.
+
+```html
+<form action="/action_page.php">
+  <label for="fname">First name:</label><br />
+  <input type="text" id="fname" name="fname" value="John" /><br />
+  <label for="lname">Last name:</label><br />
+  <input type="text" id="lname" name="lname" value="Doe" /><br /><br />
+  <input type="submit" value="Submit" />
+</form>
+```
+
+<br />
+
+## Target 속성
+
+- target 속성은 form이 전송된 후 그 응답을 어떻게 보여줄 지 결정하는 속성이다.
+
+- default 값은 `_self`
+
+| 값          | 설명                                |
+| ----------- | ----------------------------------- |
+| \_blank     | 새로운 창이나 탭에 응답을 표시한다. |
+| \_self      | 현재 창에 응답을 표시한다.          |
+| \_parent    | 부모 프레임에 응답을 표시한다.      |
+| \_top       | 현재 윈도우 전체에 응답을 표시한다. |
+| 프레임 이름 | 명시된 iframe에 응답을 표시한다.    |
+
+```html
+<form action="/action_page.php" target="_blank"></form>
+```
+
+<br />
+
+## method 속성
+
+- 서버로 form 데이터를 전송할 때 사용할 http 메서드를 지정하는 속성이다.
+
+- get 또는 post 방식 중 하나를 지정한다.
+
+- get 방식
+
+  - url에 form 데이터를 표시하기 때문에 보안에 취약하다.
+
+  - url 길이가 제한되어 있다.
+
+  - 캐시가 가능하다
+
+- post 방식
+
+  - form 데이터를 http request의 body에 넣어서 전송한다.
+
+  - 크기 제한이 없기 때문에 많은 양의 데이터를 전송할 때 유용하다.
+
+```html
+<form action="/action_page.php" method="get"></form>
+<form action="action_page.php" method="post"></form>
+```
+
+<br />
+
+## autocomplete 속성
+
+- 자동 완성 기능을 사용할 때 적용하는 속성
+
+- 해당 속성이 켜져있으면 사용자가 이전에 입력했던 값을 기반으로 값을 자동으로 완성시킨다.
+
+```html
+<form ation="/action_page.php" autocomplelte="on"></form>
+```
+
+<br />
+
+## Novalidate 속성
+
+- boolean 타입의 속성
+
+- form 데이터를 서버로 전송할 때 유효성 검사(ex. email 검사 등)를 하지 않음을 명시
+
+- default 값은 false
+
+```html
+<form action="/action_page.php" novalidate></form>
+```
