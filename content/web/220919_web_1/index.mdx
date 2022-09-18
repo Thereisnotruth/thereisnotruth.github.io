@@ -1,0 +1,117 @@
+---
+title: "HTML/ form 태그"
+date: "2022-09-19"
+category: "web"
+idx: "18"
+---
+
+## form
+
+- 유저 입력을 위한 html 태그
+
+- input 태그들을 감싸는 컨테이너 역할을 한다. (ex. text, fields, checkboxes, radio buttons, submit buttons 등등)
+
+## input
+
+- form 내에서 가장 많이 사용되는 태그
+
+- 사용자의 입력을 받는다.
+
+| Type                     | Description                |
+| ------------------------ | -------------------------- |
+| <input type="text"\>     | 한 줄짜리 텍스트 입력 필드 |
+| <input type="radio"\>    | 라디오 버튼                |
+| <input type="checkbox"\> | 체크박스                   |
+| <input type="submit"\>   | submit 버튼                |
+| <input type="button"\>   | 클릭 가능한 버튼           |
+
+<br />
+
+## Text 필드
+
+- 한 줄 짜리 텍스트 입력 필드
+
+```html
+<form>
+  <label for="fname">First name:</label><br />
+  <input type="text" id="fname" name="fname" /><br />
+  <label for="lname">Last name:</label><br />
+  <input type="text" id="lname" name="lname" />
+</form>
+```
+
+<br />
+
+## label 요소
+
+- `label` 태그는 form 요소를 정의하는 태그
+
+- screen-reader 기능을 사용하는 유저들에게 편리하다
+
+- radio 버튼이나 checkbox 같은 작은 요소들을 사용할 때도 편리한데, 이와 연동된 label 태그를 클릭해도 클릭된 것으로 간주되기 때문이다.
+
+- `label` 태그의 `for` 속성과 `input`의 `id`를 같게 하여 `input` 태그와 `label` 태그를 연결한다.
+
+<br />
+
+## Radio 버튼
+
+- 여러 선택지 중에서 한 가지를 선택할 때 사용하는 태그
+
+```html
+<p>Choose your favorite Web language:</p>
+
+<form>
+  <input type="radio" id="html" name="fav_language" value="HTML" />
+  <label for="html">HTML</label><br />
+  <input type="radio" id="css" name="fav_language" value="CSS" />
+  <label for="css">CSS</label><br />
+  <input type="radio" id="javascript" name="fav_language" value="JavaScript" />
+  <label for="javascript">JavaScript</label>
+</form>
+```
+
+<br />
+
+## Checkbox
+
+- 여러 선택지 중에서 0개 이상을 선택할 때 사용하는 태그
+
+```html
+<form>
+  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+  <label for="vehicle1"> I have a bike</label><br />
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
+  <label for="vehicle2"> I have a car</label><br />
+  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
+  <label for="vehicle3"> I have a boat</label>
+</form>
+```
+
+<br />
+
+## Submit 버튼
+
+- form 태그 내에 입력 데이터를 form-handler로 전송할 때 사용하는 태그
+
+- form-handler는 보통 입력 데이터를 처리하는 서버의 파일
+
+- form-handler 는 form 태그 내의 `action` 속성으로 지정한다.
+
+```html
+<form action="/action_page.php">
+  <label for="fname">First name:</label><br />
+  <input type="text" id="fname" name="fname" value="John" /><br />
+  <label for="lname">Last name:</label><br />
+  <input type="text" id="lname" name="lname" value="Doe" /><br /><br />
+  <input type="submit" value="Submit" />
+</form>
+```
+
+<br />
+
+## <input\>의 Name 속성
+
+- 각 input 필드는 `name` 속성을 필수로 가져야 한다.
+
+- 서버는 input 태그의 `name` 속성으로 데이터에 접근하기 때문에 `name` 속성이 없을 경우 데이터 전송이 제대로 이루어지지 않는다.
