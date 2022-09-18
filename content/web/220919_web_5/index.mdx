@@ -1,0 +1,395 @@
+---
+title: "HTML/ input 태그 속성"
+date: "2022-09-19"
+category: "web"
+idx: "22"
+---
+
+## text
+
+- 한 줄 짜리 텍스트 입력 필드
+
+```html
+<form>
+  <label for="fname">First name:</label><br />
+  <input type="text" id="fname" name="fname" /><br />
+  <label for="lname">Last name:</label><br />
+  <input type="text" id="lname" name="lname" />
+</form>
+```
+
+<br />
+
+## password
+
+- 비밀번호 입력 필드
+
+```html
+<form>
+  <label for="username">Username:</label><br />
+  <input type="text" id="username" name="username" /><br />
+  <label for="pwd">Password:</label><br />
+  <input type="password" id="pwd" name="pwd" />
+</form>
+```
+
+<br />
+
+## submit
+
+- form-handler로 form 데이터를 전송할 때 사용하는 버튼
+
+- form-handler는 입력 데이터를 처리하는 서버 페이지
+
+- form 태그의 action 속성으로 form-handler 지정
+
+```html
+<form action="/action_page.php">
+  <label for="fname">First name:</label><br />
+  <input type="text" id="fname" name="fname" value="John" /><br />
+  <label for="lname">Last name:</label><br />
+  <input type="text" id="lname" name="lname" value="Doe" /><br /><br />
+  <input type="submit" value="Submit" />
+</form>
+```
+
+<br />
+
+## reset
+
+- 초기화 버튼
+
+- 클릭시 form 내 input 태그들의 값이 default 값으로 초기화된다.
+
+```html
+<form action="/action_page.php">
+  <label for="fname">First name:<화label><br>
+  <input type="text" id="fname" name="fname" value="John"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Doe"><br><br>
+  <input type="submit" value="Submit">
+  <input type="reset">
+</form>
+```
+
+## radio
+
+- radio 버튼
+
+- 선택지 중 한 개만 선택 가능
+
+```html
+<form>
+  <input type="radio" id="html" name="fav_language" value="HTML" />
+  <label for="html">HTML</label><br />
+  <input type="radio" id="css" name="fav_language" value="CSS" />
+  <label for="css">CSS</label><br />
+  <input type="radio" id="javascript" name="fav_language" value="JavaScript" />
+  <label for="javascript">JavaScript</label>
+</form>
+```
+
+<br />
+
+## checkbox
+
+- 선택지 중 0개 이상의 옵션을 선택 가능한 체크박스
+
+```html
+<form>
+  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+  <label for="vehicle1"> I have a bike</label><br />
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
+  <label for="vehicle2"> I have a car</label><br />
+  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
+  <label for="vehicle3"> I have a boat</label>
+</form>
+```
+
+<br />
+
+## button
+
+- 일반적인 버튼
+
+```html
+<input type="button" onclick="alert('Hello World!')" value="Click Me!" />
+```
+
+<br />
+
+## color
+
+- 색을 선택하는 입력 필드
+
+- 브라우저마다 지원하지 않을 수도 있다.
+
+```html
+<form>
+  <label for="favcolor">Select your favorite color:</label>
+  <input type="color" id="favcolor" name="favcolor" />
+</form>
+```
+
+<br />
+
+## date
+
+- 날짜를 선택하는 입력 필드
+
+- 브라우저마다 지원하지 않을 수도 있다.
+
+```html
+<form>
+  <label for="birthday">Birthday:</label>
+  <input type="date" id="birthday" name="birthday" />
+</form>
+```
+
+<br />
+
+## datetile-local
+
+- 날짜와 시간을 입력하는 필드
+
+- 브라우저마다 지원하지 않을 수도 있다.
+
+```html
+<form>
+  <label for="birthdaytime">Birthday (date and time):</label>
+  <input type="datetime-local" id="birthdaytime" name="birthdaytime" />
+</form>
+```
+
+<br />
+
+## email
+
+- e-mail 주소를 입력하는 필드
+
+- 브라우저마다 제출시 이메일 주소가 자동으로 유효성 검사를 하기도 한다.
+
+- 스마트폰 환경일 경우 키보드에 .com 버튼이 표시되기도 한다.
+
+```html
+<form>
+  <label for="email">Enter your email:</label>
+  <input type="email" id="email" name="email" />
+</form>
+```
+
+<br />
+
+## image
+
+- 전송 버튼으로 이미지를 사용하도록 한다.
+
+- src 속성으로 이미지를 지정한다.
+
+```html
+<form>
+  <input
+    type="image"
+    src="img_submit.gif"
+    alt="Submit"
+    width="48"
+    height="48"
+  />
+</form>
+```
+
+<br />
+
+## file
+
+- 파일 선택 필드
+
+```html
+<form>
+  <label for="myfile">Select a file:</label>
+  <input type="file" id="myfile" name="myfile" />
+</form>
+```
+
+<br />
+
+## hidden
+
+- 사용자에게 보이지 않는 숨겨진 필드이다.
+
+- 웹 개발자들이 유저에게 보이지 않는 데이터를 서버로 전송하도록 할 때 사용한다.
+
+- 유저에게 보이지 않는다고 해도 브라우저의 view source 기능을 사용하면 볼 수 있기 때문에 보안 기능으로는 사용하면 안된다.
+
+- form 데이터를 전송할 때 업데이트 되어야 하는 데이터베이스 레코드를 저장하기도 한다.
+
+```html
+<form>
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname" /><br /><br />
+  <input type="hidden" id="custId" name="custId" value="3487" />
+  <input type="submit" value="Submit" />
+</form>
+```
+
+<br />
+
+## month
+
+- 년도와 월을 선택하는 필드
+
+- 브라우저마다 지원하지 않을 수도 있다.
+
+```html
+<form>
+  <label for="bdaymonth">Birthday (month and year):</label>
+  <input type="month" id="bdaymonth" name="bdaymonth" />
+</form>
+```
+
+<br />
+
+## number
+
+- 숫자 입력 필드
+
+- 숫자만 입력하도록 제한한다.
+
+- min과 max 속성으로 범위를 제한할 수 있다.
+
+```html
+<form>
+  <label for="quantity">Quantity (between 1 and 5):</label>
+  <input type="number" id="quantity" name="quantity" min="1" max="5" />
+</form>
+```
+
+<br />
+
+## input 제약 사항
+
+- 아래의 속성들로 input의 입력 데이터에 제약을 걸 수 있다.
+
+| 속성      | 설명                                                                        |
+| --------- | --------------------------------------------------------------------------- |
+| checked   | 체크박스나 라디오 버튼 같은 필드를 미리 페이지 로드시 미리 선택되도록 한다. |
+| disabled  | input 필드를 비활성화                                                       |
+| max       | 입력의 최대값                                                               |
+| maxlength | 입력의 최대 글자 수                                                         |
+| min       | 입력의 최소값                                                               |
+| pattern   | 입력 값이 해당 정규 표현에 맞는지 확인                                      |
+| readonly  | 읽기 전용                                                                   |
+| size      | 입력의 길이                                                                 |
+| step      | 숫자 입력 간격                                                              |
+| value     | default 값                                                                  |
+
+```html
+<form>
+  <label for="quantity">Quantity:</label>
+  <input
+    type="number"
+    id="quantity"
+    name="quantity"
+    min="0"
+    max="100"
+    step="10"
+    value="30"
+  />
+  // 최소 값은 0, 최대 값은 100, 기본 값은 30, 10의 배수만 입력 가능
+</form>
+```
+
+<br />
+
+## range
+
+- 정확한 값이 별로 중요하지 않을 때 사용
+
+- 범위와 간격 지정 가능
+
+- 슬라이더 컨트롤러로 표시된다.
+
+```html
+<form>
+  <label for="vol">Volume (between 0 and 50):</label>
+  <input type="range" id="vol" name="vol" min="0" max="50" />
+</form>
+```
+
+<br />
+
+## search
+
+- 검색 필드 (일반 text 필드처럼 동작)
+
+```html
+<form>
+  <label for="gsearch">Search Google:</label>
+  <input type="search" id="gsearch" name="gsearch" />
+</form>
+```
+
+<br />
+
+## tel
+
+- 전화번호 입력 필드
+
+```html
+<form>
+  <label for="phone">Enter your phone number:</label>
+  <input
+    type="tel"
+    id="phone"
+    name="phone"
+    pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+  />
+</form>
+```
+
+<br />
+
+## time
+
+- 시간 입력 필드
+
+- 브라우저에 따라 다르게 표시된다.
+
+```html
+<form>
+  <label for="appt">Select a time:</label>
+  <input type="time" id="appt" name="appt" />
+</form>
+```
+
+<br />
+
+## url
+
+- url 주소 입력 필드
+
+- 브라우저에 따라 유효성 검사를 하기도 한다.
+
+- 스마트폰 환경에서 키보드에 .com 버튼을 표시하기도 한다.
+
+```html
+<form>
+  <label for="homepage">Add your homepage:</label>
+  <input type="url" id="homepage" name="homepage" />
+</form>
+```
+
+<br />
+
+## week
+
+- 년도와 몇 번째 주인지 입력하는 필드
+
+- 브라우저에 따라 다르게 표시된다.
+
+```html
+<form>
+  <label for="week">Select a week:</label>
+  <input type="week" id="week" name="week" />
+</form>
+```
