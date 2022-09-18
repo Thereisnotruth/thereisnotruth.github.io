@@ -7,7 +7,7 @@ idx: "14"
 
 ## NULL
 
-- NULL 값에는 =, <, <>와 같은 연사자를 적용하지 못한다.
+- NULL 값에는 =, <, <\>와 같은 연사자를 적용하지 못한다.
 
 - IS NULL, IS NOT NULL 연산자로 값이 NULL인지 확인 가능하다.
 
@@ -28,6 +28,8 @@ SELECT CustomerName, ContactName, Address
 FROM Customers
 WHERE Address IS NOT NULL;
 ```
+
+<br />
 
 ## LIMIT
 
