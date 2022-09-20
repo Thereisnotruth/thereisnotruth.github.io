@@ -13,8 +13,14 @@ const CategoryTemplate = ({ data, pageContext, location }) => {
   const limit = 10;
   const offset = (page - 1) * limit;
   
-  const posts = data.allMdx.nodes;
-
+  const posts = data.allMdx.nodes.sort((o1, o2) => {
+	  if (Number(o1.frontmatter.idx) > Number(o2.frontmatter.idx)) {
+		  return -1;
+	  } else {
+		  return 1;
+	  }
+  });
+  console.log(posts)
   return (
     <Layout>
       <Seo title="네모장"/>
@@ -55,6 +61,7 @@ export const query = graphql`
           date(formatString: "YYYY.MM.DD")
           category
           title
+          idx
         }
         excerpt(truncate: true)
       }
