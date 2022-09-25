@@ -1,0 +1,118 @@
+---
+title: "css/ flexbox"
+date: "2022-09-25"
+category: "web"
+idx: "29"
+---
+
+### flexbox
+
+- float은 원래 이미지와 text를 어떻게 배치할 지 정의하기 위해 나왔던 것이다.
+
+- float의 속성은 left, center, right가 존재한다.
+
+- flexbox는 총 2가지만 이해하면 된다.
+
+- flexbox는 container와 item에 적용할 속성이 서로 다르다.
+
+- container
+
+  - display
+
+    해당 속성을 flex로 설정해야 flexbox를 만들 수 있다.
+
+  - flex-direction
+
+    - row
+
+      행 방향(가로축)
+
+    - row-reverse
+
+      행 반대 방향
+
+    - column
+
+      열 방향(세로축)
+
+    - column-reverse
+
+      열 반대 방향
+
+  - felx-wrap
+
+    - nowrap
+
+      기본값, 한 줄에 모두 표시
+
+    - wrap
+
+      한 줄에 가득 차면 자동 줄바꿈
+
+    - wrap-reverse
+
+      반대 방향으로 wrapping
+
+  - felx-flow
+
+    flex-direction과 flex-wrap을 합친 것
+
+  - justify-content
+
+    중심 축의 아이템들을 지정
+
+    - flex-start
+
+      기본값, 축 시작부터 배치
+
+    - flex-end
+
+      축 끝부터 배치
+
+    - space-around
+
+      아이템들을 서로 띄워서 배치
+
+    - space-evenly
+
+      똑같은 간격으로 아이템들을 서로 띄워서 배치
+
+    - space-between
+
+      양 끝 아이템은 끝에 붙이고, 중간 아이템들은 서로 띄워서 배치
+
+  - align-items
+
+    - center
+
+      중간에 아이템들을 배치
+
+    - baseline
+
+      크기가 다른 아이템이 있어도 균등하게 배치
+
+  - align-content
+
+    반대 축의 아이템들을 지정, justify-content의 속성 전부 사용 가능
+
+- item
+
+  - order
+
+    기본값은 0, 순서를 바꾼다. 잘 사용하지 않는다.
+
+  - flex-grow
+
+    기본값은 0, container의 빈 공간을 채우려고 자신의 크기를 늘린다.
+
+  - flex-shrink
+
+    기본값은 0, container가 작아질 경우 크기를 어떻게 해야 하는지 정한다.
+
+  - flex-basis
+
+    기본값은 auto, 아이템들이 공간을 얼마만큼 차지해야하는지 세부적으로 명시, %로 지정
+
+  - align-self
+
+    아이템별로 아이템들을 정렬, 컨테이너를 벗어나서 배치된다.
