@@ -1,0 +1,106 @@
+---
+title: "Baekjoon/S4/1018. 체스판 다시 칠하기"
+date: "2022-09-26"
+category: "algorithm"
+idx: "30"
+---
+
+## S4) 1018. 체스판 다시 칠하기
+
+### 문제
+
+지민이는 자신의 저택에서 MN개의 단위 정사각형으로 나누어져 있는 M×N 크기의 보드를 찾았다. 어떤 정사각형은 검은색으로 칠해져 있고, 나머지는 흰색으로 칠해져 있다. 지민이는 이 보드를 잘라서 8×8 크기의 체스판으로 만들려고 한다.
+
+체스판은 검은색과 흰색이 번갈아서 칠해져 있어야 한다. 구체적으로, 각 칸이 검은색과 흰색 중 하나로 색칠되어 있고, 변을 공유하는 두 개의 사각형은 다른 색으로 칠해져 있어야 한다. 따라서 이 정의를 따르면 체스판을 색칠하는 경우는 두 가지뿐이다. 하나는 맨 왼쪽 위 칸이 흰색인 경우, 하나는 검은색인 경우이다.
+
+보드가 체스판처럼 칠해져 있다는 보장이 없어서, 지민이는 8×8 크기의 체스판으로 잘라낸 후에 몇 개의 정사각형을 다시 칠해야겠다고 생각했다. 당연히 8\*8 크기는 아무데서나 골라도 된다. 지민이가 다시 칠해야 하는 정사각형의 최소 개수를 구하는 프로그램을 작성하시오.
+
+### 입력
+
+첫째 줄에 N과 M이 주어진다. N과 M은 8보다 크거나 같고, 50보다 작거나 같은 자연수이다. 둘째 줄부터 N개의 줄에는 보드의 각 행의 상태가 주어진다. B는 검은색이며, W는 흰색이다.
+
+### 출력
+
+첫째 줄에 지민이가 다시 칠해야 하는 정사각형 개수의 최솟값을 출력한다.
+
+### 풀이
+
+2차원 배열을 순회하면서 각 칸을 시작으로 하는 체스판의 조건이 성립하는지 확인한다.(검은색과 흰색이 번갈아서 나오는지)
+
+체스판의 조건에 맞지 않는 경우 새로 칠해야 할 칸의 개수를 임시 저장할 tmp의 값을 1증가 시키고, 체스판 64칸을 전부 확인한 경우 tmp와 ans의 값을 비교하여 더 작은 값을 ans로 한다.
+
+시작 칸이 흰색인 경우, 검은색인 경우 2가지 경우의 수가 존재하기 때문에 해당 과정을 2번 진행해야 한다.
+
+### 코드
+
+```java
+package P1018;
+
+import java.util.*;
+
+public class Main {
+  static int N, M, ans = 65;
+  static char[][] board;
+  public static void main (String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+    N = sc.nextInt();
+    M = sc.nextInt();
+
+    board = new char[N][M];
+
+    for (int i = 0; i < N; i++) {
+      String row = sc.next();
+      board[i] = row.toCharArray();
+    }
+
+    for (int i = 0; i <= N - 8; i++) {
+      for (int j = 0; j <= M - 8; j++) {
+        char check = 'W';
+        int tmp = 0;
+        for (int a = i; a < i + 8; a++) {
+          for (int b = j; b < j + 8; b++) {
+            if (check == board[a][b]) {
+              tmp++;
+            }
+            if (check == 'W') {
+              check = 'B';
+            } else {
+              check = 'W';
+            }
+          }
+          if (check == 'W') {
+            check = 'B';
+          } else {
+            check = 'W';
+          }
+        }
+        ans = Math.min(ans, tmp);
+        check = 'B';
+        tmp = 0;
+        for (int a = i; a < i + 8; a++) {
+          for (int b = j; b < j + 8; b++) {
+            if (check == board[a][b]) {
+              tmp++;
+            }
+            if (check == 'W') {
+              check = 'B';
+            } else {
+              check = 'W';
+            }
+          }
+          if (check == 'W') {
+            check = 'B';
+          } else {
+            check = 'W';
+          }
+        }
+        ans = Math.min(ans, tmp);
+      }
+    }
+    System.out.println(ans);
+  }
+
+}
+
+```
