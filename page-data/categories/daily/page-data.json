@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-category-js",
+    "path": "/categories/daily",
+    "result": {"data":{"allMdx":{"nodes":[{"id":"a9bcbd6f-2c34-5d77-82af-5f298de88ba5","slug":"daily/221001_daily_1/","frontmatter":{"date":"2022.10.01","category":"daily","title":"후기) 22년 하반기 신입 LINER 필기 테스트","idx":"32"},"excerpt":"후기) 22년 하반기 신입 LINER 필기 테스트 SSAFY 활동을 하면서 올해 안에 취직 하겠다는 목표로 이곳저곳 지원서를 넣고 있는데, 운 좋게 LINE 코딩 테스트에 합격하여 필기 테스트를 볼 기회를 얻을 수 있었다. LINE 필기 테스트의 악…"}]}},"pageContext":{"category":"daily"}},
+    "staticQueryHashes": ["63159454"]}
