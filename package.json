@@ -37,7 +37,7 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "deploy": "gatsby build && gh-pages -d public -b deploy && cp googlec03cb55466787c4a.html public/",
+    "deploy": "gatsby build && gh-pages -d public -b deploy",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
