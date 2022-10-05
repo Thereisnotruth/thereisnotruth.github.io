@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-templates-category-js",
     "path": "/categories/os",
-    "result": {"data":{"allMdx":{"nodes":[{"id":"8fdefa3d-48e4-5874-a369-c8b33a7d6c8a","slug":"os/220930_os_1/","frontmatter":{"date":"2022.09.30","category":"os","title":"데드락(DeadLock)","idx":"31"},"excerpt":"데드락(DeadLock) 교착 상태라고도 한다. 둘 이상의 프로세스나 스레드가 서로가 서로에게 필요한 다음 자원을 가지고 있어 다음 자원을 얻지 못하여 명령을 실행하지 못하는 상태가 영원히 지속되는 상태를 말한다. 조건 데드락이 발생하기 위해선 4가…"}]}},"pageContext":{"category":"os"}},
+    "result": {"data":{"allMdx":{"nodes":[{"id":"b9404f6d-4104-57ee-96e8-ba1984a68310","slug":"os/221006_os_1/","frontmatter":{"date":"2022.10.06","category":"os","title":"운영체제란?","idx":"34"},"excerpt":"운영체제란? 운영체제(Operating System)은 컴퓨터 자원들을 효율적으로 관리하고, 사용자와 프로그램에게 컴퓨터에 대한 보다 쉽고, 단순한 모델을 제시하는 시스템 소프트웨어이다. 컴퓨터 자원을 추상화 하드웨어의 복잡한 구조를 사용자가 이해하…"},{"id":"8fdefa3d-48e4-5874-a369-c8b33a7d6c8a","slug":"os/220930_os_1/","frontmatter":{"date":"2022.09.30","category":"os","title":"데드락(DeadLock)","idx":"31"},"excerpt":"데드락(DeadLock) 교착 상태라고도 한다. 둘 이상의 프로세스나 스레드가 서로가 서로에게 필요한 다음 자원을 가지고 있어 다음 자원을 얻지 못하여 명령을 실행하지 못하는 상태가 영원히 지속되는 상태를 말한다. 조건 데드락이 발생하기 위해선 4가…"}]}},"pageContext":{"category":"os"}},
     "staticQueryHashes": ["63159454"]}
