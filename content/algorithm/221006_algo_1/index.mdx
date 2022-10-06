@@ -1,0 +1,118 @@
+---
+title: "최장 증가 부분 수열 (LIS)"
+date: "2022-10-06"
+category: "algorithm"
+idx: "35"
+---
+
+## 최장 증가 부분 수열 (LIS, Longest Increasing Subsequence)
+
+어떤 수열의 부분 수열 중 수열의 순서를 유지하면서 크기가 점점 증가하는 가장 긴 부분 수열을 말한다.
+
+예를 들어 크기가 6인 수열 { 5, 8, 9, 4, 2, 3 }이 있다면, 이 수열의 LIS는 { 5, 8, 9 }이며 그 크기는 3이다.
+
+LIS는 여러 개가 있을 수도 있다.
+
+LIS의 크기를 구하는 방법에는 두 가지가 있는데 하나는 **동적 계획법**을 이용하는 방법이고, 다른 하나는 **이분 탐색**을 이용하는 방법이다.
+
+<br />
+
+### 동적 계획법(DP, Dynamic Programming)
+
+DP 배열에 현재 인덱스에서의 최장 증가 부분 수열의 길이를 저장하는 방법이다.
+
+이전 인덱스들 중 현재 인덱스의 값보다 작으면서 LIS 크기가 가장 큰 값을 찾아야 하기 때문에 모든 이전 인덱스를 탐색해야하므로 시간 복잡도는 O(N^2)이다.
+
+코드
+
+```java
+import java.util.*;
+
+public class LIS_DP {
+	public static void main (String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+
+		int[] arr = new int[N];
+		int[] lis = new int[N];
+
+		for (int i = 0; i < N; i++) {
+			arr[i] = sc.nextInt();
+		}
+
+		int max = 0;
+
+		for (int i = 0; i < N; i++) {
+			lis[i] = 1;
+			for (int j = 0; j < i; j++) {
+				if (arr[j] < arr[i] && lis[i] < lis[j] + 1) {
+					lis[i] = lis[j] + 1;
+				}
+			}
+			max = Math.max(max, list[i]);
+		}
+
+		System.out.println(Arrays.toString(lis));
+		System.out.println(max);
+	}
+}
+
+```
+
+<br />
+<br />
+
+### 이진 탐색(Binary Search)
+
+C[k] : 길이 k의 증가 수열에 대해 k 자리에 올 수 있는 가능한 가장 작은 값을 C[k]에 저장한다.
+
+각 원소마다 C[]를 갱신하기 위해 이진 탐색을 수행한다.
+
+이진 탐색이기 때문에 시간 복잡도는 O(nlogn)이다.
+
+dp를 사용한 방법에서는 dp의 값이 LIS의 길이였지만, 이진 탐색에서는 k가 LIS의 길이가 된다.
+
+즉, C[]가 채워지는 길이가 LIS의 길이가 된다.
+
+다음 코드는 자바의 이진탐색 함수를 사용해 size를 늘려나가며 C 배열에서 현재 인덱스의 원소가 들어갈 위치를 찾아 넣는 식으로 구현하였다.
+
+이때 size가 LIS의 길이가 된다.
+
+코드
+
+```java
+import java.util.*;
+
+public class LIS_BS {
+	public static void main (String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		int N = sc.nextInt();
+		int[] arr = new int[N];
+		int[] C = ne int[C];
+
+		for (int i = 0; i < N; i++) {
+			arr[i] = sc.nextInt();
+		}
+
+		int size = 0;
+
+		for (int i = 0; i < N; i++) {
+			int pos = Arrays.binarySearch(C, 0, size, arr[i]);
+
+			if (pos >= 0) {
+				continue;
+			}
+
+			int insertPos = Math.abs(pos) - 1;
+
+			C[insertPos] = arr[i];
+
+			if (insertPos == size) {
+				size++;
+			}
+		}
+		System.out.println(size);
+	}
+}
+```
