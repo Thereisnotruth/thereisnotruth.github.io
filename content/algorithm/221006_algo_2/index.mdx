@@ -1,0 +1,61 @@
+---
+title: "플로이드-워셜 알고리즘"
+date: "2022-10-06"
+category: "algorithm"
+idx: "36"
+---
+
+## 플로이드-워셜 알고리즘
+
+그래프 상에서 가능한 모든 노드 쌍들에 대해 최단 거리를 구하는 알고리즘이다.
+
+같은 최단 거리 알고리즘인 다익스트라 알고리즘과는 달리 모든 노드 쌍에 대해 최단 거리를 구할 수 있고, 음의 가중치를 가진 간선이 그래프에 있어도 적용할 수 있다는 것이 특징이다.
+
+시작 노드, 경유지, 도착 노드에 대해 반복문을 돌아야하기 때문에 시간 복잡도는 O(V^3) 이다.
+
+코드
+
+```java
+import java.util.*;
+
+public class FWAlgorithm {
+
+	static final int INF = 987654321;
+	static int N, distance[][];
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		distance = new int[N][N];
+    // 입력은 인접 행렬로 주어진다.
+		for(int i=0; i<N; ++i) {
+			for(int j=0; j<N; ++j) {
+				distance[i][j] = sc.nextInt();
+				if(i != j && distance[i][j]==0) {
+          //자기자신으로의 인접 정보가 아니고 인접해있지 않다면 INF로 채우기
+					distance[i][j]=INF;
+				}
+			}
+		}
+
+		for (int k = 0; k < N; k++) { // 경유지
+			for (int i = 0; i < N; i++) { // 시작 노드
+				for (int j = 0; j < N; j++) { // 도착 노드
+          distnace[i][j] = Math.min(distance[i][j], distance[i][k] + distance[k][j]);
+				}
+			}
+		}
+
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				System.out.print(distance[i][j] + " ");
+			}
+			System.out.println();
+		}
+
+	}
+
+
+}
+
+```
