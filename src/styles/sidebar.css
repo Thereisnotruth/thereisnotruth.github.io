@@ -109,6 +109,6 @@
 
 @media (max-width: 800px) {
   .sidebar {
-	  transform: translateX(-150%);
+    display: none;
   }
 }
