@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-templates-category-js",
     "path": "/categories/network",
-    "result": {"data":{"allMdx":{"nodes":[{"id":"fa4f06bc-d683-5417-a47e-61c8a15d6757","slug":"network/220921_network1/","frontmatter":{"date":"2022.09.21","category":"network","title":"http 상태 코드","idx":"25"},"excerpt":"http 상태 코드 클라이언트가 보낸 http 요청에 대한 서버의 응답 코드 분류 1xx(정보) : 요청을 받았으며 프로세스를 계속함 2xx(성공) : 요청을 성공적으로 받았으며 인식했고 수용함 3xx(리다이렉션) : 요청 완료를 위해 추가 작업 조…"}]}},"pageContext":{"category":"network"}},
+    "result": {"data":{"allMdx":{"nodes":[{"id":"1c308fe8-9a56-5954-9197-4c4a9eed58d2","slug":"network/220921_network1/","frontmatter":{"date":"2022.09.21","category":"network","title":"http 상태 코드","idx":"25"},"excerpt":"http 상태 코드 클라이언트가 보낸 http 요청에 대한 서버의 응답 코드 분류 1xx(정보) : 요청을 받았으며 프로세스를 계속함 2xx(성공) : 요청을 성공적으로 받았으며 인식했고 수용함 3xx(리다이렉션) : 요청 완료를 위해 추가 작업 조…"}]}},"pageContext":{"category":"network"}},
     "staticQueryHashes": ["63159454"]}
