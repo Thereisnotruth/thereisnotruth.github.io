@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-category-js",
+    "path": "/categories/se",
+    "result": {"data":{"allMdx":{"nodes":[{"id":"b9624cbe-aadc-5e29-b72c-2e709e76d4bd","slug":"se/221209_se_1/","frontmatter":{"date":"2022.12.09","category":"se","title":"소프트웨어 개발 생명 주기","idx":"46"},"excerpt":"소프트웨어 개발 생명 주기 (Software Development Life Cycle, SDLC) 소프트웨어 생성에서 소멸까지의 과정을 단계별로 나눈 것 각 단계별 주요 활동과 산출물을 통해 프로젝트의 진행 방향을 명확하게 파악하고, 관리를 용이하게…"}]}},"pageContext":{"category":"se"}},
+    "staticQueryHashes": ["63159454"]}
