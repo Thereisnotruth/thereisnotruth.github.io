@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-templates-category-js",
     "path": "/categories/network",
-    "result": {"data":{"allMdx":{"nodes":[{"id":"fa4f06bc-d683-5417-a47e-61c8a15d6757","slug":"network/220921_network1/","frontmatter":{"date":"2022.09.21","category":"network","title":"http 상태 코드","idx":"25"},"excerpt":"http 상태 코드 클라이언트가 보낸 http 요청에 대한 서버의 응답 코드 분류 1xx(정보) : 요청을 받았으며 프로세스를 계속함 2xx(성공) : 요청을 성공적으로 받았으며 인식했고 수용함 3xx(리다이렉션) : 요청 완료를 위해 추가 작업 조…"}]}},"pageContext":{"category":"network"}},
+    "result": {"data":{"allMdx":{"nodes":[{"id":"84210e59-baee-5b98-a89a-4b90227637d3","slug":"network/230101_network_1/","frontmatter":{"date":"2023.01.01","category":"network","title":"3 way handshake, 4 way handshake","idx":"47"},"excerpt":"3 way handshake TCP 연결은 정확한 전송을 보잔해야하기 때문에 통신 전에 3 way handshake 작업을 통하여 논리적인 접속을 성립한다. 3 way handshake의 절차는 다음과 같다. (3번의 통신이기 때문에 3way) Cl…"},{"id":"21983252-dddd-540e-8975-0439d0794ee1","slug":"network/220921_network_1/","frontmatter":{"date":"2022.09.21","category":"network","title":"http 상태 코드","idx":"25"},"excerpt":"http 상태 코드 클라이언트가 보낸 http 요청에 대한 서버의 응답 코드 분류 1xx(정보) : 요청을 받았으며 프로세스를 계속함 2xx(성공) : 요청을 성공적으로 받았으며 인식했고 수용함 3xx(리다이렉션) : 요청 완료를 위해 추가 작업 조…"}]}},"pageContext":{"category":"network"}},
     "staticQueryHashes": ["63159454"]}
