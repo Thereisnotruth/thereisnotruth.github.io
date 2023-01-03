@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-category-js",
+    "path": "/categories/devops",
+    "result": {"data":{"allMdx":{"nodes":[{"id":"10297feb-a989-53d1-a097-b58aa6beb7bc","slug":"devops/230103_devops_1/","frontmatter":{"date":"2023.01.03","category":"devops","title":"DevOps란?","idx":"49"},"excerpt":"DevOps란? Development(개발) + Operatio(운영) 개발과 운영을 결합하여 탄생한 개발 방법론 애자일 소프트웨어(Agile Software) 개발과 지속적인 통합(Continuous Integration) 등의 개념과 관련 있음 …"}]}},"pageContext":{"category":"devops"}},
+    "staticQueryHashes": ["63159454"]}
