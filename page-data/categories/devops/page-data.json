@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-templates-category-js",
     "path": "/categories/devops",
-    "result": {"data":{"allMdx":{"nodes":[{"id":"10297feb-a989-53d1-a097-b58aa6beb7bc","slug":"devops/230103_devops_1/","frontmatter":{"date":"2023.01.03","category":"devops","title":"DevOps란?","idx":"49"},"excerpt":"DevOps란? Development(개발) + Operatio(운영) 개발과 운영을 결합하여 탄생한 개발 방법론 애자일 소프트웨어(Agile Software) 개발과 지속적인 통합(Continuous Integration) 등의 개념과 관련 있음 …"}]}},"pageContext":{"category":"devops"}},
+    "result": {"data":{"allMdx":{"nodes":[{"id":"331b9c28-978e-5302-bdbe-39065f71eeb3","slug":"devops/230104_devops_1/","frontmatter":{"date":"2023.01.04","category":"devops","title":"도커(Docker)","idx":"50"},"excerpt":"도커(Docker) 리눅스 컨테이너 기반의 가상화 플랫폼 화물 수송용 선박의 컨테이너에 화물을 싣듯 각 컨테이너에 애플리케이션과 그 애플리케이션을 실행하기 위한 환경을 세팅하여 각각 독립적으로 실행 가능 컨테이너(Container) 격리된 공간에서 …"},{"id":"10297feb-a989-53d1-a097-b58aa6beb7bc","slug":"devops/230103_devops_1/","frontmatter":{"date":"2023.01.03","category":"devops","title":"DevOps란?","idx":"49"},"excerpt":"DevOps란? Development(개발) + Operatio(운영) 개발과 운영을 결합하여 탄생한 개발 방법론 애자일 소프트웨어(Agile Software) 개발과 지속적인 통합(Continuous Integration) 등의 개념과 관련 있음 …"}]}},"pageContext":{"category":"devops"}},
     "staticQueryHashes": ["63159454"]}
