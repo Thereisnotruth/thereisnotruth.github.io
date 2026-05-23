@@ -1,14 +1,10 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
 
 import Seo from "./seo"
 import Sidebar from "./sidebar"
 
 import "../styles/layout.css"
-
-deckDeckGoHighlightElement();
 
 const Layout = ({ children }) => {
   return (

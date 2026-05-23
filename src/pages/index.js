@@ -27,7 +27,7 @@ const IndexPage = ({ data }) => {
         posts
         .slice(offset, offset + limit)
         .map((node, index) => (
-          <Link className="link" to={node.slug} key={index}>
+          <Link className="link" to={node.fields.slug} key={node.id}>
             <ListCard
               frontmatter={node.frontmatter}
             >
@@ -50,17 +50,19 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
 query IndexQuery {
-  allMdx(sort: {fields: frontmatter___idx, order: DESC}) {
+  allMdx(sort: {frontmatter: {idx: DESC}}) {
     nodes {
       id
-      slug
+      fields {
+        slug
+      }
       frontmatter {
 	  	idx
         date(formatString: "YYYY.MM.DD")
         category
         title
       }
-      excerpt(truncate: true)
+      excerpt
     }
   }
 }

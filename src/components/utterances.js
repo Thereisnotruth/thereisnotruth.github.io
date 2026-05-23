@@ -1,7 +1,6 @@
 import * as React from "react"
 
 const Utterances = ({ repo, theme }) => {
-  console.log("Test")
   const containerRef = React.createRef();
   React.useLayoutEffect(() => {
     const utterances = document.createElement("script");
@@ -23,4 +22,3 @@ const Utterances = ({ repo, theme }) => {
 };
 
 export default Utterances
-

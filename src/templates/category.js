@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Seo from "../components/seo"
 import Layout from "../components/layout"
@@ -20,7 +19,6 @@ const CategoryTemplate = ({ data, pageContext, location }) => {
 		  return 1;
 	  }
   });
-  console.log(posts)
   return (
     <Layout>
       <Seo title="네모장"/>
@@ -28,7 +26,7 @@ const CategoryTemplate = ({ data, pageContext, location }) => {
         posts
         .slice(offset, offset + limit)
         .map((node, index) => (
-          <Link className="link" to={"/" + node.slug} key={index}>
+          <Link className="link" to={node.fields.slug} key={node.id}>
             <ListCard
               frontmatter={node.frontmatter}
             >
@@ -51,22 +49,23 @@ const CategoryTemplate = ({ data, pageContext, location }) => {
 export const query = graphql`
   query ($category: String!) {
     allMdx(
-      sort: {fields: frontmatter___idx, order: DESC}
+      sort: {frontmatter: {idx: DESC}}
       filter: {frontmatter: {category: {eq: $category}}}
     ) {
       nodes {
         id
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           date(formatString: "YYYY.MM.DD")
           category
           title
           idx
         }
-        excerpt(truncate: true)
+        excerpt
       }
     }
   }
 `
 export default CategoryTemplate
-

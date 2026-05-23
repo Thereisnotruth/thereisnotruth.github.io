@@ -1,15 +1,34 @@
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const path = require(`path`)
 
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === `Mdx`) {
+    const slug = createFilePath({ node, getNode, basePath: `content` })
+
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    })
+  }
+}
+
 exports.createPages = async ({ graphql, actions, reporter}) => {
   const { createPage } = actions
 
   const query = await graphql(`
     query PostQuery {
-      allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+      allMdx(sort: {frontmatter: {date: DESC}}) {
         nodes {
           id
-          slug
+          internal {
+            contentFilePath
+          }
+          fields {
+            slug
+          }
           frontmatter {
             date
             category
@@ -31,13 +50,13 @@ exports.createPages = async ({ graphql, actions, reporter}) => {
 
 
   posts.forEach((node) => { 
-    const path = `${node.slug}`;
+    const path = `${node.fields.slug}`;
 
     createPage({
       path,
-      component: postTemplate,
+      component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
       context: {
-        slug: node.slug
+        id: node.id
       }
     })
 

@@ -1,6 +1,5 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import { MDXProvider } from "@mdx-js/react"
 
 import CodeBlock from "./code_block"
@@ -16,8 +15,8 @@ const PostCard = ({ children, frontmatter }) => {
     <div className="card">
       <h2>{frontmatter.title}</h2>
       <hr />
-      <MDXProvider>
-        <MDXRenderer>{children}</MDXRenderer>
+      <MDXProvider components={components}>
+        {children}
       </MDXProvider>
     </div>
   )
@@ -28,4 +27,3 @@ PostCard.propTypes = {
 }
 
 export default PostCard
-

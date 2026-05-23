@@ -68,7 +68,7 @@ const ArchivePage = ({ data }) => {
             ret.push(
               <Link
                 className="link"
-                to={`../${node.slug}`}>
+                to={node.fields.slug}>
                 <div
                   className="archive-title"
                   key={year.concat(month).concat(day).concat(index).concat(node.frontmatter.idx)}
@@ -95,10 +95,12 @@ const ArchivePage = ({ data }) => {
 }
 export const query = graphql`
   query {
-    allMdx(sort: {fields: frontmatter___idx, order: DESC}) {
+    allMdx(sort: {frontmatter: {idx: DESC}}) {
       nodes {
         id
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           title
           date(formatString: "YYYY.MM.DD")

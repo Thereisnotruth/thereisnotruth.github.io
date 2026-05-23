@@ -3,7 +3,7 @@ import Highlight, {defaultProps} from 'prism-react-renderer'
 import theme from "prism-react-renderer/themes/dracula"
 
 export default ({children, className}) => {
-  const language = className.replace(/language-/, '')
+  const language = (className || "").replace(/language-/, '')
 
   return (
     <Highlight {...defaultProps} code={children} language={language} theme={theme}>

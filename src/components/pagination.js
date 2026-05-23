@@ -27,6 +27,12 @@ const Pagination = ({ total, limit, page, line, setPage, setLine }) => {
     setLine(line);
     setPage(page);
   }
+
+  const moveToPage = (nextPage) => {
+    const nextLine = Math.ceil(nextPage / 10);
+    move(nextLine, nextPage);
+  }
+
   return (
     <div className="pagination">
       <button
@@ -38,7 +44,7 @@ const Pagination = ({ total, limit, page, line, setPage, setLine }) => {
       </button>
       <button
         className="pagination-button"
-        onClick={() => move(line, page - 1)}
+        onClick={() => moveToPage(page - 1)}
         disabled={page === 1}
       >
         &lt;
@@ -57,8 +63,8 @@ const Pagination = ({ total, limit, page, line, setPage, setLine }) => {
         ))}
       <button
         className="pagination-button"
-        onClick={() => move(line, page + 1)}
-        disabled={page === pages[line-1].length}
+        onClick={() => moveToPage(page + 1)}
+        disabled={page === numPages}
       >
         &gt;
       </button>
@@ -83,4 +89,3 @@ Pagination.propTypes = {
 }
 
 export default Pagination
-
