@@ -1,4 +1,6 @@
-module.exports = {
+import type { GatsbyConfig } from "gatsby"
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title: "네모장",
     description: "네모난 메모장, 네모장",
@@ -10,7 +12,6 @@ module.exports = {
     }
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     `gatsby-remark-images`,
     `gatsby-plugin-image`,
     {
@@ -49,3 +50,5 @@ module.exports = {
     `gatsby-plugin-sitemap`,
   ],
 }
+
+export default config

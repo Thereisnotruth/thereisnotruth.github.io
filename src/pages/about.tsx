@@ -1,6 +1,6 @@
 import React from "react"
 import Layout  from "../components/layout"
-import { StaticImage } from "gatsby-plugin-image"
+import Seo from "../components/seo"
 
 import "../styles/card.css"
 
@@ -15,3 +15,5 @@ const AboutPage = () => (
 )
 
 export default AboutPage
+
+export const Head = () => <Seo title="About" />

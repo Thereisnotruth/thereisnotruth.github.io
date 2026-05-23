@@ -1,15 +1,25 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import type { PageProps } from "gatsby"
 
 import Layout from "../components/layout"
+import Seo from "../components/seo"
 
 import "../styles/list_card.css"
 
-const CategoriesPage = ({ data }) => {
+type CategoriesPageData = {
+  allMdx: {
+    group: Array<{
+      fieldValue: string
+    }>
+  }
+}
+
+const CategoriesPage = ({ data }: PageProps<CategoriesPageData>) => {
   const categories = data.allMdx.group.map((category) => category.fieldValue)
 
   const showCategories = () => {
-    const ret = []
+    const ret: React.ReactNode[] = []
     for (let i = 0; i < categories.length; i++) {
       ret.push(
         <Link className="link" to={`/categories/${categories[i]}`} key={categories[i]}>
@@ -36,3 +46,5 @@ export const query = graphql`
 `
 
 export default CategoriesPage
+
+export const Head = () => <Seo title="Categories" />

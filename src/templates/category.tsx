@@ -1,12 +1,35 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import type { HeadProps, PageProps } from "gatsby"
 
 import Seo from "../components/seo"
 import Layout from "../components/layout"
-import ListCard from "../components/list_card"
+import ListCard from "../components/list-card"
 import Pagination from "../components/pagination"
 
-const CategoryTemplate = ({ data, pageContext, location }) => {
+type CategoryTemplateData = {
+  allMdx: {
+    nodes: Array<{
+      id: string
+      fields: {
+        slug: string
+      }
+      frontmatter: {
+        date: string
+        category: string
+        title: string
+        idx: string
+      }
+      excerpt: string
+    }>
+  }
+}
+
+type CategoryPageContext = {
+  category: string
+}
+
+const CategoryTemplate = ({ data }: PageProps<CategoryTemplateData, CategoryPageContext>) => {
   const [page, setPage] = React.useState(1);
   const [line, setLine] = React.useState(1);
   const limit = 10;
@@ -21,11 +44,10 @@ const CategoryTemplate = ({ data, pageContext, location }) => {
   });
   return (
     <Layout>
-      <Seo title="네모장"/>
       {
         posts
         .slice(offset, offset + limit)
-        .map((node, index) => (
+        .map((node) => (
           <Link className="link" to={node.fields.slug} key={node.id}>
             <ListCard
               frontmatter={node.frontmatter}
@@ -69,3 +91,7 @@ export const query = graphql`
   }
 `
 export default CategoryTemplate
+
+export const Head = ({ pageContext }: HeadProps<CategoryTemplateData, CategoryPageContext>) => (
+  <Seo title={pageContext.category} />
+)

@@ -1,11 +1,23 @@
 import * as React from "react"
 import { graphql } from "gatsby"
+import type { HeadProps, PageProps } from "gatsby"
 
 import Layout from "../components/layout"
-import PostCard from "../components/post_card"
+import PostCard from "../components/post-card"
+import Seo from "../components/seo"
 import Utterances from "../components/utterances"
 
-const PostTemplate = ({ data, children }) => {
+type PostTemplateData = {
+  mdx: {
+    frontmatter: {
+      title: string
+      date: string
+      category: string
+    }
+  }
+}
+
+const PostTemplate = ({ data, children }: PageProps<PostTemplateData>) => {
   return (
     <Layout>
       <PostCard frontmatter={data.mdx.frontmatter}>
@@ -27,3 +39,7 @@ export const query = graphql`
   }
 `
 export default PostTemplate
+
+export const Head = ({ data }: HeadProps<PostTemplateData>) => (
+  <Seo title={data.mdx.frontmatter.title} />
+)

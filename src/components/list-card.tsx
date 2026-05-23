@@ -1,9 +1,18 @@
 import * as React from "react"
-import PropTypes from "prop-types"
 
 import "../styles/list_card.css"
 
-const ListCard = ({ children, frontmatter, size }) => {
+type ListCardProps = {
+  children: React.ReactNode
+  frontmatter: {
+    title: string
+    date: string
+    category: string
+  }
+  size?: string
+}
+
+const ListCard = ({ children, frontmatter, size }: ListCardProps) => {
   return (
     <div className="list-card" style={{height: size}}>
       <h2>
@@ -22,9 +31,4 @@ const ListCard = ({ children, frontmatter, size }) => {
   )
 }
 
-ListCard.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
 export default ListCard
-

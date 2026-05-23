@@ -1,7 +1,27 @@
-const { createFilePath } = require(`gatsby-source-filesystem`)
-const path = require(`path`)
+import path from "path"
+import type { GatsbyNode } from "gatsby"
+import { createFilePath } from "gatsby-source-filesystem"
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+type PostNode = {
+  id: string
+  internal: {
+    contentFilePath: string
+  }
+  fields: {
+    slug: string
+  }
+  frontmatter: {
+    category: string
+  }
+}
+
+type PostQueryResult = {
+  allMdx: {
+    nodes: PostNode[]
+  }
+}
+
+export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `Mdx`) {
@@ -15,10 +35,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-exports.createPages = async ({ graphql, actions, reporter}) => {
+export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter}) => {
   const { createPage } = actions
 
-  const query = await graphql(`
+  const query = await graphql<PostQueryResult>(`
     query PostQuery {
       allMdx(sort: {frontmatter: {date: DESC}}) {
         nodes {
@@ -43,10 +63,10 @@ exports.createPages = async ({ graphql, actions, reporter}) => {
     return;
   }
 
-  const categoryTemplate = path.resolve(`src/templates/category.js`);
-  const postTemplate = path.resolve(`src/templates/post.js`);
-  const posts = query.data.allMdx.nodes;
-  const categories = {};
+  const categoryTemplate = path.resolve(`src/templates/category.tsx`);
+  const postTemplate = path.resolve(`src/templates/post.tsx`);
+  const posts = query.data?.allMdx.nodes ?? [];
+  const categories: Record<string, PostNode[]> = {};
 
 
   posts.forEach((node) => { 
@@ -67,7 +87,7 @@ exports.createPages = async ({ graphql, actions, reporter}) => {
     }
   });
 
-  for (let category in categories) {
+  for (const category in categories) {
     const path = `categories/${category}`;
     createPage({
       path,

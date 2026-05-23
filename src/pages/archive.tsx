@@ -1,16 +1,38 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import type { PageProps } from "gatsby"
 
 import Layout from "../components/layout"
+import Seo from "../components/seo"
 
 import "../styles/card.css"
 import "../styles/archive.css"
 
-const ArchivePage = ({ data }) => {
-  const date = {};
+type ArchiveNode = {
+  id: string
+  fields: {
+    slug: string
+  }
+  frontmatter: {
+    title: string
+    date: string
+    idx: string
+  }
+}
+
+type ArchivePageData = {
+  allMdx: {
+    nodes: ArchiveNode[]
+  }
+}
+
+type ArchiveDateMap = Record<string, Record<string, Record<string, ArchiveNode[]>>>
+
+const ArchivePage = ({ data }: PageProps<ArchivePageData>) => {
+  const date: ArchiveDateMap = {};
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
                   "Aug", "Sep", "Oct", "Nov", "Dec"];
-  data.allMdx.nodes.map((node) => {
+  data.allMdx.nodes.forEach((node) => {
     
     const year = node.frontmatter.date.split('.')[0];
     const month = node.frontmatter.date.split('.')[1];
@@ -29,7 +51,7 @@ const ArchivePage = ({ data }) => {
     }
   });
   const showDate = () => {
-    const ret = [];
+    const ret: React.ReactNode[] = [];
     
     for (let year in date) { 
       ret.push(
@@ -46,7 +68,7 @@ const ArchivePage = ({ data }) => {
           className="archive-month"
           key={year.concat(month)}
         >
-          {months[month - 1]}
+          {months[Number(month) - 1]}
         </div>);
         for (let day in date[year][month]) {
           ret.push(
@@ -57,12 +79,12 @@ const ArchivePage = ({ data }) => {
             {day}
           </div>)
           
-          date[year][month][day].map((node, index) => {
+          date[year][month][day].forEach((node, index) => {
             if(index !== 0) {
               ret.push(
               <div
                 className="archive-day"
-                key={year.concat(month).concat(day).concat(index)}
+                key={year.concat(month).concat(day).concat(String(index))}
               />)
             }
             ret.push(
@@ -71,7 +93,7 @@ const ArchivePage = ({ data }) => {
                 to={node.fields.slug}>
                 <div
                   className="archive-title"
-                  key={year.concat(month).concat(day).concat(index).concat(node.frontmatter.idx)}
+                  key={year.concat(month).concat(day).concat(String(index)).concat(node.frontmatter.idx)}
                 >
                   {node.frontmatter.title}
                 </div>
@@ -111,3 +133,5 @@ export const query = graphql`
   }
 `
 export default ArchivePage
+
+export const Head = () => <Seo title="Archive" />

@@ -1,12 +1,19 @@
 import React from 'react'
 import Highlight, {defaultProps} from 'prism-react-renderer'
+import type { Language } from 'prism-react-renderer'
 import theme from "prism-react-renderer/themes/dracula"
 
-export default ({children, className}) => {
-  const language = (className || "").replace(/language-/, '')
+type CodeBlockProps = {
+  children?: React.ReactNode
+  className?: string
+}
+
+export default function CodeBlock({children, className}: CodeBlockProps) {
+  const language = (className || "").replace(/language-/, '') as Language
+  const code = String(children ?? "")
 
   return (
-    <Highlight {...defaultProps} code={children} language={language} theme={theme}>
+    <Highlight {...defaultProps} code={code} language={language} theme={theme}>
       {({className, style, tokens, getLineProps, getTokenProps}) => (
         <pre className={className} style={{...style, padding: '20px'}}>
           {tokens.map((line, i) => (

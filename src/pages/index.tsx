@@ -1,13 +1,33 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import type { PageProps } from "gatsby"
 
 import Layout from "../components/layout"
-import ListCard from "../components/list_card"
+import ListCard from "../components/list-card"
 import Pagination from "../components/pagination"
+import Seo from "../components/seo"
 
 import "../styles/home.css"
 
-const IndexPage = ({ data }) => {
+type IndexPageData = {
+  allMdx: {
+    nodes: Array<{
+      id: string
+      fields: {
+        slug: string
+      }
+      frontmatter: {
+        idx: string
+        date: string
+        category: string
+        title: string
+      }
+      excerpt: string
+    }>
+  }
+}
+
+const IndexPage = ({ data }: PageProps<IndexPageData>) => {
   const [page, setPage] = React.useState(1);
   const [line, setLine] = React.useState(1);
   const limit = 10;
@@ -26,7 +46,7 @@ const IndexPage = ({ data }) => {
       {
         posts
         .slice(offset, offset + limit)
-        .map((node, index) => (
+        .map((node) => (
           <Link className="link" to={node.fields.slug} key={node.id}>
             <ListCard
               frontmatter={node.frontmatter}
@@ -69,3 +89,5 @@ query IndexQuery {
 `
 
 export default IndexPage
+
+export const Head = () => <Seo title="네모장" />
