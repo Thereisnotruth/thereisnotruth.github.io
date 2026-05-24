@@ -9,6 +9,7 @@
 - `docs/TESTING.md`: TDD 루프와 현재 검증 명령.
 - `docs/FRONTEND.md`: 레이아웃, UI, 접근성, 시각 검증 기준.
 - `docs/DESIGN.md`: 블로그 디자인 취향과 변경 원칙.
+- `docs/PERSONAL_SIDEBAR_BLOG_TDD.md`: Stitch sidebar blog 레이아웃 요구사항과 Red 시나리오.
 - `docs/QUALITY_CHECKLIST.md`: 작업 완료 전 점검표.
 - `docs/WORKFLOWS.md`: 일반 작업 흐름과 권장 프롬프트 분해 방식.
 

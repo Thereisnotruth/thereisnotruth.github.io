@@ -4,8 +4,10 @@
 
 ## Current State
 
-현재 리포지토리는 전용 테스트 러너가 없다. 그래서 당장은 `pnpm run build`가 최소 회귀 테스트 역할을 한다. UI 변경은 브라우저 수동 확인 또는 스크린샷 확인을 함께 수행한다.
+현재 리포지토리는 `@playwright/test`를 dev dependency로 가진다. 아직 repo-local Playwright 테스트 파일과 실행 스크립트는 없으므로, 당장은 `pnpm run build`가 최소 회귀 테스트 역할을 한다. UI 변경은 브라우저 수동 확인 또는 스크린샷 확인을 함께 수행한다.
 TypeScript 소스 변경 후에는 `pnpm run typecheck`로 타입 오류를 먼저 확인한다.
+
+공통 sidebar blog 레이아웃과 홈 피드 변경은 `docs/PERSONAL_SIDEBAR_BLOG_TDD.md`의 요구사항과 Red 시나리오를 먼저 따른다.
 
 ## TDD Loop
 
