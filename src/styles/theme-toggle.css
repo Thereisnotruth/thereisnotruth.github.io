@@ -41,7 +41,7 @@
 }
 
 .theme-toggle-icon-light {
-  --theme-icon: url("../images/lightbulb-solid.svg");
+  --theme-icon: url("../images/sun-solid.svg");
 }
 
 @media (max-width: 900px) {
