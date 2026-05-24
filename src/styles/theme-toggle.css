@@ -1,24 +1,26 @@
 .theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 20;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  width: 100%;
-  min-height: 40px;
-  margin: 20px 0 0;
+  width: 44px;
+  height: 44px;
+  margin: 0;
   border: 1px solid var(--color-outline-variant);
-  border-radius: var(--radius-md);
+  border-radius: 50%;
   background: var(--color-surface-container-lowest);
   color: var(--color-primary);
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 600;
   cursor: pointer;
-  transition: background .2s, border-color .2s, color .2s;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 8%);
+  transition: background .2s, border-color .2s, color .2s, transform .2s;
 }
 
 .theme-toggle:hover {
   background: var(--color-surface-container-high);
+  transform: translateY(-1px);
 }
 
 .theme-toggle:focus-visible {
@@ -27,28 +29,26 @@
 }
 
 .theme-toggle-icon {
-  width: 15px;
-  height: 15px;
-  filter: opacity(.7);
+  width: 16px;
+  height: 16px;
+  background: currentColor;
+  mask: var(--theme-icon) center / contain no-repeat;
+  -webkit-mask: var(--theme-icon) center / contain no-repeat;
 }
 
-[data-theme="dark"] .theme-toggle-icon {
-  filter: invert(1) opacity(.82);
+.theme-toggle-icon-dark {
+  --theme-icon: url("../images/moon-solid.svg");
 }
 
-.theme-toggle-icon > div {
-  display: block;
-}
-
-.theme-toggle-label {
-  line-height: 1;
+.theme-toggle-icon-light {
+  --theme-icon: url("../images/lightbulb-solid.svg");
 }
 
 @media (max-width: 900px) {
   .theme-toggle {
-    width: auto;
-    min-width: 104px;
-    margin-top: 16px;
-    padding: 0 14px;
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
   }
 }

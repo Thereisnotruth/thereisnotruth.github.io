@@ -1,5 +1,4 @@
 import * as React from "react"
-import { StaticImage } from "gatsby-plugin-image"
 
 import "../styles/theme-toggle.css"
 
@@ -57,16 +56,10 @@ const ThemeToggle = () => {
       aria-pressed={isDark}
       onClick={toggleTheme}
     >
-      <span className="theme-toggle-icon" aria-hidden="true">
-        {isDark ? (
-          <StaticImage src="../images/lightbulb-solid.svg" alt="" />
-        ) : (
-          <StaticImage src="../images/moon-solid.svg" alt="" />
-        )}
-      </span>
-      <span className="theme-toggle-label">
-        {isDark ? "Light" : "Dark"}
-      </span>
+      <span
+        className={isDark ? "theme-toggle-icon theme-toggle-icon-light" : "theme-toggle-icon theme-toggle-icon-dark"}
+        aria-hidden="true"
+      />
     </button>
   )
 }

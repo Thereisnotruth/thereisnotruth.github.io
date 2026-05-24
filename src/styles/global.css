@@ -33,7 +33,7 @@ html, body, #___gatsby, #gatsby-focus-wrapper {
   --font-label: "pretendard", sans-serif;
   --radius-sm: 2px;
   --radius-md: 4px;
-  --sidebar-width: 280px;
+  --sidebar-width: 256px;
 }
 
 [data-theme="dark"] {

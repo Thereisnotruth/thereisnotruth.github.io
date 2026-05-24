@@ -13,18 +13,18 @@
 }
 
 .content {
-  max-width: 920px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 80px 48px;
+  padding: 56px 40px;
 }
 
 @media all and (max-width: 1100px) {
   .layout {
-    grid-template-columns: 240px minmax(0, 1fr);
+    grid-template-columns: 232px minmax(0, 1fr);
   }
 
   .content {
-    padding: 56px 32px;
+    padding: 48px 32px;
   }
 }
 

@@ -83,6 +83,49 @@
 
 아래 시나리오는 구현 전에 실패해야 한다. 현재 레이아웃이 Stitch sidebar editorial 구조가 아니면 Red 상태로 본다.
 
+### Scenario 6: Home post selection opens readable detail content
+
+- Page: `/`.
+- Viewport: `1440x900`.
+- Expected:
+  - 홈 글 항목은 실제 post detail URL을 가리키는 명확한 제목 기반 링크다.
+  - 첫 글을 선택하면 post detail template가 본문을 `article` 영역에 렌더링한다.
+  - 상세 본문 컨테이너는 리스트 화면과 같은 editorial 폭을 유지한다.
+- Current failure signal:
+  - 링크 목적지가 불명확하거나 상세 본문이 일반 `div` 카드로만 렌더링되어 선택 후 읽기 흐름이 고정되지 않는다.
+
+### Scenario 7: Screen scale matches Stitch editorial proportions
+
+- Pages: `/`, 실제 post detail URL 하나.
+- Viewport: `1440x900`.
+- Expected:
+  - Sidebar 목표 폭은 `256px` 수준이다.
+  - Main content 최대 폭은 `760px` 수준이다.
+  - 홈 글 제목은 `28px`, excerpt는 `16px` 수준으로 과하게 커 보이지 않는다.
+- Current failure signal:
+  - Sidebar `280px`, content `920px`, 홈 제목 `32px` 등으로 전체 화면이 Stitch 기준보다 크게 보인다.
+
+### Scenario 8: Dark mode control is a compact top-right FAB
+
+- Pages: all layout pages.
+- Viewport: `1440x900`, `390x844`.
+- Expected:
+  - 다크모드 전환 버튼은 페이지 우측 상단에 고정된 작은 원형 FAB이다.
+  - 버튼은 아이콘만 보이고 접근 가능한 `aria-label`을 유지한다.
+  - Sidebar profile 영역의 세로 공간을 차지하지 않는다.
+- Current failure signal:
+  - 토글이 sidebar 내부의 넓은 텍스트 버튼으로 렌더링된다.
+
+### Scenario 9: Sidebar icons follow semantic theme colors
+
+- Pages: all layout pages.
+- Viewport: `1440x900`.
+- Expected:
+  - Sidebar navigation/contact icons are colored by CSS semantic theme tokens.
+  - Light/dark theme 전환 시 icon color가 `--color-*` 변수에 맞춰 바뀐다.
+- Current failure signal:
+  - SVG 이미지가 `StaticImage`와 opacity/invert filter에 의존해 theme color token을 직접 반영하지 못한다.
+
 ### Scenario 1: Desktop home has personal sidebar layout
 
 - Page: `/`.
@@ -173,6 +216,10 @@
 | Mobile home does not keep desktop sidebar beside content | `390x844` | 🟢 Green | Sidebar가 본문 위 profile/navigation 영역으로 전환되고 horizontal overflow가 없다. | 모바일 navigation을 이후 자동 테스트 후보로 승격한다. |
 | Tablet home keeps navigation and content usable | `768x1024` | 🟢 Green | Tablet에서 profile/navigation이 본문 위에 남고 글 목록도 접근 가능하다. | tablet breakpoint 회귀를 자동 테스트 후보로 기록한다. |
 | Existing blog routes remain reachable after layout change | `1440x900` | 🟢 Green | `/`, `/categories/`, `/archive/`, `/devops/230105_devops_1/`가 404 없이 렌더링되고 첫 글 링크도 상세 페이지로 이동 가능하다. | 이후 layout 변경 중 이 상태를 유지한다. |
+| Home post selection opens readable detail content | `1440x900` | 🟢 Green | 첫 글 링크는 `/devops/230105_devops_1/`이고 상세 페이지는 `article.post-card`와 `.post-card-body`에 본문을 렌더링한다. | 홈 링크와 상세 template 구조를 `test:harness`로 유지한다. |
+| Screen scale matches Stitch editorial proportions | `1440x900` | 🟢 Green | Sidebar `256px`, content max `760px`, 홈 제목 `28px`로 조정됐다. | scale token 변경 시 `test:harness`와 렌더링 점검을 함께 수행한다. |
+| Dark mode control is a compact top-right FAB | `1440x900`, `390x844` | 🟢 Green | 토글은 layout level의 fixed FAB이며 desktop `44px`, mobile `40px`로 렌더링된다. | 접근 가능한 icon-only button 상태를 유지한다. |
+| Sidebar icons follow semantic theme colors | `1440x900` | 🟢 Green | Sidebar icons는 CSS mask와 `currentColor`로 렌더링되어 semantic color token을 따른다. | 새 sidebar icon도 같은 mask/currentColor 패턴을 사용한다. |
 
 ### Supporting Checks
 
@@ -186,10 +233,25 @@
 | No horizontal overflow | 🟢 Green | 확인한 세 viewport에서 `document.documentElement.scrollWidth`가 viewport 너비를 초과하지 않았다. |
 | No unsupported `Tag` navigation | 🟢 Green | `Tag` 링크가 더 이상 노출되지 않는다. |
 | Home first post link works | 🟢 Green | 첫 번째 글 링크는 `/devops/230105_devops_1/`로 확인됐다. |
+| Static harness | 🟢 Green | `pnpm run test:harness`가 4개 세부 요구사항을 통과한다. |
+| Built detail content | 🟢 Green | `public/devops/230105_devops_1/index.html` 기준 상세 본문 길이 5222자로 확인됐다. |
 
 ## Planned Harness
 
 첫 구현 전에는 위 Red 시나리오를 기준으로 수동 검증한다.
+
+이번 상세 수정 사이클은 정적 하네스 테스트로 승격한다.
+
+```bash
+pnpm run test:harness
+```
+
+2026-05-24 Red 확인:
+
+- `home post selection exposes a direct titled detail link`: 실패.
+- `stitch scale tokens keep the screen compact and readable`: 실패.
+- `theme toggle is a small fixed top-right fab`: 실패.
+- `sidebar icons inherit semantic theme colors`: 실패.
 
 `@playwright/test`가 설치되어 있으므로, 레이아웃 기준이 안정되면 다음 자동 테스트로 승격한다.
 
@@ -204,6 +266,7 @@
 
 ```bash
 pnpm run typecheck
+pnpm run test:harness
 pnpm run build
 ```
 

@@ -22,13 +22,17 @@ type PostCardProps = {
 
 const PostCard = ({ children, frontmatter }: PostCardProps) => {
   return (
-    <div className="card">
-      <h2>{frontmatter.title}</h2>
+    <article className="post-card">
+      <header className="post-card-header">
+        <h1>{frontmatter.title}</h1>
+      </header>
       <hr />
-      <TypedMDXProvider components={components}>
-        {children}
-      </TypedMDXProvider>
-    </div>
+      <div className="post-card-body">
+        <TypedMDXProvider components={components}>
+          {children}
+        </TypedMDXProvider>
+      </div>
+    </article>
   )
 }
 

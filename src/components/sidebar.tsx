@@ -2,8 +2,6 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
-import ThemeToggle from "./theme-toggle"
-
 import "../styles/sidebar.css"
 
 const Sidebar = () => (
@@ -23,7 +21,6 @@ const Sidebar = () => (
       <div className="sidebar-profile-intro">
         고태진
       </div>
-      <ThemeToggle />
     </div>
     <div className="sidebar-link">
       <div className="sidebar-link-header">
@@ -40,10 +37,9 @@ const Sidebar = () => (
             target="_blank"
             rel="noreferrer"
           >
-            <StaticImage
-              className="sidebar-link-icon"
-              src="../images/github-brands.svg"
-              alt="github"
+            <span
+              className="sidebar-link-icon sidebar-icon sidebar-icon-github"
+              aria-label="github"
             />
           </a>
         </div>
@@ -53,10 +49,9 @@ const Sidebar = () => (
             target="_blank"
             rel="noreferrer"
           >
-            <StaticImage
-              className="sidebar-link-icon"
-              src="../images/linkedin-in-brands.svg"
-              alt="linkedin"
+            <span
+              className="sidebar-link-icon sidebar-icon sidebar-icon-linkedin"
+              aria-label="linkedin"
             />
           </a>
         </div>
@@ -67,11 +62,7 @@ const Sidebar = () => (
         className="sidebar-nav-item"
         to="/"
       >
-        <StaticImage
-          className="sidebar-nav-icon"
-          src="../images/house-solid.svg"
-          alt=""
-        />
+        <span className="sidebar-nav-icon sidebar-icon sidebar-icon-home" aria-hidden="true" />
         <div className="sidebar-nav-name">
           Home
         </div>
@@ -80,11 +71,7 @@ const Sidebar = () => (
         className="sidebar-nav-item"
         to="/categories/"
       >
-        <StaticImage
-          className="sidebar-nav-icon"
-          src="../images/pen-to-square-solid.svg"
-          alt=""
-        />
+        <span className="sidebar-nav-icon sidebar-icon sidebar-icon-categories" aria-hidden="true" />
         <div className="sidebar-nav-name">
           Categories
         </div>
@@ -93,11 +80,7 @@ const Sidebar = () => (
         className="sidebar-nav-item"
         to="/archive/"
       >
-        <StaticImage
-          className="sidebar-nav-icon"
-          src="../images/box-archive-solid.svg"
-          alt=""
-        />
+        <span className="sidebar-nav-icon sidebar-icon sidebar-icon-archive" aria-hidden="true" />
         <div className="sidebar-nav-name">
           Archive
         </div>
@@ -106,11 +89,7 @@ const Sidebar = () => (
         className="sidebar-nav-item"
         to="/about/"
       >
-        <StaticImage
-          className="sidebar-nav-icon"
-          src="../images/user-solid.svg"
-          alt=""
-        /> 
+        <span className="sidebar-nav-icon sidebar-icon sidebar-icon-about" aria-hidden="true" />
         <div className="sidebar-nav-name">
           About
         </div>

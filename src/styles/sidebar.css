@@ -26,24 +26,24 @@
   overflow: auto;
   text-align: center;
   transition: .5s;
-  padding: 40px 28px;
+  padding: 36px 24px;
 }
 
 .sidebar-header {
   width: 100%;
-  min-height: 220px;
+  min-height: 184px;
 }
 
 .sidebar-profile-img {
-  margin: 0 0 20px 0;
-  width: 104px;
-  height: 104px;
+  margin: 0 0 16px 0;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
 }
 
 .sidebar-profile-name {
   color: var(--color-primary);
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
   font-family: var(--font-display);
 }
@@ -60,11 +60,10 @@
 }
 
 .sidebar-nav-icon {
-  float: left;
   width: 15px;
   height: 15px;
   margin: 10px 10px 10px 0;
-  filter: opacity(.65);
+  color: var(--color-on-surface-variant);
 }
 
 .sidebar-nav-item {
@@ -75,6 +74,12 @@
   font-weight: 600;
   text-decoration: none;
   color: var(--color-on-surface-variant);
+}
+
+.sidebar-nav-item:hover,
+.sidebar-nav-item:hover .sidebar-nav-name,
+.sidebar-nav-item:hover .sidebar-nav-icon {
+  color: var(--color-primary);
 }
 
 .sidebar-nav-name {
@@ -110,12 +115,44 @@
 .sidebar-link-icon {
   width: 16px;
   height: 16px;
-  filter: opacity(.65);
+  color: var(--color-primary);
+}
+
+.sidebar-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  background: currentColor;
+  mask: var(--icon) center / contain no-repeat;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+}
+
+.sidebar-icon-github {
+  --icon: url("../images/github-brands.svg");
+}
+
+.sidebar-icon-linkedin {
+  --icon: url("../images/linkedin-in-brands.svg");
+}
+
+.sidebar-icon-home {
+  --icon: url("../images/house-solid.svg");
+}
+
+.sidebar-icon-categories {
+  --icon: url("../images/pen-to-square-solid.svg");
+}
+
+.sidebar-icon-archive {
+  --icon: url("../images/box-archive-solid.svg");
+}
+
+.sidebar-icon-about {
+  --icon: url("../images/user-solid.svg");
 }
 
 @media (max-width: 1100px) {
   .sidebar {
-    width: 240px;
+    width: 232px;
     padding: 32px 24px;
   }
 }

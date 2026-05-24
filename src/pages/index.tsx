@@ -47,7 +47,12 @@ const IndexPage = ({ data }: PageProps<IndexPageData>) => {
         posts
         .slice(offset, offset + limit)
         .map((node) => (
-          <Link className="link" to={node.fields.slug} key={node.id}>
+          <Link
+            className="post-link"
+            to={node.fields.slug}
+            key={node.id}
+            aria-label={`글 상세 보기: ${node.frontmatter.title}`}
+          >
             <ListCard
               frontmatter={node.frontmatter}
             >
