@@ -101,3 +101,10 @@ test("secondary pages use stitch typography tokens", () => {
   assert.match(files.archiveCss, /\.archive-year[\s\S]*font-family:\s*var\(--font-display\);/)
   assert.match(files.archiveCss, /\.archive-title[\s\S]*font-family:\s*var\(--font-label\);/)
 })
+
+test("archive page orders posts by latest date first", () => {
+  assert.match(files.archivePage, /allMdx\(sort:\s*\{frontmatter:\s*\{date:\s*DESC\}\}\)/)
+  assert.match(files.archivePage, /sortDateKeysDesc/)
+  assert.match(files.archivePage, /sortArchivePostsDesc/)
+  assert.doesNotMatch(files.archivePage, /sort:\s*\{frontmatter:\s*\{idx:\s*DESC\}\}/)
+})

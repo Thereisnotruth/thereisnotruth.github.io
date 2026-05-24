@@ -46,9 +46,9 @@ idx: "1"
 ```
 
 - `title`: 목록과 상세 페이지 제목.
-- `date`: 아카이브 그룹화와 표시 날짜.
+- `date`: 아카이브 그룹화, 표시 날짜, 아카이브 정렬 기준.
 - `category`: 카테고리 페이지 생성 기준.
-- `idx`: 목록 정렬 기준. 숫자 문자열로 유지한다.
+- `idx`: 목록 정렬 기준. 숫자 문자열로 유지한다. 아카이브에서는 같은 날짜 안의 보조 정렬 기준으로만 사용한다.
 
 ## Page Boundaries
 
@@ -81,6 +81,7 @@ idx: "1"
 
 - 콘텐츠의 URL은 `gatsby-node.ts`의 `fields.slug` 생성 규칙에 따른다.
 - 카테고리 경로는 `frontmatter.category`를 기준으로 한다. 디렉터리명과 다를 수 있다.
+- 아카이브 페이지는 `frontmatter.date` 내림차순으로 연/월/일과 글 링크를 정렬한다. 같은 날짜의 글만 `idx` 내림차순을 보조 기준으로 사용한다.
 - MDX 2 파서는 JSX처럼 보이는 텍스트를 엄격하게 해석한다. HTML 예시는 코드블록이나 inline code로 감싼다.
 - 페이지 쿼리는 Gatsby 5 GraphQL 문법을 사용한다. 예: `sort: {frontmatter: {idx: DESC}}`.
 - SEO 변경은 page/template의 `Head` export와 `src/components/seo.tsx`를 기준으로 한다.

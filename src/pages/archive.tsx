@@ -28,15 +28,27 @@ type ArchivePageData = {
 
 type ArchiveDateMap = Record<string, Record<string, Record<string, ArchiveNode[]>>>
 
+const sortDateKeysDesc = (keys: string[]) =>
+  [...keys].sort((a, b) => Number(b) - Number(a))
+
+const sortArchivePostsDesc = (posts: ArchiveNode[]) =>
+  [...posts].sort((a, b) => {
+    const dateCompare = b.frontmatter.date.localeCompare(a.frontmatter.date)
+
+    if (dateCompare !== 0) {
+      return dateCompare
+    }
+
+    return Number(b.frontmatter.idx) - Number(a.frontmatter.idx)
+  })
+
 const ArchivePage = ({ data }: PageProps<ArchivePageData>) => {
   const date: ArchiveDateMap = {}
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
                   "Aug", "Sep", "Oct", "Nov", "Dec"]
-  data.allMdx.nodes.forEach((node) => {
-    
-    const year = node.frontmatter.date.split('.')[0]
-    const month = node.frontmatter.date.split('.')[1]
-    const day = node.frontmatter.date.split('.')[2]
+  sortArchivePostsDesc(data.allMdx.nodes).forEach((node) => {
+    const [year, month, day] = node.frontmatter.date.split(".")
+
     if (date[year] === undefined) {
       date[year] = {}
       date[year][month] = {}
@@ -52,8 +64,8 @@ const ArchivePage = ({ data }: PageProps<ArchivePageData>) => {
   })
   const showDate = () => {
     const ret: React.ReactNode[] = []
-    
-    for (let year in date) { 
+
+    for (const year of sortDateKeysDesc(Object.keys(date))) {
       ret.push(
         <div
           className="archive-year"
@@ -61,8 +73,8 @@ const ArchivePage = ({ data }: PageProps<ArchivePageData>) => {
         >
           {year}
         </div>)
-      
-      for (let month in date[year]) {
+
+      for (const month of sortDateKeysDesc(Object.keys(date[year]))) {
         ret.push(
         <div
           className="archive-month"
@@ -70,17 +82,17 @@ const ArchivePage = ({ data }: PageProps<ArchivePageData>) => {
         >
           {months[Number(month) - 1]}
         </div>)
-        for (let day in date[year][month]) {
+        for (const day of sortDateKeysDesc(Object.keys(date[year][month]))) {
           ret.push(
-		  <div
+          <div
             className="archive-day"
             key={year.concat(month).concat(day)}
           >
             {day}
           </div>)
-          
-          date[year][month][day].forEach((node, index) => {
-            if(index !== 0) {
+
+          sortArchivePostsDesc(date[year][month][day]).forEach((node, index) => {
+            if (index !== 0) {
               ret.push(
               <div
                 className="archive-day"
@@ -89,11 +101,11 @@ const ArchivePage = ({ data }: PageProps<ArchivePageData>) => {
             }
             ret.push(
               <Link
+                key={year.concat(month).concat(day).concat(String(index)).concat(node.frontmatter.idx)}
                 className="link"
                 to={node.fields.slug}>
                 <div
                   className="archive-title"
-                  key={year.concat(month).concat(day).concat(String(index)).concat(node.frontmatter.idx)}
                 >
                   {node.frontmatter.title}
                 </div>
@@ -117,7 +129,7 @@ const ArchivePage = ({ data }: PageProps<ArchivePageData>) => {
 }
 export const query = graphql`
   query {
-    allMdx(sort: {frontmatter: {idx: DESC}}) {
+    allMdx(sort: {frontmatter: {date: DESC}}) {
       nodes {
         id
         fields {
