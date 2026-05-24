@@ -7,6 +7,7 @@
 현재 리포지토리는 `@playwright/test` 기반 repo-local E2E 테스트를 가진다. `pnpm run test:e2e`는 Gatsby dev server를 자동으로 띄우거나 이미 실행 중인 `http://localhost:8000`을 재사용한다.
 TypeScript 소스 변경 후에는 `pnpm run typecheck`로 타입 오류를 먼저 확인한다.
 정적 lint는 `pnpm run lint`로 실행하며, semicolon 사용은 에러로 처리한다.
+Gatsby develop이 내부적으로 `eslint-config-react-app@6`을 사용하므로 ESLint는 7.x 호환 범위를 유지한다.
 
 공통 sidebar blog 레이아웃과 홈 피드 변경은 `docs/PERSONAL_SIDEBAR_BLOG_TDD.md`의 요구사항과 Red 시나리오를 먼저 따른다.
 
