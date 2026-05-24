@@ -106,8 +106,8 @@ const ArchivePage = ({ data }: PageProps<ArchivePageData>) => {
   }
   return (
     <Layout>
-      <div className="card">
-        <h2>Archive</h2>
+      <div className="card page-card">
+        <h1>Archive</h1>
         <div className="archive">
           {showDate()}
         </div>

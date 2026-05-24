@@ -8,12 +8,16 @@ const files = {
   sidebar: read("src/components/sidebar.tsx"),
   themeToggle: read("src/components/theme-toggle.tsx"),
   indexPage: read("src/pages/index.tsx"),
+  categoriesPage: read("src/pages/categories.tsx"),
+  archivePage: read("src/pages/archive.tsx"),
+  aboutPage: read("src/pages/about.tsx"),
   postCard: read("src/components/post-card.tsx"),
   layoutCss: read("src/styles/layout.css"),
   sidebarCss: read("src/styles/sidebar.css"),
   themeToggleCss: read("src/styles/theme-toggle.css"),
   listCardCss: read("src/styles/list_card.css"),
   cardCss: read("src/styles/card.css"),
+  archiveCss: read("src/styles/archive.css"),
   globalCss: read("src/styles/global.css"),
 }
 
@@ -84,4 +88,16 @@ test("sidebar icons inherit semantic theme colors", () => {
   assert.match(files.sidebarCss, /mask:\s*var\(--icon\) center \/ contain no-repeat;/)
   assert.match(files.sidebarCss, /color:\s*var\(--color-primary\);/)
   assert.match(files.sidebarCss, /color:\s*var\(--color-on-surface-variant\);/)
+})
+
+test("secondary pages use stitch typography tokens", () => {
+  assert.match(files.categoriesPage, /className="list-card-title"/)
+  assert.match(files.archivePage, /className="card page-card"/)
+  assert.match(files.aboutPage, /className="card about-card"/)
+  assert.match(files.cardCss, /\.card[\s\S]*font-family:\s*var\(--font-body\);/)
+  assert.match(files.cardCss, /\.page-card h1,[\s\S]*font-family:\s*var\(--font-display\);/)
+  assert.match(files.cardCss, /\.about-card h1[\s\S]*font-family:\s*var\(--font-display\);/)
+  assert.match(files.archiveCss, /\.archive[\s\S]*font-family:\s*var\(--font-body\);/)
+  assert.match(files.archiveCss, /\.archive-year[\s\S]*font-family:\s*var\(--font-display\);/)
+  assert.match(files.archiveCss, /\.archive-title[\s\S]*font-family:\s*var\(--font-label\);/)
 })

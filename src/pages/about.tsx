@@ -6,7 +6,7 @@ import "../styles/card.css"
 
 const AboutPage = () => (
   <Layout>
-    <div className="card" style={{ position: "relative", top: "20%" }}>
+    <div className="card about-card">
       <h1>고태진</h1>
       <h2>thereisnotruth</h2>
 

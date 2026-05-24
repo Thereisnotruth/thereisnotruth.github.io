@@ -1,11 +1,14 @@
 .archive {
   padding: 0 20px;
+  font-family: var(--font-body);
 }
 
 .archive-year {
   width: 60px;
   text-align: right;
+  font-family: var(--font-display);
   font-size: 20px;
+  font-weight: 600;
   color: var(--color-on-surface);
   padding: 10px 0;
   height: 30px;
@@ -15,6 +18,9 @@
   width: 60px;
   text-align: right;
   color: var(--color-on-surface);
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
   padding: 10px 0;
   height: 30px;
 }
@@ -25,6 +31,7 @@
   font-size: 14px;
   text-align: right;
   color: var(--color-outline);
+  font-family: var(--font-label);
   padding: 10px 0;
   height: 30px;
 }
@@ -33,6 +40,9 @@
   display: inline-block;
   width: calc(100% - 100px);
   color: var(--color-primary);
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 600;
   padding: 6px 10px;
   margin: 4px 0 4px 10px;
   border-left: solid 2px var(--color-primary);

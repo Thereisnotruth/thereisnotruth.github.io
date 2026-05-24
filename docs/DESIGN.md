@@ -65,6 +65,7 @@ Stitch `Personal Sidebar Blog`의 두 디자인 시스템을 기준으로 theme 
 - 버튼, 카드, 사이드바 안의 텍스트는 hero scale을 쓰지 않는다.
 - letter spacing은 기본값을 우선한다.
 - viewport width에 따라 font-size를 직접 스케일하지 않는다.
+- 홈, 글 상세, 카테고리, 아카이브, 소개 페이지는 같은 semantic font token을 사용한다. 제목은 `--font-display`, 긴 본문은 `--font-body`, 날짜/카테고리/보조 라벨은 `--font-label`을 기준으로 한다.
 
 ## Card Rules
 

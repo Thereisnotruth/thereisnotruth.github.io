@@ -24,7 +24,7 @@ const CategoriesPage = ({ data }: PageProps<CategoriesPageData>) => {
       ret.push(
         <Link className="link" to={`/categories/${categories[i]}`} key={categories[i]}>
           <div className="list-card">
-            <h2>{categories[i]}</h2>
+            <h2 className="list-card-title">{categories[i]}</h2>
           </div>
         </Link>
       )
