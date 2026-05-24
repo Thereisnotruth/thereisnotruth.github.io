@@ -156,24 +156,36 @@
 - Tablet: `768x1024`.
 - Mobile: `390x844`.
 
-### Observed State
+### Status Legend
 
-- `/`는 렌더링된다.
-- Desktop에서는 기존 좌측 프로필/링크 영역과 우측 글 목록이 보인다.
-- Tablet과 mobile에서는 프로필/내비게이션 영역이 보이지 않고 글 목록만 보인다.
-- Semantic `main`, `aside`, `nav` 요소가 없다.
-- Desktop `/`에는 `Tag` 링크가 노출되어 있다.
-- `document.documentElement.scrollWidth`는 확인한 세 viewport에서 viewport 너비를 초과하지 않았다.
-- 홈의 첫 번째 글 링크는 `/devops/230105_devops_1/`로 확인됐다.
-- `/`, `/categories/`, `/archive/`, `/devops/230105_devops_1/`는 HTTP error 또는 404 문구 없이 렌더링됐다.
+| Status | Meaning |
+| --- | --- |
+| 🔴 Red | 요구사항을 충족하지 못한다. |
+| 🟡 Partial | 일부 조건은 충족하지만 핵심 요구사항이 남아 있다. |
+| 🟢 Green | 현재 기준을 충족한다. |
 
-### Red Result
+### Scenario Checklist
 
-- Scenario 1은 실패한다. Desktop에 좌측 영역은 있으나 semantic sidebar/main 구조가 없고 Stitch `Serene Editorial` 기준의 layout shell이 아니다.
-- Scenario 2는 실패한다. 홈 피드는 기존 카드형 목록이며 Stitch 기준의 paper background, serif editorial hierarchy, thin divider 중심 구조가 아니다.
-- Scenario 3은 부분 실패한다. Mobile horizontal overflow는 없지만 profile/navigation 정보가 접근 가능한 모바일 구조로 전환되지 않고 사라진다.
-- Scenario 4는 실패한다. Tablet에서 navigation 접근성이 사라진다.
-- Scenario 5는 현재 통과한다. 주요 route는 렌더링되며 첫 번째 글 링크도 상세 페이지로 이동 가능하다.
+| Scenario | Viewport | Status | Observation | Next Green Target |
+| --- | --- | --- | --- | --- |
+| Desktop home has personal sidebar layout | `1440x900` | 🔴 Red | 기존 좌측 영역은 있으나 semantic `aside`/`main` 구조가 없고 Stitch `Serene Editorial` layout shell이 아니다. | `aside`, `nav`, `main` 기반의 sidebar + content shell을 만든다. |
+| Desktop home feed preserves readable editorial hierarchy | `1440x900` | 🔴 Red | 홈 피드는 기존 카드형 목록이며 paper background, serif editorial hierarchy, thin divider 중심 구조가 아니다. | 홈 피드를 여백, 타이포그래피, 얇은 구분선 중심으로 재구성한다. |
+| Mobile home does not keep desktop sidebar beside content | `390x844` | 🟡 Partial | Horizontal overflow는 없지만 profile/navigation 정보가 접근 가능한 모바일 구조로 전환되지 않고 사라진다. | 모바일에서도 profile/navigation을 본문 위 또는 접근 가능한 구조로 유지한다. |
+| Tablet home keeps navigation and content usable | `768x1024` | 🔴 Red | Tablet에서 profile/navigation 접근성이 사라지고 글 목록만 남는다. | tablet breakpoint에서 navigation과 글 목록을 모두 사용할 수 있게 한다. |
+| Existing blog routes remain reachable after layout change | `1440x900` | 🟢 Green | `/`, `/categories/`, `/archive/`, `/devops/230105_devops_1/`가 404 없이 렌더링되고 첫 글 링크도 상세 페이지로 이동 가능하다. | 이후 layout 변경 중 이 상태를 유지한다. |
+
+### Supporting Checks
+
+| Check | Status | Observation |
+| --- | --- | --- |
+| `/` renders | 🟢 Green | 홈이 렌더링된다. |
+| Desktop profile/sidebar area is visible | 🟡 Partial | Desktop에서는 기존 좌측 프로필/링크 영역과 우측 글 목록이 보인다. |
+| Tablet profile/navigation remains accessible | 🔴 Red | Tablet에서는 프로필/내비게이션 영역이 보이지 않는다. |
+| Mobile profile/navigation remains accessible | 🔴 Red | Mobile에서는 프로필/내비게이션 영역이 보이지 않는다. |
+| Semantic `main`, `aside`, `nav` exist | 🔴 Red | 세 semantic 요소가 모두 없다. |
+| No horizontal overflow | 🟢 Green | 확인한 세 viewport에서 `document.documentElement.scrollWidth`가 viewport 너비를 초과하지 않았다. |
+| No unsupported `Tag` navigation | 🔴 Red | Desktop `/`에 아직 `Tag` 링크가 노출되어 있다. |
+| Home first post link works | 🟢 Green | 첫 번째 글 링크는 `/devops/230105_devops_1/`로 확인됐다. |
 
 ## Planned Harness
 
