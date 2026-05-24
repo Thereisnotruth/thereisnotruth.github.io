@@ -146,6 +146,35 @@
 - Current failure signal:
   - 홈만 바뀌고 기존 카테고리, 아카이브, 포스트 상세 이동이 깨진다.
 
+## Current Red Observation
+
+2026-05-24에 Codex browser 검증으로 현재 상태를 확인했다.
+
+### Viewports
+
+- Desktop: `1440x900`.
+- Tablet: `768x1024`.
+- Mobile: `390x844`.
+
+### Observed State
+
+- `/`는 렌더링된다.
+- Desktop에서는 기존 좌측 프로필/링크 영역과 우측 글 목록이 보인다.
+- Tablet과 mobile에서는 프로필/내비게이션 영역이 보이지 않고 글 목록만 보인다.
+- Semantic `main`, `aside`, `nav` 요소가 없다.
+- Desktop `/`에는 `Tag` 링크가 노출되어 있다.
+- `document.documentElement.scrollWidth`는 확인한 세 viewport에서 viewport 너비를 초과하지 않았다.
+- 홈의 첫 번째 글 링크는 `/devops/230105_devops_1/`로 확인됐다.
+- `/`, `/categories/`, `/archive/`, `/devops/230105_devops_1/`는 HTTP error 또는 404 문구 없이 렌더링됐다.
+
+### Red Result
+
+- Scenario 1은 실패한다. Desktop에 좌측 영역은 있으나 semantic sidebar/main 구조가 없고 Stitch `Serene Editorial` 기준의 layout shell이 아니다.
+- Scenario 2는 실패한다. 홈 피드는 기존 카드형 목록이며 Stitch 기준의 paper background, serif editorial hierarchy, thin divider 중심 구조가 아니다.
+- Scenario 3은 부분 실패한다. Mobile horizontal overflow는 없지만 profile/navigation 정보가 접근 가능한 모바일 구조로 전환되지 않고 사라진다.
+- Scenario 4는 실패한다. Tablet에서 navigation 접근성이 사라진다.
+- Scenario 5는 현재 통과한다. 주요 route는 렌더링되며 첫 번째 글 링크도 상세 페이지로 이동 가능하다.
+
 ## Planned Harness
 
 첫 구현 전에는 위 Red 시나리오를 기준으로 수동 검증한다.
