@@ -2,6 +2,8 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
+import ThemeToggle from "./theme-toggle"
+
 import "../styles/sidebar.css"
 
 const Sidebar = () => (
@@ -21,6 +23,7 @@ const Sidebar = () => (
       <div className="sidebar-profile-intro">
         고태진
       </div>
+      <ThemeToggle />
     </div>
     <div className="sidebar-link">
       <div className="sidebar-link-header">

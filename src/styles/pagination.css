@@ -6,40 +6,40 @@
 }
 
 .pagination-button {
-  border: solid 0.5px #dddddd;
+  border: solid 1px var(--color-outline-variant);
   width: 32px;
   height: 32px;
-  background: white;
-  color: #357bb8;
+  background: var(--color-surface-container-lowest);
+  color: var(--color-primary);
   font-size: 14px;
   font-weight: bold;
 }
 
 .pagination-button-tofirst {
-  border: solid 0.5px #dddddd;
-  border-radius: 4px 0 0 4px;
+  border: solid 1px var(--color-outline-variant);
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
   width: 48px;
   height: 32px;
-  background: white;
-  color: #357bb8;
+  background: var(--color-surface-container-lowest);
+  color: var(--color-primary);
   font-size: 14px;
   font-weight: bold;
 }
 
 .pagination-button-tolast {
-  border: solid 0.5px #dddddd;
-  border-radius: 0 4px 4px 0;
+  border: solid 1px var(--color-outline-variant);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
   width: 48px;
   height: 32px;
-  background: white;
-  color: #357bb8;
+  background: var(--color-surface-container-lowest);
+  color: var(--color-primary);
   font-size: 14px;
   font-weight: bold;
 }
 .pagination-button:hover,
 .pagination-button-tofirst:hover,
 .pagination-button-tolast:hover {
-  background: #eeeeee;
+  background: var(--color-surface-container);
   cursor: pointer;
   transform: translateY(-2px);
 }
@@ -47,7 +47,8 @@
 .pagination-button[disabled],
 .pagination-button-tofirst:hover[disabled],
 .pagination-button-tolast:hover[disabled] {
-  background: white;
+  background: var(--color-surface-container-lowest);
+  color: var(--color-outline);
   cursor: revert;
   transform: revert;
 }
@@ -55,8 +56,8 @@
 .pagination-button[aria-current],
 .pagination-button-tofirst:hover[aria-current],
 .pagination-button-tolast:hover[aria-current] {
-  background: #357bb8;
-  color: white;
+  background: var(--color-primary-container);
+  color: var(--color-on-primary-container);
   font-weight: bold;
   cursor: revert;
   transform: revert;

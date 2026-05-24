@@ -18,10 +18,10 @@
   top: 0;
   align-self: start;
   box-sizing: border-box;
-  color: #1a1c1b;
-  background: #f4f4f2;
-  border-right: 1px solid #c4c8c0;
-  width: 280px;
+  color: var(--color-on-surface);
+  background: var(--color-surface-container-low);
+  border-right: 1px solid var(--color-outline-variant);
+  width: var(--sidebar-width);
   height: 100vh;
   overflow: auto;
   text-align: center;
@@ -42,10 +42,10 @@
 }
 
 .sidebar-profile-name {
-  color: #536153;
+  color: var(--color-primary);
   font-size: 24px;
   font-weight: 600;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
 }
 
 .sidebar-profile-intro {
@@ -54,7 +54,7 @@
 }
 
 .sidebar-nav {
-  font-family: "chosunsg";
+  font-family: var(--font-body);
   padding: 24px 0 0 0;
   letter-spacing: 0;
 }
@@ -64,7 +64,7 @@
   width: 15px;
   height: 15px;
   margin: 10px 10px 10px 0;
-  filter: opacity(.65) drop-shadow(0 0 0 #536153);
+  filter: opacity(.65);
 }
 
 .sidebar-nav-item {
@@ -74,12 +74,12 @@
   min-height: 44px;
   font-weight: 600;
   text-decoration: none;
-  color: #434843;
+  color: var(--color-on-surface-variant);
 }
 
 .sidebar-nav-name {
   line-height: 35px;
-  color: #434843;
+  color: var(--color-on-surface-variant);
 }
 
 .sidebar-link {
@@ -110,7 +110,7 @@
 .sidebar-link-icon {
   width: 16px;
   height: 16px;
-  filter: opacity(.65) drop-shadow(0 0 0 #536153);
+  filter: opacity(.65);
 }
 
 @media (max-width: 1100px) {
@@ -126,7 +126,7 @@
     width: 100%;
     height: auto;
     border-right: 0;
-    border-bottom: 1px solid #c4c8c0;
+    border-bottom: 1px solid var(--color-outline-variant);
     padding: 24px 20px 18px;
   }
 

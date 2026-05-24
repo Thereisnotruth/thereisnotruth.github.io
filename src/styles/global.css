@@ -3,22 +3,83 @@ html, body, #___gatsby, #gatsby-focus-wrapper {
   height: 100%;
 }
 
+:root,
+[data-theme="light"] {
+  --color-surface: #f9f9f7;
+  --color-surface-dim: #dadad8;
+  --color-surface-bright: #f9f9f7;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f4f4f2;
+  --color-surface-container: #eeeeec;
+  --color-surface-container-high: #e8e8e6;
+  --color-surface-container-highest: #e2e3e1;
+  --color-on-surface: #1a1c1b;
+  --color-on-surface-variant: #434843;
+  --color-outline: #747872;
+  --color-outline-variant: #c4c8c0;
+  --color-primary: #536153;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #6b7a6b;
+  --color-on-primary-container: #ffffff;
+  --color-secondary: #5f5e5e;
+  --color-secondary-container: #e4e2e1;
+  --color-on-secondary-container: #656464;
+  --color-tertiary: #5d5e59;
+  --color-tertiary-container: #767771;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: "chosunsg", serif;
+  --font-label: "pretendard", sans-serif;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --sidebar-width: 280px;
+}
+
+[data-theme="dark"] {
+  --color-surface: #111412;
+  --color-surface-dim: #111412;
+  --color-surface-bright: #373a37;
+  --color-surface-container-lowest: #0c0f0c;
+  --color-surface-container-low: #191c1a;
+  --color-surface-container: #1d201e;
+  --color-surface-container-high: #272b28;
+  --color-surface-container-highest: #323632;
+  --color-on-surface: #e1e3de;
+  --color-on-surface-variant: #c3c7c8;
+  --color-outline: #8d9292;
+  --color-outline-variant: #424849;
+  --color-primary: #bbc9cb;
+  --color-on-primary: #263335;
+  --color-primary-container: #0f1c1e;
+  --color-on-primary-container: #778587;
+  --color-secondary: #bfc7d7;
+  --color-secondary-container: #3f4755;
+  --color-on-secondary-container: #adb5c6;
+  --color-tertiary: #e9c349;
+  --color-tertiary-container: #cca730;
+  --color-error: #ffb4ab;
+  --color-error-container: #93000a;
+}
+
 body {
-  background: #f9f9f7;
+  background: var(--color-surface);
+  color: var(--color-on-surface);
 }
 
 .link {
   text-decoration: none;
+  color: inherit;
 }
 
 h1, h2, h3, h4 {
   margin: 0;
-  color: #5f5e5e;
+  color: var(--color-on-surface);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 p {
-  color: #5f5e5e;
+  color: var(--color-on-surface-variant);
 }

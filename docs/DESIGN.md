@@ -28,6 +28,37 @@
 - 코드블록은 본문과 명확히 구분되어야 한다.
 - 단일 hue 계열로만 전체 화면을 구성하지 않는다.
 
+## Theme Colors
+
+Stitch `Personal Sidebar Blog`의 두 디자인 시스템을 기준으로 theme color를 정의한다.
+
+- Light theme: `Serene Editorial`.
+- Dark theme: `Serene Night`.
+- 코드에서는 `src/styles/global.css`의 CSS custom properties를 기준으로 사용한다.
+- 기본 theme는 light이며, dark theme는 `[data-theme="dark"]`에서 같은 변수 이름으로 재정의한다.
+- 컴포넌트 CSS에서 직접 hex color를 반복하지 말고 semantic 변수인 `--color-*`를 사용한다.
+
+| Token | Light: Serene Editorial | Dark: Serene Night | Usage |
+| --- | --- | --- | --- |
+| `--color-surface` | `#f9f9f7` | `#111412` | Page background |
+| `--color-surface-container-lowest` | `#ffffff` | `#0c0f0c` | Raised content surfaces |
+| `--color-surface-container-low` | `#f4f4f2` | `#191c1a` | Sidebar and subtle hover fills |
+| `--color-surface-container` | `#eeeeec` | `#1d201e` | Interactive hover layers |
+| `--color-surface-container-high` | `#e8e8e6` | `#272b28` | Input and control surfaces |
+| `--color-surface-container-highest` | `#e2e3e1` | `#323632` | Tags and compact tonal layers |
+| `--color-on-surface` | `#1a1c1b` | `#e1e3de` | Primary text |
+| `--color-on-surface-variant` | `#434843` | `#c3c7c8` | Secondary text |
+| `--color-outline` | `#747872` | `#8d9292` | Muted metadata and disabled states |
+| `--color-outline-variant` | `#c4c8c0` | `#424849` | Hairline borders and dividers |
+| `--color-primary` | `#536153` | `#bbc9cb` | Links, accents, active text |
+| `--color-primary-container` | `#6b7a6b` | `#0f1c1e` | Active controls |
+| `--color-on-primary-container` | `#ffffff` | `#778587` | Text on active controls |
+| `--color-secondary` | `#5f5e5e` | `#bfc7d7` | Secondary accents |
+| `--color-secondary-container` | `#e4e2e1` | `#3f4755` | Secondary tonal surfaces |
+| `--color-tertiary` | `#5d5e59` | `#e9c349` | Editorial callouts |
+| `--color-error` | `#ba1a1a` | `#ffb4ab` | Error text |
+| `--color-error-container` | `#ffdad6` | `#93000a` | Error surface |
+
 ## Typography Rules
 
 - 본문 가독성이 우선이다.
