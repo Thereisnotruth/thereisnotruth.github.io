@@ -35,6 +35,28 @@ test("home post selection exposes a direct titled detail link", () => {
   assert.match(files.postCard, /<div className="post-card-body">/)
 })
 
+test("post detail follows stitch article shell", () => {
+  assert.match(files.postCard, /className="post-back-link"/)
+  assert.match(files.postCard, /to="\/"/)
+  assert.match(files.postCard, /className="post-card-meta"/)
+  assert.match(files.postCard, /frontmatter\.category/)
+  assert.match(files.postCard, /frontmatter\.date/)
+  assert.match(files.postCard, /className="post-card-content"/)
+})
+
+test("post detail prose uses long-form editorial styling", () => {
+  assert.match(files.cardCss, /max-width:\s*65ch;/)
+  assert.match(files.cardCss, /text-align:\s*center;/)
+  assert.match(files.cardCss, /font-size:\s*18px;/)
+  assert.match(files.cardCss, /line-height:\s*1\.7;/)
+  assert.match(files.cardCss, /border-left:\s*4px solid var\(--color-primary\);/)
+  assert.match(files.cardCss, /background:\s*var\(--color-surface-container-low\);/)
+})
+
+test("post detail does not force automatic drop caps", () => {
+  assert.doesNotMatch(files.cardCss, /::first-letter/)
+})
+
 test("stitch scale tokens keep the screen compact and readable", () => {
   assert.match(files.globalCss, /--sidebar-width:\s*256px;/)
   assert.match(files.layoutCss, /max-width:\s*760px;/)
