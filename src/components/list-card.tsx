@@ -14,8 +14,8 @@ type ListCardProps = {
 
 const ListCard = ({ children, frontmatter, size }: ListCardProps) => {
   return (
-    <div className="list-card" style={{height: size}}>
-      <h2>
+    <article className="list-card" style={{height: size}}>
+      <h2 className="list-card-title">
         {frontmatter.title}
       </h2>
       <div className="list-card-content">
@@ -27,7 +27,7 @@ const ListCard = ({ children, frontmatter, size }: ListCardProps) => {
       <div className="list-card-category">
         {frontmatter.category}
       </div>
-    </div>
+    </article>
   )
 }
 

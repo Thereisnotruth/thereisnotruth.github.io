@@ -5,7 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import "../styles/sidebar.css"
 
 const Sidebar = () => (
-  <div className="sidebar">
+  <aside className="sidebar" aria-label="Profile and site navigation">
     <div className="sidebar-header">
       <StaticImage
         className="sidebar-profile-img"
@@ -35,6 +35,7 @@ const Sidebar = () => (
           <a
             href="https://github.com/Thereisnotruth"
             target="_blank"
+            rel="noreferrer"
           >
             <StaticImage
               className="sidebar-link-icon"
@@ -47,6 +48,7 @@ const Sidebar = () => (
           <a
             href="https://www.linkedin.com/in/%ED%83%9C%EC%A7%84-%EA%B3%A0-76574b199/"
             target="_blank"
+            rel="noreferrer"
           >
             <StaticImage
               className="sidebar-link-icon"
@@ -57,7 +59,7 @@ const Sidebar = () => (
         </div>
       </div>
     </div>
-    <div className="sidebar-nav">
+    <nav className="sidebar-nav" aria-label="Primary navigation">
       <Link
         className="sidebar-nav-item"
         to="/"
@@ -73,7 +75,7 @@ const Sidebar = () => (
       </Link>
       <Link
         className="sidebar-nav-item"
-        to="/categories"
+        to="/categories/"
       >
         <StaticImage
           className="sidebar-nav-icon"
@@ -86,20 +88,7 @@ const Sidebar = () => (
       </Link>
       <Link
         className="sidebar-nav-item"
-        to="/tag"
-      >
-        <StaticImage
-          className="sidebar-nav-icon"
-          src="../images/hash.svg"
-          alt=""
-        />
-        <div className="sidebar-nav-name">
-          Tag
-        </div>
-      </Link>
-      <Link
-        className="sidebar-nav-item"
-        to="/archive"
+        to="/archive/"
       >
         <StaticImage
           className="sidebar-nav-icon"
@@ -112,7 +101,7 @@ const Sidebar = () => (
       </Link>
       <Link
         className="sidebar-nav-item"
-        to="/about"
+        to="/about/"
       >
         <StaticImage
           className="sidebar-nav-icon"
@@ -123,8 +112,8 @@ const Sidebar = () => (
           About
         </div>
       </Link>
-    </div>
-  </div>
+    </nav>
+  </aside>
 )
 
 export default Sidebar;

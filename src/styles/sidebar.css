@@ -14,33 +14,38 @@
 }
 
 .sidebar {
-  color: white;
-  background: #292d3e;
-  width: 230px;
-  height: 100%;
-  float: flex;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  box-sizing: border-box;
+  color: #1a1c1b;
+  background: #f4f4f2;
+  border-right: 1px solid #c4c8c0;
+  width: 280px;
+  height: 100vh;
   overflow: auto;
   text-align: center;
   transition: .5s;
+  padding: 40px 28px;
 }
 
 .sidebar-header {
   width: 100%;
-  height: 270px;
+  min-height: 220px;
 }
 
 .sidebar-profile-img {
-  margin: 40px 0 20px 0;
-  width: 120px;
-  height: 120px;
+  margin: 0 0 20px 0;
+  width: 104px;
+  height: 104px;
   border-radius: 50%;
 }
 
 .sidebar-profile-name {
-  color: #416289;
+  color: #536153;
   font-size: 24px;
-  font-weight: bold;
-  font-family: "pretendard";
+  font-weight: 600;
+  font-family: Georgia, "Times New Roman", serif;
 }
 
 .sidebar-profile-intro {
@@ -50,30 +55,31 @@
 
 .sidebar-nav {
   font-family: "chosunsg";
-  padding: 20px 35px 20px 35px;
-  letter-spacing: 2px;
+  padding: 24px 0 0 0;
+  letter-spacing: 0;
 }
 
 .sidebar-nav-icon {
   float: left;
   width: 15px;
   height: 15px;
-  margin: 10px 10px 10px 25%;
-  filter: opacity(.5) drop-shadow(0 0 0 #a19e9e);
+  margin: 10px 10px 10px 0;
+  filter: opacity(.65) drop-shadow(0 0 0 #536153);
 }
 
 .sidebar-nav-item {
-  display: block;
-  width: 160px;
-  height: 60px;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 44px;
+  font-weight: 600;
   text-decoration: none;
+  color: #434843;
 }
 
 .sidebar-nav-name {
-  float: left;
   line-height: 35px;
-  color: white;
+  color: #434843;
 }
 
 .sidebar-link {
@@ -104,11 +110,54 @@
 .sidebar-link-icon {
   width: 16px;
   height: 16px;
-  filter: opacity(.5) drop-shadow(0 0 0 #a19e9e);
+  filter: opacity(.65) drop-shadow(0 0 0 #536153);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
   .sidebar {
-    display: none;
+    width: 240px;
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid #c4c8c0;
+    padding: 24px 20px 18px;
+  }
+
+  .sidebar-header {
+    min-height: 0;
+  }
+
+  .sidebar-profile-img {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 12px;
+  }
+
+  .sidebar-link {
+    margin-top: 12px;
+  }
+
+  .sidebar-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    padding-top: 16px;
+  }
+
+  .sidebar-nav-item {
+    width: auto;
+    min-height: 36px;
+  }
+
+  .sidebar-nav-icon {
+    margin: 0 8px 0 0;
   }
 }

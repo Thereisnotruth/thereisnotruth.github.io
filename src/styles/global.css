@@ -3,6 +3,10 @@ html, body, #___gatsby, #gatsby-focus-wrapper {
   height: 100%;
 }
 
+body {
+  background: #f9f9f7;
+}
+
 .link {
   text-decoration: none;
 }
