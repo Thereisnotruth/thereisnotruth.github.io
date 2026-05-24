@@ -17,28 +17,28 @@ const Pagination = ({ total, limit, page, line, setPage, setLine }: PaginationPr
  // limit - 한 페이지에 표시할 포스트 수
  // page - 현재 가리키는 페이지 번호
  // line - pagination에 표현할 페이지 라인 번호
-  const numPages = Math.ceil(total / limit);
-  const pages: number[][] = [];
-  let idx = 0;
+  const numPages = Math.ceil(total / limit)
+  const pages: number[][] = []
+  let idx = 0
   for (let i = 1; i <= numPages; i++) {
     if (i % 10 === 1) {
-      pages.push([]);
+      pages.push([])
     }
-    pages[idx].push(i);
+    pages[idx].push(i)
     if (i % 10 === 0) {
-      idx++;
+      idx++
     }
   }
 
   const move = (line: number, page: number) => {
-    document.getElementsByClassName("right")[0]?.scrollTo(0, 0);
-    setLine(line);
-    setPage(page);
+    document.getElementsByClassName("right")[0]?.scrollTo(0, 0)
+    setLine(line)
+    setPage(page)
   }
 
   const moveToPage = (nextPage: number) => {
-    const nextLine = Math.ceil(nextPage / 10);
-    move(nextLine, nextPage);
+    const nextLine = Math.ceil(nextPage / 10)
+    move(nextLine, nextPage)
   }
 
   return (

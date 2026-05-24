@@ -57,20 +57,20 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
         }
       }
     }
-  `);
+  `)
   if (query.errors) {
-    reporter.panicOnBuild(`Error`);
-    return;
+    reporter.panicOnBuild(`Error`)
+    return
   }
 
-  const categoryTemplate = path.resolve(`src/templates/category.tsx`);
-  const postTemplate = path.resolve(`src/templates/post.tsx`);
-  const posts = query.data?.allMdx.nodes ?? [];
-  const categories: Record<string, PostNode[]> = {};
+  const categoryTemplate = path.resolve(`src/templates/category.tsx`)
+  const postTemplate = path.resolve(`src/templates/post.tsx`)
+  const posts = query.data?.allMdx.nodes ?? []
+  const categories: Record<string, PostNode[]> = {}
 
 
   posts.forEach((node) => { 
-    const path = `${node.fields.slug}`;
+    const path = `${node.fields.slug}`
 
     createPage({
       path,
@@ -81,14 +81,14 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     })
 
     if (categories[node.frontmatter.category] === undefined) {
-      categories[node.frontmatter.category] = [node];
+      categories[node.frontmatter.category] = [node]
     } else {
-      categories[node.frontmatter.category].push(node);
+      categories[node.frontmatter.category].push(node)
     }
-  });
+  })
 
   for (const category in categories) {
-    const path = `categories/${category}`;
+    const path = `categories/${category}`
     createPage({
       path,
       component: categoryTemplate,

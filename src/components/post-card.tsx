@@ -8,7 +8,7 @@ import "../styles/card.css"
 
 const components = {
   code: CodeBlock
-};
+}
 const TypedMDXProvider = MDXProvider as React.ComponentType<{
   children: React.ReactNode
   components: typeof components

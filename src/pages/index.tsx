@@ -28,18 +28,18 @@ type IndexPageData = {
 }
 
 const IndexPage = ({ data }: PageProps<IndexPageData>) => {
-  const [page, setPage] = React.useState(1);
-  const [line, setLine] = React.useState(1);
-  const limit = 10;
-  const offset = (page - 1) * limit;
+  const [page, setPage] = React.useState(1)
+  const [line, setLine] = React.useState(1)
+  const limit = 10
+  const offset = (page - 1) * limit
   
   const posts = data.allMdx.nodes.sort((o1, o2) => {
 	  if (Number(o1.frontmatter.idx) > Number(o2.frontmatter.idx)) {
-		  return -1;
+		  return -1
 	  } else {
-		  return 1;
+		  return 1
 	  }
-  });
+  })
   
   return (
     <Layout>

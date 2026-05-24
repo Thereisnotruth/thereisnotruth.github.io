@@ -6,9 +6,9 @@ type UtterancesProps = {
 }
 
 const Utterances = ({ repo, theme }: UtterancesProps) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null)
   React.useLayoutEffect(() => {
-    const utterances = document.createElement("script");
+    const utterances = document.createElement("script")
     const attributes = {
       src: "https://utteranc.es/client.js",
       repo,
@@ -17,13 +17,13 @@ const Utterances = ({ repo, theme }: UtterancesProps) => {
       theme,
       crossOrigin: "anonymous",
       async: "true",
-    };
+    }
     Object.entries(attributes).forEach(([key, value]) => {
-      utterances.setAttribute(key, value);
+      utterances.setAttribute(key, value)
     })
-    containerRef.current?.appendChild(utterances);
-  }, [repo, theme]);
-  return <div  ref={containerRef} />;
-};
+    containerRef.current?.appendChild(utterances)
+  }, [repo, theme])
+  return <div  ref={containerRef} />
+}
 
 export default Utterances

@@ -29,29 +29,29 @@ type ArchivePageData = {
 type ArchiveDateMap = Record<string, Record<string, Record<string, ArchiveNode[]>>>
 
 const ArchivePage = ({ data }: PageProps<ArchivePageData>) => {
-  const date: ArchiveDateMap = {};
+  const date: ArchiveDateMap = {}
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
-                  "Aug", "Sep", "Oct", "Nov", "Dec"];
+                  "Aug", "Sep", "Oct", "Nov", "Dec"]
   data.allMdx.nodes.forEach((node) => {
     
-    const year = node.frontmatter.date.split('.')[0];
-    const month = node.frontmatter.date.split('.')[1];
-    const day = node.frontmatter.date.split('.')[2];
+    const year = node.frontmatter.date.split('.')[0]
+    const month = node.frontmatter.date.split('.')[1]
+    const day = node.frontmatter.date.split('.')[2]
     if (date[year] === undefined) {
-      date[year] = {};
-      date[year][month] = {};
-      date[year][month][day] = [node];
+      date[year] = {}
+      date[year][month] = {}
+      date[year][month][day] = [node]
     } else if (date[year][month] === undefined) {
-      date[year][month] = {};
-      date[year][month][day] = [node];
+      date[year][month] = {}
+      date[year][month][day] = [node]
     } else if (date[year][month][day] === undefined) {
-      date[year][month][day] = [node];
+      date[year][month][day] = [node]
     } else {
-      date[year][month][day].push(node);
+      date[year][month][day].push(node)
     }
-  });
+  })
   const showDate = () => {
-    const ret: React.ReactNode[] = [];
+    const ret: React.ReactNode[] = []
     
     for (let year in date) { 
       ret.push(
@@ -60,7 +60,7 @@ const ArchivePage = ({ data }: PageProps<ArchivePageData>) => {
           key={year}
         >
           {year}
-        </div>);
+        </div>)
       
       for (let month in date[year]) {
         ret.push(
@@ -69,7 +69,7 @@ const ArchivePage = ({ data }: PageProps<ArchivePageData>) => {
           key={year.concat(month)}
         >
           {months[Number(month) - 1]}
-        </div>);
+        </div>)
         for (let day in date[year][month]) {
           ret.push(
 		  <div
@@ -98,11 +98,11 @@ const ArchivePage = ({ data }: PageProps<ArchivePageData>) => {
                   {node.frontmatter.title}
                 </div>
               </Link>)
-          });
+          })
         }
       }
     }
-    return ret;
+    return ret
   }
   return (
     <Layout>
