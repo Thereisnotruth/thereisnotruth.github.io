@@ -90,4 +90,4 @@ query IndexQuery {
 
 export default IndexPage
 
-export const Head = () => <Seo title="네모장" />
+export const Head = () => <Seo title="단서" />

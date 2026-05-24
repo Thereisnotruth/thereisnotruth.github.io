@@ -2,8 +2,8 @@ import type { GatsbyConfig } from "gatsby"
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: "네모장",
-    description: "네모난 메모장, 네모장",
+    title: "단서",
+    description: "생각과 기록을 이어가는 기술 블로그, 단서",
     author: "KoTaeJin",
     siteUrl: "https://thereisnotruth.github.io",
     socials: {
@@ -26,8 +26,8 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `네모장`,
-        short_name: `네모장`,
+        name: `단서`,
+        short_name: `단서`,
         start_url: `/`,
         background_color: `#ffffff`,
         display: `minimal-ui`,

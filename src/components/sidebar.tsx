@@ -13,7 +13,7 @@ const Sidebar = () => (
         alt=""
       /> 
       <div className="sidebar-profile-name">
-        네모장
+        단서
       </div>
       <div className="sidebar-profile-intro">
         thereisnotruth
